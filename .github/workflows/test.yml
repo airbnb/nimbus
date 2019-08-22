@@ -20,4 +20,4 @@ jobs:
       - name: Run Jest
         run: yarn run jest
       - name: Run ESLint
-        run: yarn run lint
+        run: yarn run eslint
