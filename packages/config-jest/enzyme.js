@@ -31,9 +31,14 @@ expect.addSnapshotSerializer(
         });
       }
 
-      // Strip the react-with-styles CSS prop
+      // Strip the react-with-styles `css` prop
       if (props.css && typeof props.css === 'function') {
         delete props.css;
+      }
+
+      // Strip the aesthetic `cx` prop
+      if (props.cx && typeof props.cx === 'function') {
+        delete props.cx;
       }
 
       return {
