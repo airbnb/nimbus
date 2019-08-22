@@ -1,0 +1,23 @@
+name: Test
+on: push
+jobs:
+  test:
+    name: TypeScript + Jest + ESLint
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [8, 10, 12]
+      fail-fast: true
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Setup
+        run: yarn install --frozen-lockfile --ignore-engines
+      - name: Run TypeScript
+        run: yarn run build
+      - name: Run Jest
+        run: yarn run jest:coverage
+      - name: Run ESLint
+        run: yarn run lint:errors
