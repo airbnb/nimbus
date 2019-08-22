@@ -2,7 +2,7 @@ name: Test
 on: push
 jobs:
   test:
-    name: TypeScript + Jest + ESLint
+    name: Build
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -18,6 +18,6 @@ jobs:
       - name: Run TypeScript
         run: yarn run build
       - name: Run Jest
-        run: yarn run jest:coverage
+        run: yarn run jest
       - name: Run ESLint
-        run: yarn run lint:errors
+        run: yarn run lint
