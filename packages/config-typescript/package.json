@@ -1,0 +1,20 @@
+{
+  "name": "@airbnb/config-typescript",
+  "version": "1.2.1",
+  "description": "Reusable TypeScript configs.",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:airbnb/nimbus.git"
+  },
+  "author": "Miles Johnson",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@beemo/core": "^1.0.5",
+    "@beemo/driver-typescript": "^1.1.2",
+    "typescript": "~3.5.3"
+  }
+}

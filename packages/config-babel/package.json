@@ -1,0 +1,35 @@
+{
+  "name": "@airbnb/config-babel",
+  "version": "1.2.4",
+  "description": "Reusable Babel config.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:airbnb/nimbus.git"
+  },
+  "author": "Miles Johnson",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@airbnb/nimbus-common": "^1.2.0",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-optional-catch-binding": "^7.2.0",
+    "@babel/plugin-transform-react-jsx-self": "^7.2.0",
+    "@babel/plugin-transform-react-jsx-source": "^7.5.0",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@beemo/core": "^1.0.5",
+    "@beemo/driver-babel": "^1.0.3",
+    "babel-plugin-graphql-tag": "^2.5.0",
+    "babel-plugin-idx": "^2.4.0",
+    "babel-plugin-transform-dev": "^2.0.1",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "babel-plugin-typescript-to-proptypes": "^0.17.1"
+  }
+}

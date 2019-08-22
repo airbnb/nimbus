@@ -1,0 +1,19 @@
+{
+  "name": "@airbnb/nimbus-common",
+  "version": "1.2.0",
+  "description": "Common Nimbus utilities and constants.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:airbnb/nimbus.git"
+  },
+  "author": "Miles Johnson",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "execa": "^2.0.4",
+    "fast-glob": "^3.0.4"
+  }
+}

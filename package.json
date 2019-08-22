@@ -1,0 +1,67 @@
+{
+  "private": true,
+  "name": "nimbus-root",
+  "version": "0.0.0",
+  "description": "CLI for JavaScript and TypeScript dev tools.",
+  "scripts": {
+    "prepare": "beemo create-config --silent",
+    "build": "beemo typescript --build --reference-workspaces",
+    "test": "yarn run build && yarn run jest && yarn run eslint",
+    "eslint": "beemo eslint .",
+    "jest": "beemo jest",
+    "prettier": "beemo prettier \"./packages/**/*.{ts,js}\"",
+    "prerelease": "yarn run test && yarn run build",
+    "release": "beemo run-script auto-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:airbnb/nimbus.git"
+  },
+  "author": "Miles Johnson",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "beemo": {
+    "module": "@airbnb/nimbus",
+    "drivers": [
+      "babel",
+      "eslint",
+      "jest",
+      "prettier",
+      "typescript"
+    ],
+    "settings": {
+      "node": true
+    },
+    "eslint": {
+      "env": {
+        "node": true
+      },
+      "rules": {
+        "import/prefer-default-export": "off"
+      },
+      "ignore": [
+        "*.config.js"
+      ]
+    },
+    "prettier": {
+      "ignore": [
+        "*.ejs"
+      ]
+    },
+    "typescript": {
+      "exclude": [
+        "*.test.ts"
+      ]
+    }
+  },
+  "workspaces": [
+    "./packages/*"
+  ],
+  "devDependencies": {
+    "graphql": "^14.5.0",
+    "graphql-tag": "^2.10.1",
+    "lerna": "^3.16.4"
+  }
+}

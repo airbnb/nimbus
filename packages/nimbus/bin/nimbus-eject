@@ -1,0 +1,244 @@
+#!/usr/bin/env node
+/* eslint-disable no-restricted-syntax, no-await-in-loop, global-require, import/no-unresolved, import/no-dynamic-require, import/no-extraneous-dependencies */
+
+const fs = require('fs');
+const path = require('path');
+const chalk = require('chalk');
+const execa = require('execa');
+const editJsonFile = require('edit-json-file');
+const { prompt } = require('enquirer');
+const { BANNER, installDeps, removeDeps } = require('./helpers');
+
+const pkgPath = path.join(process.cwd(), 'package.json');
+
+function writeJsFile(configPath, config) {
+  fs.writeFileSync(configPath, `module.exports = ${JSON.stringify(config, null, 2)}`, 'utf8');
+}
+
+async function copyAndInstallDepsFromModule(moduleName, isYarn, isMonorepo) {
+  const pkg = require(`${moduleName}/package.json`);
+  const deps = Object.keys(pkg.dependencies).filter(
+    dep => !dep.includes('@beemo') && !dep.includes('@airbnb/nimbus'),
+  );
+
+  await installDeps(deps, isYarn, isMonorepo);
+  await removeDeps([moduleName], isYarn, isMonorepo);
+}
+
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function migrateDotfiles() {
+  const toRemove = [
+    '# Configs',
+    '# Configs (provided by Nimbus)',
+    '.babelrc',
+    '.eslintignore',
+    '.eslintrc.js',
+    '.flowconfig',
+    '.prettierignore',
+    'babel.config.js',
+    'jest.config.js',
+    'prettier.config.js',
+    'tsconfig.json',
+    'tsconfig.options.json',
+    '*.tsbuildinfo',
+  ];
+
+  try {
+    const dotPath = path.join(process.cwd(), '.gitignore');
+    let data = fs.readFileSync(dotPath, 'utf8');
+
+    toRemove.forEach(value => {
+      data = data.replace(new RegExp(`${escapeRegExp(value)}\n?`, 'g'), '');
+    });
+
+    fs.writeFileSync(dotPath, data.trim(), 'utf8');
+  } catch (error) {
+    // Ignore
+  }
+}
+
+function migratePackageScripts(nimbus) {
+  const pkg = editJsonFile(pkgPath);
+  const scripts = pkg.get('scripts') || {};
+  const srcFolder = nimbus.settings.srcFolder || 'src';
+  const testFolder = nimbus.settings.testFolder || 'test';
+
+  if (scripts.prepare && scripts.prepare.includes('create-config')) {
+    delete scripts.prepare;
+  }
+
+  if (scripts.release && scripts.release.includes('auto-release')) {
+    delete scripts.release;
+  }
+
+  Object.keys(scripts).forEach(key => {
+    const value = scripts[key];
+    const esm = value.includes('--esm');
+
+    scripts[key] = value
+      .replace(
+        'nimbus babel',
+        `${esm ? 'ESM=true ' : ''}babel ./${srcFolder} --out-dir ./${esm ? 'esm' : 'lib'}`,
+      )
+      .replace('--esm', '')
+      .replace(
+        'nimbus eslint',
+        `eslint --color --report-unused-disable-directives ./${srcFolder} ./${testFolder}`,
+      )
+      .replace('nimbus jest', 'jest --colors')
+      .replace('--coverage', '--coverage --logHeapUsage --detectOpenHandles')
+      .replace('nimbus prettier', `prettier --write ./${srcFolder} ./${testFolder}`)
+      .replace('nimbus typescript', 'tsc')
+      .replace('nimbus webpack', 'webpack --colors --progress --bail')
+      .replace('nimbus-webpack-server', 'webpack-dev-server')
+      .trim();
+  });
+
+  pkg.set('scripts', scripts);
+  pkg.save();
+}
+
+async function migrateEslint() {
+  const configPath = path.join(process.cwd(), '.eslintrc.js');
+  const configOps = require('eslint/lib/config/config-ops');
+  const { extends: extendPaths, ...rootConfig } = require(configPath);
+  let config = { extends: [] };
+
+  extendPaths.forEach(extendPath => {
+    if (extendPath.startsWith('.')) {
+      config = configOps.merge(config, require(path.join(process.cwd(), extendPath)));
+    } else {
+      config.extends.push(extendPath);
+    }
+  });
+
+  config = configOps.merge(config, rootConfig);
+
+  delete config.parserOptions;
+
+  writeJsFile(configPath, config);
+}
+
+async function migrateJest() {
+  const configPath = path.join(process.cwd(), 'jest.config.js');
+  const config = require(configPath);
+
+  delete config.moduleNameMapper;
+  delete config.setupFiles;
+  delete config.setupFilesAfterEnv;
+  delete config.testEnvironment;
+
+  console.log(
+    `${chalk.gray('[jest]')} ${chalk.yellow(
+      'Jest config has been migrated but the following settings were removed: moduleNameMapper, setupFiles, setupFilesAfterEnv, testEnvironment',
+    )}`,
+  );
+
+  console.log(
+    `${chalk.gray('[jest]')} ${chalk.yellow(
+      'This included custom serializers, transformers, mocks, setup files, and more provided by Nimbus. These will need to be manually configured now.',
+    )}`,
+  );
+
+  writeJsFile(configPath, config);
+}
+
+async function migrateWebpack() {
+  const configPath = path.join(process.cwd(), 'webpack.config.js');
+  const url = 'https://github.com/airbnb/nimbus/blob/master/packages/config-webpack/index.js';
+
+  console.log(
+    `${chalk.gray('[webpack]')} ${chalk.yellow('Webpack config could not be migrated.')}`,
+  );
+  console.log(
+    `${chalk.gray('[webpack]')} ${chalk.yellow(
+      `Please copy portions of this config manually: ${url}`,
+    )}`,
+  );
+
+  writeJsFile(configPath, {});
+}
+
+async function eject() {
+  console.log(BANNER);
+  console.log(`${chalk.cyan('[1/5]')} Ejecting Nimbus`);
+
+  const nimbus = editJsonFile(pkgPath).get('nimbus');
+
+  if (!nimbus) {
+    throw new Error("Project isn't Nimbus enabled.");
+  }
+
+  const response = await prompt([
+    {
+      type: 'confirm',
+      name: 'monorepo',
+      message: 'Is this a monorepo?',
+    },
+    {
+      type: 'confirm',
+      name: 'yarn',
+      message: 'Are you using Yarn?',
+    },
+  ]);
+
+  await execa('nimbus', ['create-config', '--silent'], { preferLocal: true });
+
+  console.log(`${chalk.cyan('[2/5]')} Updating package scripts`);
+
+  migratePackageScripts(nimbus);
+
+  console.log(`${chalk.cyan('[3/5]')} Migrating drivers`);
+
+  for (const driver of nimbus.drivers) {
+    console.log(`${chalk.gray(`[${driver}]`)} Migrating config`);
+
+    if (driver === 'eslint') {
+      migrateEslint();
+    } else if (driver === 'jest') {
+      migrateJest();
+    } else if (driver === 'webpack') {
+      migrateWebpack();
+    }
+
+    console.log(`${chalk.gray(`[${driver}]`)} Updating dependencies`);
+
+    await copyAndInstallDepsFromModule(
+      `@airbnb/config-${driver}`,
+      response.yarn,
+      response.monorepo,
+    );
+
+    // Remove the driver from the package in case the eject script fails later on.
+    // This allows us to pickup where we left off.
+    const pkg = editJsonFile(pkgPath);
+
+    pkg.set('nimbus.drivers', pkg.get('nimbus.drivers').filter(d => d !== driver));
+    pkg.save();
+  }
+
+  console.log(`${chalk.cyan('[4/5]')} Removing config`);
+
+  await removeDeps(['@airbnb/nimbus'], response.yarn, response.monorepo);
+
+  const pkg = editJsonFile(pkgPath);
+
+  pkg.unset('nimbus');
+  pkg.save();
+
+  console.log(`${chalk.cyan('[5/5]')} Updating dotfiles`);
+
+  migrateDotfiles();
+}
+
+eject()
+  .then(() => {
+    console.log(chalk.green('Eject complete!'));
+  })
+  .catch(error => {
+    console.log(chalk.red('Eject failed!'));
+    console.log(chalk.red(error));
+  });

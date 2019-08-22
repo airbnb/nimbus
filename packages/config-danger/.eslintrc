@@ -1,0 +1,11 @@
+{
+  "globals": {
+    "danger": "readonly",
+    "message": "readonly",
+    "fail": "readonly",
+    "warn": "readonly"
+  },
+  "rules": {
+    "import/prefer-default-export": "off"
+  }
+}
