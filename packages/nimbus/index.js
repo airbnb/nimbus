@@ -28,7 +28,7 @@ function createWorkspacesGlob(workspaces) {
  * @param { import("@beemo/core").default } tool
  */
 module.exports = function cli(tool) {
-  const { docsFolder, srcFolder, testFolder } = getSettings();
+  const { buildFolder, docsFolder, srcFolder, testFolder } = getSettings();
   const usingBabel = tool.isPluginEnabled('driver', 'babel');
   const usingPrettier = tool.isPluginEnabled('driver', 'prettier');
   const usingTypeScript = tool.isPluginEnabled('driver', 'typescript');
@@ -43,8 +43,8 @@ module.exports = function cli(tool) {
     }
 
     if (hasNoPositionalArgs(context, 'babel')) {
-      context.addArg('./src');
-      context.addOption('--out-dir', context.args.esm ? './esm' : './lib');
+      context.addArg(`./${srcFolder}`);
+      context.addOption('--out-dir', context.args.esm ? './esm' : `./${buildFolder}`);
     }
   }, 'babel');
 

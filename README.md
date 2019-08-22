@@ -3,7 +3,7 @@
 # Nimbus
 
 Centralized CLI for JavaScript and TypeScript developer tools, with sharable and battle tested
-configurations.
+configurations. [Built on and powered by Beemo](https://github.com/beemojs/beemo).
 
 Nimbus is designed around Airbnb projects. _Use at your own risk._
 
