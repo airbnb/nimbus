@@ -1,6 +1,6 @@
 {
   "name": "@airbnb/config-jest",
-  "version": "1.2.4",
+  "version": "2.0.0-alpha.0",
   "description": "Reusable Jest config.",
   "main": "index.js",
   "repository": {
@@ -16,7 +16,7 @@
     "@types/jest": "^24.0.18"
   },
   "dependencies": {
-    "@airbnb/nimbus-common": "^1.2.0",
+    "@airbnb/nimbus-common": "^2.0.0-alpha.0",
     "@babel/core": "^7.5.5",
     "@beemo/core": "^1.0.5",
     "@beemo/driver-babel": "^1.0.3",

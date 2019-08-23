@@ -1,6 +1,6 @@
 {
   "name": "@airbnb/nimbus",
-  "version": "1.5.0",
+  "version": "2.0.0-alpha.0",
   "description": "CLI for JavaScript and TypeScript dev tools.",
   "main": "index.js",
   "repository": {
@@ -21,7 +21,7 @@
     "node": ">=8.9.0"
   },
   "dependencies": {
-    "@airbnb/nimbus-common": "^1.2.0",
+    "@airbnb/nimbus-common": "^2.0.0-alpha.0",
     "@beemo/cli": "^1.0.3",
     "@beemo/core": "^1.0.5",
     "chalk": "^2.4.2",
