@@ -50,7 +50,7 @@ module.exports = function cli(tool) {
 
   // ESLint
   tool.onRunDriver.listen((context, driver) => {
-    context.addOptions(['--color', '--report-unused-disable-directives']);
+    context.addOptions(['--color']);
 
     if (!context.args.ext) {
       context.addOption('--ext', exts.join(','));
