@@ -30,6 +30,8 @@ module.exports = {
     node: false,
   },
 
+  reportUnusedDisableDirectives: true,
+
   settings: {
     propWrapperFunctions: ['forbidExtraProps', 'exact', 'Object.freeze'],
     'import/ignore': ['node_modules', '\\.json$', ASSET_EXT_PATTERN.source, GQL_EXT_PATTERN.source],
@@ -76,6 +78,7 @@ module.exports = {
         'jest/prefer-to-be-null': 'error',
         'jest/prefer-to-be-undefined': 'error',
         'jest/prefer-to-have-length': 'error',
+        'jest/require-top-level-describe': 'error',
         'jest/valid-expect': 'error',
       },
     },

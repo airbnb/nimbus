@@ -1,5 +1,5 @@
 const path = require('path');
-const { getPackage, glob, fromRoot } = require('@airbnb/nimbus-common');
+const { getPackage, fromRoot } = require('@airbnb/nimbus-common');
 const { EXTS_GROUP } = require('@airbnb/nimbus-common/constants');
 
 // In TS, all arguments are required for type information,
@@ -11,12 +11,7 @@ const pkg = getPackage();
 const project = [fromRoot('tsconfig.json')];
 
 if (pkg.workspaces) {
-  project.push(
-    ...glob.sync(pkg.workspaces.map(ws => path.join(ws, 'tsconfig.json')), {
-      absolute: true,
-      onlyFiles: true,
-    }),
-  );
+  project.push(...pkg.workspaces.map(ws => path.join(ws.replace('*', '**'), 'tsconfig.json')));
 }
 
 module.exports = {

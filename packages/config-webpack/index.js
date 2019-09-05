@@ -164,8 +164,6 @@ exports.getConfig = function getConfig({
       minimize: PROD,
       minimizer: [
         new TerserPlugin({
-          cache: true,
-          parallel: true,
           sourceMap: sourceMaps,
         }),
       ],
