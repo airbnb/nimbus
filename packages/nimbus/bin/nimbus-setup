@@ -86,6 +86,7 @@ function addScriptsToPackage(response) {
 
   if (drivers.includes('webpack')) {
     scripts.build = 'NODE_ENV=production nimbus webpack';
+    scripts.start = 'nimbus create-config webpack --silent && nimbus-webpack-server';
 
     delete scripts.prebuild;
     delete scripts.postbuild;
