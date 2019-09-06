@@ -100,6 +100,10 @@ module.exports = function cli(tool) {
 
     if (usingBabel) {
       driver.options.dependencies.push('babel');
+
+      // Babel 7.5 handles dynamic imports natively, which will break Webpack
+      // when transforming to `commonjs`. So always force Babel to ESM mode.
+      process.env.ESM = 'true';
     }
 
     if (usingTypeScript) {
