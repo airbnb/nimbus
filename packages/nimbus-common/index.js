@@ -1,5 +1,6 @@
 // @ts-check
 
+const fs = require('fs');
 const path = require('path');
 const execa = require('execa');
 const glob = require('fast-glob');
@@ -18,6 +19,7 @@ const glob = require('fast-glob');
  * @property {boolean} react
  * @property {string} srcFolder
  * @property {string} testFolder
+ * @property {string} typesFolder
  */
 
 exports.execa = execa;
@@ -25,10 +27,17 @@ exports.glob = glob;
 
 /**
  * @param {string} filePath
+ * @param {boolean} existsCheck
  * @returns {string}
  */
-exports.fromRoot = function fromRoot(filePath) {
-  return path.join(process.cwd(), filePath);
+exports.fromRoot = function fromRoot(filePath, existsCheck = false) {
+  const absPath = path.join(process.cwd(), filePath);
+
+  if (existsCheck && !fs.existsSync(absPath)) {
+    return '';
+  }
+
+  return absPath;
 };
 
 let pkgCache = null;
@@ -81,6 +90,7 @@ exports.getSettings = function getSettings() {
     react: false,
     srcFolder: 'src',
     testFolder: 'test',
+    typesFolder: 'types',
     ...settings,
   };
 };

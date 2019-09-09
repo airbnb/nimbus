@@ -1,18 +1,13 @@
-const path = require('path');
-const { getPackage, fromRoot } = require('@airbnb/nimbus-common');
+const { fromRoot } = require('@airbnb/nimbus-common');
 const { EXTS_GROUP } = require('@airbnb/nimbus-common/constants');
 
 // In TS, all arguments are required for type information,
 // so we need to override the base JS setting.
 const noUnused = { vars: 'all', args: 'none', ignoreRestSiblings: true };
 
-// When using workspaces, we must pass an array of project configs.
-const pkg = getPackage();
-const project = [fromRoot('tsconfig.json')];
-
-if (pkg.workspaces) {
-  project.push(...pkg.workspaces.map(ws => path.join(ws.replace('*', '**'), 'tsconfig.json')));
-}
+// Project references and some projects currently cause OOM errors,
+// so let's use a specialized TS config that globs everything.
+const project = fromRoot('tsconfig.eslint.json', true) || fromRoot('tsconfig.json');
 
 module.exports = {
   settings: {
