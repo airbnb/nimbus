@@ -1,6 +1,6 @@
 {
   "name": "@airbnb/nimbus-common",
-  "version": "2.0.0-alpha.2",
+  "version": "2.0.0-alpha.3",
   "description": "Common Nimbus utilities and constants.",
   "main": "index.js",
   "repository": {
