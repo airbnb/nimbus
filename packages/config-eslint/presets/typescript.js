@@ -5,7 +5,7 @@ const { EXTS_GROUP } = require('@airbnb/nimbus-common/constants');
 // so we need to override the base JS setting.
 const noUnused = { vars: 'all', args: 'none', ignoreRestSiblings: true };
 
-// Project references currently cause OOM errors,
+// Project references and some projects currently cause OOM errors,
 // so let's use a specialized TS config that globs everything.
 const project = fromRoot('tsconfig.eslint.json', true) || fromRoot('tsconfig.json');
 

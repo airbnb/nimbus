@@ -75,22 +75,22 @@ module.exports = function cli(tool) {
     }
   }, 'eslint');
 
-  // Create a specialized tsconfig for ESLint when using workspaces
+  // Create a specialized tsconfig for ESLint
   tool.getPlugin('driver', 'eslint').onCreateConfigFile.listen(context => {
-    if (workspaces.length === 0) {
-      return;
-    }
-
     const configPath = path.join(process.cwd(), 'tsconfig.eslint.json');
     const include = [`${typesFolder}/**/*`];
 
-    workspaces.forEach(wsPath => {
-      include.push(
-        path.join(wsPath, `${srcFolder}/**/*`),
-        path.join(wsPath, `${testFolder}/**/*`),
-        path.join(wsPath, `${typesFolder}/**/*`),
-      );
-    });
+    if (workspaces.length === 0) {
+      include.push(`${srcFolder}/**/*`, `${testFolder}/**/*`);
+    } else {
+      workspaces.forEach(wsPath => {
+        include.push(
+          path.join(wsPath, `${srcFolder}/**/*`),
+          path.join(wsPath, `${testFolder}/**/*`),
+          path.join(wsPath, `${typesFolder}/**/*`),
+        );
+      });
+    }
 
     fs.writeFileSync(
       configPath,
