@@ -12,6 +12,7 @@
  * @property {boolean} [react]
  * @property {string} srcFolder
  * @property {string} testFolder
+ * @property {string} typesFolder
  * @property {string[]} [workspaces]
  */
 
@@ -64,7 +65,7 @@ exports.getCompilerOptions = function getCompilerOptions({
 exports.getConfig = function getConfig(options) {
   const config = {
     compilerOptions: exports.getCompilerOptions(options),
-    include: [`./${options.srcFolder}/**/*`, './types/**/*'],
+    include: [`./${options.srcFolder}/**/*`, `./${options.typesFolder}/**/*`],
     exclude: ['**/node_modules/*'],
   };
 

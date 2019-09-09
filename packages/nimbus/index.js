@@ -30,7 +30,7 @@ function createWorkspacesGlob(workspaces) {
  * @param { import("@beemo/core").default } tool
  */
 module.exports = function cli(tool) {
-  const { buildFolder, docsFolder, srcFolder, testFolder } = getSettings();
+  const { buildFolder, docsFolder, srcFolder, testFolder, typesFolder } = getSettings();
   const usingBabel = tool.isPluginEnabled('driver', 'babel');
   const usingPrettier = tool.isPluginEnabled('driver', 'prettier');
   const usingTypeScript = tool.isPluginEnabled('driver', 'typescript');
@@ -38,7 +38,11 @@ module.exports = function cli(tool) {
   const pathPrefix = workspaces.length ? createWorkspacesGlob(workspaces) : '';
   const exts = usingTypeScript ? ['.ts', '.tsx', '.js', '.jsx'] : ['.js', '.jsx'];
 
-  // Babel
+  /**
+   * BABEL
+   * - Add default extensions.
+   * - Add source and output dirs by default.
+   */
   tool.onRunDriver.listen(context => {
     if (!context.args.extensions) {
       context.addOption('--extensions', exts.join(','));
@@ -50,7 +54,11 @@ module.exports = function cli(tool) {
     }
   }, 'babel');
 
-  // ESLint
+  /**
+   * ESLINT
+   * - Add default extensions.
+   * - Lint source and test folders by default.
+   */
   tool.onRunDriver.listen((context, driver) => {
     context.addOptions(['--color']);
 
@@ -74,13 +82,13 @@ module.exports = function cli(tool) {
     }
 
     const configPath = path.join(process.cwd(), 'tsconfig.eslint.json');
-    const include = ['types/**/*'];
+    const include = [`${typesFolder}/**/*`];
 
     workspaces.forEach(wsPath => {
       include.push(
-        path.join(wsPath, 'src/**/*'),
-        path.join(wsPath, 'tests/**/*'),
-        path.join(wsPath, 'types/**/*'),
+        path.join(wsPath, `${srcFolder}/**/*`),
+        path.join(wsPath, `${testFolder}/**/*`),
+        path.join(wsPath, `${typesFolder}/**/*`),
       );
     });
 
@@ -96,7 +104,11 @@ module.exports = function cli(tool) {
     context.addConfigPath('eslint', configPath);
   });
 
-  // Jest
+  /**
+   * JEST
+   * - Set common arguments. Include more during code coverage.
+   * - Set environment variables by default.
+   */
   tool.onRunDriver.listen((context, driver) => {
     context.addOptions(['--colors']);
 
@@ -112,7 +124,11 @@ module.exports = function cli(tool) {
     driver.options.env.TZ = 'UTC';
   }, 'jest');
 
-  // Prettier
+  /**
+   * PRETTIER
+   * - Always write files.
+   * - Glob a ton of files by default.
+   */
   tool.onRunDriver.listen(context => {
     context.addOption('--write');
 
@@ -125,7 +141,26 @@ module.exports = function cli(tool) {
     }
   }, 'prettier');
 
-  // Webpack
+  /**
+   * TYPESCRIPT
+   * - Pass Nimbus settings to the TS driver options.
+   */
+  tool.onRunDriver.listen((context, driver) => {
+    /** @type { import("@beemo/driver-typescript").default } */
+    // @ts-ignore
+    const tsDriver = driver;
+
+    tsDriver.options.buildFolder = buildFolder;
+    tsDriver.options.srcFolder = srcFolder;
+    tsDriver.options.testsFolder = testFolder;
+    tsDriver.options.typesFolder = typesFolder;
+  }, 'typescript');
+
+  /**
+   * WEBPACK
+   * - Set common and custom arguments.
+   * - Handle Bable and TS integration.
+   */
   tool.onRunDriver.listen((context, driver) => {
     context.addOptions(['--colors', '--progress', '--bail']);
 

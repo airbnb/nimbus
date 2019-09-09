@@ -19,6 +19,7 @@ const glob = require('fast-glob');
  * @property {boolean} react
  * @property {string} srcFolder
  * @property {string} testFolder
+ * @property {string} typesFolder
  */
 
 exports.execa = execa;
@@ -89,6 +90,7 @@ exports.getSettings = function getSettings() {
     react: false,
     srcFolder: 'src',
     testFolder: 'test',
+    typesFolder: 'types',
     ...settings,
   };
 };
