@@ -40,6 +40,7 @@ exports.getIgnoreList = function getIgnoreList() {
     'package.json',
     'package-lock.json',
     'tsconfig.json',
+    'tsconfig.eslint.json',
     'tsconfig.options.json',
     'CHANGELOG.md',
   ];

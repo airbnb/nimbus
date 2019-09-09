@@ -1,6 +1,8 @@
 /* eslint-disable no-param-reassign */
 // @ts-check
 
+const fs = require('fs');
+const path = require('path');
 const { getSettings } = require('@airbnb/nimbus-common');
 
 /**
@@ -19,7 +21,7 @@ function hasNoPositionalArgs(context, name) {
  * @returns {string}
  */
 function createWorkspacesGlob(workspaces) {
-  const paths = workspaces.map(path => path.replace('./', ''));
+  const paths = workspaces.map(p => p.replace('./', ''));
 
   return paths.length === 1 ? `${paths[0]}/` : `{${paths.join(',')}}/`;
 }
@@ -64,6 +66,35 @@ module.exports = function cli(tool) {
       driver.options.dependencies.push('prettier');
     }
   }, 'eslint');
+
+  // Create a specialized tsconfig for ESLint when using workspaces
+  tool.getPlugin('driver', 'eslint').onCreateConfigFile.listen(context => {
+    if (workspaces.length === 0) {
+      return;
+    }
+
+    const configPath = path.join(process.cwd(), 'tsconfig.eslint.json');
+    const include = ['types/**/*'];
+
+    workspaces.forEach(wsPath => {
+      include.push(
+        path.join(wsPath, 'src/**/*'),
+        path.join(wsPath, 'tests/**/*'),
+        path.join(wsPath, 'types/**/*'),
+      );
+    });
+
+    fs.writeFileSync(
+      configPath,
+      JSON.stringify({
+        extends: './tsconfig.options.json',
+        include,
+      }),
+      'utf8',
+    );
+
+    context.addConfigPath('eslint', configPath);
+  });
 
   // Jest
   tool.onRunDriver.listen((context, driver) => {
