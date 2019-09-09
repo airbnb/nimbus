@@ -78,11 +78,14 @@ module.exports = function cli(tool) {
   // Create a specialized tsconfig for ESLint
   tool.getPlugin('driver', 'eslint').onCreateConfigFile.listen(context => {
     const configPath = path.join(process.cwd(), 'tsconfig.eslint.json');
-    const include = [`${typesFolder}/**/*`];
+    const include = [`${typesFolder}/**/*`]; // Always allow global types
+    let extendsFrom = './tsconfig.json';
 
     if (workspaces.length === 0) {
       include.push(`${srcFolder}/**/*`, `${testFolder}/**/*`);
     } else {
+      extendsFrom = './tsconfig.options.json';
+
       workspaces.forEach(wsPath => {
         include.push(
           path.join(wsPath, `${srcFolder}/**/*`),
@@ -95,7 +98,7 @@ module.exports = function cli(tool) {
     fs.writeFileSync(
       configPath,
       JSON.stringify({
-        extends: './tsconfig.options.json',
+        extends: extendsFrom,
         include,
       }),
       'utf8',
