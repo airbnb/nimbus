@@ -1,8 +1,12 @@
 {
   "name": "@airbnb/config-webpack",
-  "version": "2.0.0-alpha.4",
+  "version": "2.0.0",
   "description": "Reusable Webpack configs.",
-  "keywords": ["nimbus", "config", "webpack"],
+  "keywords": [
+    "nimbus",
+    "config",
+    "webpack"
+  ],
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -17,7 +21,7 @@
     "nimbus-webpack-server": "./bin/server"
   },
   "dependencies": {
-    "@airbnb/nimbus-common": "^2.0.0-alpha.3",
+    "@airbnb/nimbus-common": "^2.0.0",
     "@babel/core": "^7.6.0",
     "@beemo/core": "^1.0.6",
     "@beemo/driver-webpack": "^1.0.5",

@@ -1,8 +1,12 @@
 {
   "name": "@airbnb/config-babel",
-  "version": "2.0.0-alpha.3",
+  "version": "2.0.0",
   "description": "Reusable Babel config.",
-  "keywords": ["nimbus", "config", "babel"],
+  "keywords": [
+    "nimbus",
+    "config",
+    "babel"
+  ],
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -14,7 +18,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@airbnb/nimbus-common": "^2.0.0-alpha.3",
+    "@airbnb/nimbus-common": "^2.0.0",
     "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
     "@babel/plugin-proposal-class-properties": "^7.5.5",

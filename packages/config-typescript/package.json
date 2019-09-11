@@ -1,8 +1,12 @@
 {
   "name": "@airbnb/config-typescript",
-  "version": "2.0.0-alpha.4",
+  "version": "2.0.0",
   "description": "Reusable TypeScript configs.",
-  "keywords": ["nimbus", "config", "typescript"],
+  "keywords": [
+    "nimbus",
+    "config",
+    "typescript"
+  ],
   "main": "lib/index.js",
   "repository": {
     "type": "git",
