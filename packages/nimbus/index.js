@@ -97,10 +97,14 @@ module.exports = function cli(tool) {
 
     fs.writeFileSync(
       configPath,
-      JSON.stringify({
-        extends: extendsFrom,
-        include,
-      }),
+      JSON.stringify(
+        {
+          extends: extendsFrom,
+          include,
+        },
+        null,
+        2,
+      ),
       'utf8',
     );
 

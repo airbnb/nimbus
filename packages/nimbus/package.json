@@ -1,7 +1,8 @@
 {
   "name": "@airbnb/nimbus",
   "version": "2.0.0-alpha.4",
-  "description": "CLI for JavaScript and TypeScript dev tools.",
+  "description": "Centralized CLI for JavaScript and TypeScript dev tools.",
+  "keywords": ["nimbus", "config", "cli", "management", "developer", "tool"],
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -22,8 +23,8 @@
   },
   "dependencies": {
     "@airbnb/nimbus-common": "^2.0.0-alpha.3",
-    "@beemo/cli": "^1.0.3",
-    "@beemo/core": "^1.0.5",
+    "@beemo/cli": "^1.0.4",
+    "@beemo/core": "^1.0.6",
     "chalk": "^2.4.2",
     "check-node-version": "^4.0.1",
     "conventional-changelog-beemo": "^1.5.0",
