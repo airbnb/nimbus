@@ -1,7 +1,7 @@
 {
   "name": "@airbnb/nimbus",
   "version": "2.0.0-alpha.4",
-  "description": "CLI for JavaScript and TypeScript dev tools.",
+  "description": "Centralized CLI for JavaScript and TypeScript dev tools.",
   "keywords": ["nimbus", "config", "cli", "management", "developer", "tool"],
   "main": "index.js",
   "repository": {

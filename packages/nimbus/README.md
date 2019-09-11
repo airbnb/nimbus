@@ -1,3 +1,4 @@
-# Nimbus CLI
+# Nimbus
 
-CLI for JavaScript and TypeScript dev tools.
+Centralized CLI for JavaScript and TypeScript dev tools.
+[Built on and powered by Beemo](https://github.com/beemojs/beemo).
