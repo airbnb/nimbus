@@ -2,6 +2,7 @@
   "name": "@airbnb/config-prettier",
   "version": "2.0.0-alpha.3",
   "description": "Reusable Prettier config.",
+  "keywords": ["nimbus", "config", "prettier"],
   "main": "index.js",
   "repository": {
     "type": "git",

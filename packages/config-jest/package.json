@@ -2,6 +2,7 @@
   "name": "@airbnb/config-jest",
   "version": "2.0.0-alpha.4",
   "description": "Reusable Jest config.",
+  "keywords": ["nimbus", "config", "jest"],
   "main": "index.js",
   "repository": {
     "type": "git",

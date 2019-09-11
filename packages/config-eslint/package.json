@@ -2,6 +2,7 @@
   "name": "@airbnb/config-eslint",
   "version": "2.0.0-alpha.4",
   "description": "Reusable ESLint config.",
+  "keywords": ["nimbus", "config", "eslint"],
   "main": "index.js",
   "repository": {
     "type": "git",
