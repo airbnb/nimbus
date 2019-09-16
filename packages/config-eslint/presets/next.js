@@ -128,6 +128,7 @@ module.exports = {
 
     // UNICORN
     'unicorn/catch-error-name': 'error',
+    'unicorn/consistent-function-scoping': 'warn',
     'unicorn/custom-error-definition': 'error',
     'unicorn/error-message': 'error',
     'unicorn/escape-case': 'error',
@@ -145,6 +146,7 @@ module.exports = {
     'unicorn/no-zero-fractions': 'error',
     'unicorn/number-literal-case': 'error',
     'unicorn/prefer-add-event-listener': 'error',
+    'unicorn/prefer-dataset': 'warn',
     'unicorn/prefer-event-key': 'error',
     'unicorn/prefer-exponentiation-operator': 'error',
     'unicorn/prefer-flat-map': 'error',

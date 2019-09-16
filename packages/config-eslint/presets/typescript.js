@@ -87,7 +87,7 @@ module.exports = {
         '@typescript-eslint/member-delimiter-style': 'error',
         '@typescript-eslint/member-ordering': 'off', // Prefer react/sort-comp
         '@typescript-eslint/no-array-constructor': 'error',
-        '@typescript-eslint/no-empty-function': 'warn',
+        '@typescript-eslint/no-empty-function': 'off', // Default props are usually empty
         '@typescript-eslint/no-empty-interface': 'error',
         '@typescript-eslint/no-explicit-any': [
           'warn',
@@ -107,7 +107,6 @@ module.exports = {
         '@typescript-eslint/require-await': 'error',
         '@typescript-eslint/triple-slash-reference': 'error',
         '@typescript-eslint/type-annotation-spacing': 'error',
-        '@typescript-eslint/unbound-method': 'error',
         '@typescript-eslint/unified-signatures': 'warn',
       },
     },
