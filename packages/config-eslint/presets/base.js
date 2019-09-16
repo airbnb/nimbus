@@ -21,8 +21,13 @@ module.exports = {
 
   globals: {
     __DEV__: 'readonly',
-    jsdom: 'readonly',
+    // Metrics and analytics providers
+    ga: 'readonly',
     newrelic: 'readonly',
+    // Mostly for easier compatibility between browsers, workers, etc
+    global: 'readonly',
+    // Mostly references to `process.env.NODE_ENV`
+    process: 'readonly',
   },
 
   env: {
@@ -55,6 +60,9 @@ module.exports = {
     {
       files: [`*.test.${EXTS_GROUP}`],
       plugins: ['jest'],
+      globals: {
+        jsdom: 'readonly',
+      },
       env: {
         jest: true,
         node: true,

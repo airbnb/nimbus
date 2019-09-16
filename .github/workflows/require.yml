@@ -11,6 +11,8 @@ jobs:
           node-version: 12
       - name: Setup
         run: yarn install --frozen-lockfile --ignore-engines
+      - name: Build
+        run: yarn run build
       - name: Run Danger CI
         run: yarn danger ci --use-github-checks
         env:
