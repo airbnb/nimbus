@@ -6,6 +6,7 @@ const { IGNORE_PATHS } = require('@airbnb/nimbus-common/constants');
 /**
  * @typedef {object} ConfigOptions
  * @property {boolean} [next]
+ * @property {boolean} [node]
  * @property {boolean} [prettier]
  * @property {boolean} [typescript]
  */
@@ -26,6 +27,7 @@ function fromHere(filePath) {
  */
 exports.getExtendsList = function getExtendsList({
   next = false,
+  node = false,
   prettier = false,
   typescript = false,
 }) {
@@ -41,7 +43,12 @@ exports.getExtendsList = function getExtendsList({
     paths.push(fromHere('presets/typescript.js'));
   }
 
-  // Prettier
+  // Node
+  if (node) {
+    paths.push(fromHere('presets/node.js'));
+  }
+
+  // Prettier (must be last)
   if (prettier) {
     paths.push(fromHere('presets/prettier.js'));
 
