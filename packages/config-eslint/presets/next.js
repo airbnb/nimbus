@@ -5,6 +5,7 @@ module.exports = {
 
   rules: {
     // Not enabled in Airbnb
+    'default-param-last': 'warn',
     'func-name-matching': [
       'error',
       'always',
@@ -19,9 +20,11 @@ module.exports = {
     'no-constant-condition': 'error',
     'no-div-regex': 'error',
     'no-implicit-coercion': 'error',
+    'no-import-assign': 'warn',
     'no-native-reassign': 'error',
     'no-negated-condition': 'error',
     'no-useless-call': 'error',
+    'prefer-regex-literals': 'warn',
     'require-atomic-updates': 'error',
 
     // Replaced with new proposals
@@ -125,6 +128,7 @@ module.exports = {
 
     // UNICORN
     'unicorn/catch-error-name': 'error',
+    'unicorn/consistent-function-scoping': 'warn',
     'unicorn/custom-error-definition': 'error',
     'unicorn/error-message': 'error',
     'unicorn/escape-case': 'error',
@@ -142,6 +146,7 @@ module.exports = {
     'unicorn/no-zero-fractions': 'error',
     'unicorn/number-literal-case': 'error',
     'unicorn/prefer-add-event-listener': 'error',
+    'unicorn/prefer-dataset': 'warn',
     'unicorn/prefer-event-key': 'error',
     'unicorn/prefer-exponentiation-operator': 'error',
     'unicorn/prefer-flat-map': 'error',
