@@ -31,7 +31,7 @@ module.exports = {
       rules: {
         'func-call-spacing': 'off',
         'no-restricted-globals': 'off',
-        'no-unused-vars': ['error', noUnused],
+        'no-unused-vars': 'off',
 
         // IMPORT (Conflicts with TS patterns)
         'import/extensions': [

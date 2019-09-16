@@ -5,6 +5,7 @@ module.exports = {
 
   rules: {
     // Not enabled in Airbnb
+    'default-param-last': 'warn',
     'func-name-matching': [
       'error',
       'always',
@@ -19,9 +20,11 @@ module.exports = {
     'no-constant-condition': 'error',
     'no-div-regex': 'error',
     'no-implicit-coercion': 'error',
+    'no-import-assign': 'warn',
     'no-native-reassign': 'error',
     'no-negated-condition': 'error',
     'no-useless-call': 'error',
+    'prefer-regex-literals': 'warn',
     'require-atomic-updates': 'error',
 
     // Replaced with new proposals
