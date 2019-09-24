@@ -59,7 +59,7 @@
     "./packages/*"
   ],
   "devDependencies": {
-    "graphql": "^14.5.4",
+    "graphql": "^14.5.7",
     "graphql-tag": "^2.10.1",
     "lerna": "^3.16.4"
   }
