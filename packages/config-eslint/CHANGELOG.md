@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.0.2 - 2019-09-24
+
+#### 📦 Dependencies
+
+- **[ESlint]** Update plugins to latest patch versions. ([92aeabd](https://github.com/airbnb/nimbus/commit/92aeabd))
+
+**Note:** Version bump only for package @airbnb/config-eslint
+
+
+
+
+
 ### 2.0.1 - 2019-09-16
 
 #### 🐞 Fixes
