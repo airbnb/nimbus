@@ -30,7 +30,13 @@ function createWorkspacesGlob(workspaces) {
  * @param { import("@beemo/core").default } tool
  */
 module.exports = function cli(tool) {
-  const { buildFolder, docsFolder, srcFolder, testFolder, typesFolder } = getSettings();
+  const {
+    buildFolder,
+    docsFolder,
+    srcFolder,
+    testFolder: testsFolder,
+    typesFolder,
+  } = getSettings();
   const usingBabel = tool.isPluginEnabled('driver', 'babel');
   const usingPrettier = tool.isPluginEnabled('driver', 'prettier');
   const usingTypeScript = tool.isPluginEnabled('driver', 'typescript');
@@ -67,7 +73,7 @@ module.exports = function cli(tool) {
     }
 
     if (hasNoPositionalArgs(context, 'eslint')) {
-      context.addArgs([`./${pathPrefix}${srcFolder}`, `./${pathPrefix}${testFolder}`]);
+      context.addArgs([`./${pathPrefix}${srcFolder}`, `./${pathPrefix}${testsFolder}`]);
     }
 
     if (usingPrettier) {
@@ -86,14 +92,14 @@ module.exports = function cli(tool) {
     let extendsFrom = './tsconfig.json';
 
     if (workspaces.length === 0) {
-      include.push(`${srcFolder}/**/*`, `${testFolder}/**/*`);
+      include.push(`${srcFolder}/**/*`, `${testsFolder}/**/*`);
     } else {
       extendsFrom = './tsconfig.options.json';
 
       workspaces.forEach(wsPath => {
         include.push(
           path.join(wsPath, `${srcFolder}/**/*`),
-          path.join(wsPath, `${testFolder}/**/*`),
+          path.join(wsPath, `${testsFolder}/**/*`),
           path.join(wsPath, `${typesFolder}/**/*`),
         );
       });
@@ -145,7 +151,7 @@ module.exports = function cli(tool) {
 
     if (hasNoPositionalArgs(context, 'prettier')) {
       context.addArgs([
-        `./${pathPrefix}{bin,hooks,scripts,${srcFolder},${testFolder}}/**/*.{ts,tsx,js,jsx,scss,css,gql,graphql,yml,yaml,md}`,
+        `./${pathPrefix}{bin,hooks,scripts,${srcFolder},${testsFolder}}/**/*.{ts,tsx,js,jsx,scss,css,gql,graphql,yml,yaml,md}`,
         `./${docsFolder}/**/*.md`,
         './*.{md,json}',
       ]);
@@ -161,10 +167,12 @@ module.exports = function cli(tool) {
     // @ts-ignore
     const tsDriver = driver;
 
-    tsDriver.options.buildFolder = buildFolder;
-    tsDriver.options.srcFolder = srcFolder;
-    tsDriver.options.testsFolder = testFolder;
-    tsDriver.options.typesFolder = typesFolder;
+    tsDriver.configure({
+      buildFolder,
+      srcFolder,
+      testsFolder,
+      typesFolder,
+    });
   }, 'typescript');
 
   /**
