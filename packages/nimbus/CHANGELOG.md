@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.0.3 - 2019-09-25
+
+#### 🐞 Fixes
+
+- Fix TS not inheriting default settings. (#10) ([dd14ef6](https://github.com/airbnb/nimbus/commit/dd14ef6)), closes [#10](https://github.com/airbnb/nimbus/issues/10)
+
+**Note:** Version bump only for package @airbnb/nimbus
+
+
+
+
+
 ### 2.0.2 - 2019-09-24
 
 #### 📦 Dependencies
