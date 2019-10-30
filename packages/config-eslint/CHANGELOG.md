@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.0 - 2019-10-30
+
+#### 🚀 Updates
+
+- Enable new `jest` rules. ([851e7c1](https://github.com/airbnb/nimbus/commit/851e7c1))
+- Enable new `react` and `unicorn` rules. ([607904e](https://github.com/airbnb/nimbus/commit/607904e))
+
+#### 📦 Dependencies
+
+- **[Beemo]** Update to latest. ([bf6798c](https://github.com/airbnb/nimbus/commit/bf6798c))
+- **[ESLint]** Update plugins to latest. ([86bf6ba](https://github.com/airbnb/nimbus/commit/86bf6ba))
+
+**Note:** Version bump only for package @airbnb/config-eslint
+
+
+
+
+
 ### 2.0.2 - 2019-09-24
 
 #### 📦 Dependencies

@@ -1,6 +1,6 @@
 {
   "name": "@airbnb/config-prettier",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Reusable Prettier config.",
   "keywords": [
     "nimbus",
@@ -21,7 +21,7 @@
     "@types/prettier": "^1.18.3"
   },
   "dependencies": {
-    "@airbnb/nimbus-common": "^2.0.0",
+    "@airbnb/nimbus-common": "^2.0.1",
     "@beemo/core": "^1.0.7",
     "@beemo/driver-prettier": "^1.0.3",
     "prettier": "^1.18.2"
