@@ -18,7 +18,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.18"
+    "@types/jest": "^24.0.21"
   },
   "dependencies": {
     "@airbnb/nimbus-common": "^2.0.0",
