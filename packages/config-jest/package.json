@@ -18,14 +18,14 @@
     "access": "public"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.18"
+    "@types/jest": "^24.0.21"
   },
   "dependencies": {
     "@airbnb/nimbus-common": "^2.0.0",
-    "@babel/core": "^7.6.2",
-    "@beemo/core": "^1.0.6",
-    "@beemo/driver-babel": "^1.0.4",
-    "@beemo/driver-jest": "^1.0.3",
+    "@babel/core": "^7.6.4",
+    "@beemo/core": "^1.0.7",
+    "@beemo/driver-babel": "^1.0.5",
+    "@beemo/driver-jest": "^1.0.4",
     "airbnb-js-shims": "^2.2.0",
     "dom-storage": "^2.1.0",
     "jest": "^24.9.0"

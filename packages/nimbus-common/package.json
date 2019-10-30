@@ -19,7 +19,7 @@
     "access": "public"
   },
   "dependencies": {
-    "execa": "^2.0.4",
-    "fast-glob": "^3.0.4"
+    "execa": "^3.2.0",
+    "fast-glob": "^3.1.0"
   }
 }
