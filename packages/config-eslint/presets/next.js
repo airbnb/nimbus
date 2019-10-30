@@ -59,6 +59,7 @@ module.exports = {
     ],
     'react/jsx-key': 'error',
     'react/jsx-no-literals': 'error',
+    'react/jsx-no-useless-fragment': 'warn',
     'react/jsx-sort-default-props': [
       'error',
       {
@@ -154,6 +155,7 @@ module.exports = {
     'unicorn/prefer-node-append': 'error',
     'unicorn/prefer-node-remove': 'error',
     'unicorn/prefer-starts-ends-with': 'error',
+    'unicorn/prefer-string-slice': 'warn',
     'unicorn/prefer-spread': 'off', // Currently broken
     'unicorn/prefer-text-content': 'error',
     'unicorn/prefer-type-error': 'error',
