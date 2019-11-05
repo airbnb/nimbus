@@ -47,6 +47,9 @@ exports.getCompilerOptions = function getCompilerOptions({
     removeComments: false,
     strict: true,
     target: next || node ? 'es2018' : 'es2015',
+    // Use define in development for spec accuracy,
+    // but omit in production for smaller file sizes.
+    useDefineForClassFields: next && process.env.NODE_ENV === 'development',
   };
 
   if (react) {
