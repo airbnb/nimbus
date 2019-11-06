@@ -19,6 +19,7 @@
     "removeComments": false,
     "strict": true,
     "target": "es2018",
+    "useDefineForClassFields": false,
     "outDir": "./lib"
   },
   "include": [
