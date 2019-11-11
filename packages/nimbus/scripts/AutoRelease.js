@@ -50,6 +50,11 @@ module.exports = class AutoReleaseScript extends Script {
       GIT_TERMINAL_PROMPT: 0,
     });
 
+    // Required by Lerna
+    if (env.GITHUB_TOKEN) {
+      process.env.GH_TOKEN = env.GITHUB_TOKEN;
+    }
+
     context.client = createGitHubClient();
     context.repo = parseGitRepo();
   }
