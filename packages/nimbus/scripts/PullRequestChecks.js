@@ -1,7 +1,6 @@
 const { Script } = require('@beemo/core');
-const Octokit = require('@octokit/rest');
 const { checkCommitFormat } = require('conventional-changelog-beemo');
-const pkg = require('../package.json');
+const createGitHubClient = require('./helpers/createGitHubClient');
 
 const { TRAVIS_PULL_REQUEST, TRAVIS_PULL_REQUEST_SLUG } = process.env;
 
@@ -20,32 +19,10 @@ module.exports = class PullRequestChecksScript extends Script {
 
     this.owner = owner;
     this.repo = repo;
-    this.client = this.createGitHubClient();
+    this.client = createGitHubClient();
 
     this.task('Checking for invalid lock file changes', this.checkForInvalidLocks);
     this.task('Checking pull request title', this.checkForConventionalTitle);
-  }
-
-  createGitHubClient() {
-    const { GITHUB_TOKEN, GHE_API_URL, GHE_VERSION } = process.env;
-    const options = {
-      userAgent: `Nimbus v${pkg.version}`,
-    };
-
-    if (GITHUB_TOKEN) {
-      options.auth = `token ${GITHUB_TOKEN}`;
-    }
-
-    if (GHE_API_URL) {
-      options.baseUrl = GHE_API_URL;
-    }
-
-    if (GHE_VERSION) {
-      // eslint-disable-next-line
-      Octokit.plugin(require(`@octokit/plugin-enterprise-rest/ghe-${GHE_VERSION}`));
-    }
-
-    return new Octokit(options);
   }
 
   async checkForInvalidLocks() {
