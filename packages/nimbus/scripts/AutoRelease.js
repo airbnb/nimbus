@@ -1,5 +1,4 @@
 const { Script } = require('@beemo/core');
-const createGitHubClient = require('./helpers/createGitHubClient');
 const { LERNA_VERSION_ARGS } = require('./constants');
 
 // Primarily used within CI jobs
@@ -15,7 +14,7 @@ module.exports = class AutoReleaseScript extends Script {
   }
 
   // https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables
-  async setGitEnvVars(context) {
+  async setGitEnvVars() {
     const { env } = process;
     let name = '';
     let email = '';
@@ -46,8 +45,6 @@ module.exports = class AutoReleaseScript extends Script {
       GIT_ASKPASS: 'echo',
       GIT_TERMINAL_PROMPT: 0,
     });
-
-    context.client = createGitHubClient();
   }
 
   // https://github.com/lerna/lerna/tree/master/commands/version#readme
