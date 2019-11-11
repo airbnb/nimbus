@@ -34,12 +34,6 @@
       "node": true
     },
     "eslint": {
-      "env": {
-        "node": true
-      },
-      "rules": {
-        "import/prefer-default-export": "off"
-      },
       "ignore": [
         "*.config.js"
       ]
