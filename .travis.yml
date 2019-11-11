@@ -23,7 +23,8 @@ jobs:
     - name: Test @ 12
       script: yarn test
       node_js: '12'
-    - stage: Release Packages
+    - stage: Release
+      name: NPM
       if: branch = master
       node_js: '12'
       before_deploy:
