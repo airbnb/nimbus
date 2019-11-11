@@ -8,7 +8,7 @@ install:
 jobs:
   fast_finish: true
   include:
-    - state: Prerequisites
+    - stage: Prerequisites
       name: PR Checks
       if: type = pull_request
       script: yarn beemo run-script pull-request-checks
