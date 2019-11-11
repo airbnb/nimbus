@@ -19,7 +19,7 @@ module.exports = class AutoReleaseScript extends Script {
 
   // https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables
   async setGitEnvVars(context) {
-    const { env, GITHUB_USER, GITHUB_EMAIL } = process;
+    const { env } = process;
     let name = '';
     let email = '';
 
@@ -36,8 +36,8 @@ module.exports = class AutoReleaseScript extends Script {
         email = gitEmail.stdout;
       }
     } catch (error) {
-      name = GITHUB_USER || 'Airbnb Bot';
-      email = GITHUB_EMAIL || 'airbnb-cli-bot@airbnb.com';
+      name = env.GITHUB_USER || 'Airbnb Bot';
+      email = env.GITHUB_EMAIL || 'airbnb-cli-bot@airbnb.com';
     }
 
     Object.assign(env, {
