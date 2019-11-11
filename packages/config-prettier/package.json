@@ -24,6 +24,6 @@
     "@airbnb/nimbus-common": "^2.0.1",
     "@beemo/core": "^1.0.7",
     "@beemo/driver-prettier": "^1.0.3",
-    "prettier": "^1.18.2"
+    "prettier": "^1.19.1"
   }
 }
