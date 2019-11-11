@@ -8,19 +8,37 @@ install:
 jobs:
   fast_finish: true
   include:
-    - name: PR Checks
+    - state: Prerequisites
+      name: PR Checks
       if: type = pull_request
       script: yarn beemo run-script pull-request-checks
       node_js: '12'
-    - name: Test @ 8
+    - stage: Tests
+      name: Test @ 8
       script: yarn test
       node_js: '8'
     - name: Test @ 10
       script: yarn test
-      node_js: '8'
+      node_js: '10'
     - name: Test @ 12
       script: yarn test
       node_js: '12'
+    - stage: Release Packages
+      if: branch = master
+      node_js: '12'
+      before_deploy:
+        - git config --global user.name ${GITHUB_USER}
+        - git config --global user.email ${GITHUB_EMAIL}
+        - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/airbnb/nimbus.git" >
+          /dev/null 2>&1
+        - git checkout master
+        - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
+      deploy:
+        provider: script
+        script: yarn run release
+        skip_cleanup: true
+        on:
+          branch: master
 notifications:
   email: false
 cache:
