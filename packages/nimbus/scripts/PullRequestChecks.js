@@ -1,3 +1,4 @@
+const path = require('path');
 const { Script } = require('@beemo/core');
 const { checkCommitFormat } = require('conventional-changelog-beemo');
 const createGitHubClient = require('./helpers/createGitHubClient');
@@ -32,13 +33,16 @@ module.exports = class PullRequestChecksScript extends Script {
       pull_number: TRAVIS_PULL_REQUEST,
     });
 
-    const fileNames = files.map(file => file.filename);
+    const fileNames = new Set(files.map(file => path.basename(file.filename)));
+    const hasPackageChanges = fileNames.has('package.json');
 
-    if (fileNames.includes('package-lock.json') && !fileNames.includes('package.json')) {
+    // this.tool.log('Changed files: %s', Array.from(fileNames).join(', '));
+
+    if (fileNames.has('package-lock.json') && !hasPackageChanges) {
       throw new Error('Your PR contains changes to package-lock.json, but not package.json.');
-    } else if (fileNames.includes('npm-shrinkwrap.json') && !fileNames.includes('package.json')) {
+    } else if (fileNames.has('npm-shrinkwrap.json') && !hasPackageChanges) {
       throw new Error('Your PR contains changes to npm-shrinkwrap.json, but not package.json.');
-    } else if (fileNames.includes('yarn.lock') && !fileNames.includes('package.json')) {
+    } else if (fileNames.has('yarn.lock') && !hasPackageChanges) {
       throw new Error('Your PR contains changes to yarn.lock, but not package.json.');
     }
   }
@@ -49,6 +53,8 @@ module.exports = class PullRequestChecksScript extends Script {
       repo: this.repo,
       pull_number: TRAVIS_PULL_REQUEST,
     });
+
+    // this.tool.log('PR title: %s', pr.title);
 
     if (!checkCommitFormat(pr.title)) {
       throw new Error(
