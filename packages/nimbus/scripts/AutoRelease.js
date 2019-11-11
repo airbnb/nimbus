@@ -77,7 +77,7 @@ module.exports = class AutoReleaseScript extends Script {
         return response;
       })
       .catch(error => {
-        this.tool.logError(error.stderr);
+        this.tool.log.error(error.stderr);
 
         throw error;
       });
