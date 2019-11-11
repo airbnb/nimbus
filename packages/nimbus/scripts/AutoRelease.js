@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign, class-methods-use-this, import/no-extraneous-dependencies */
-
 const { Script } = require('@beemo/core');
 const { createGitHubClient, parseGitRepo } = require('@lerna/github-client');
 const { getLastTag, getCommitsSince } = require('@airbnb/nimbus-common/git');

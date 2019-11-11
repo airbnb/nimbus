@@ -1,0 +1,20 @@
+language: node_js
+node_js: '12'
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH=$HOME/.yarn/bin:$PATH
+install:
+  - yarn install --frozen-lockfile --ignore-engines
+before_script:
+  - yarn run build
+jobs:
+  fast_finish: true
+  include:
+    - name: PR Checks
+      if: type = pull_request
+      script: yarn beemo run-script pull-request-checks
+      node_js: '12'
+notifications:
+  email: false
+cache:
+  yarn: true
