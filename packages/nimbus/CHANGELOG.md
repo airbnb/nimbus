@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.0 - 2019-11-11
+
+#### 🚀 Updates
+
+- Migrate to Travis CI. Refactor `AutoRelease` script and add `PullRequestChecks` script. (#14) ([da4985d](https://github.com/airbnb/nimbus/commit/da4985d)), closes [#14](https://github.com/airbnb/nimbus/issues/14)
+
+#### 📦 Dependencies
+
+- Audit 2019-11-10 (#16) ([85d6ac1](https://github.com/airbnb/nimbus/commit/85d6ac1)), closes [#16](https://github.com/airbnb/nimbus/issues/16)
+
+#### 🛠 Internals
+
+- Fix auto-release script. (#15) ([ca1d778](https://github.com/airbnb/nimbus/commit/ca1d778)), closes [#15](https://github.com/airbnb/nimbus/issues/15)
+
+**Note:** Version bump only for package @airbnb/nimbus
+
+
+
+
+
 ### 2.0.4 - 2019-10-30
 
 #### 📦 Dependencies
