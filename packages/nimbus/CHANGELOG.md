@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.1.1 - 2019-11-13
+
+#### 🐞 Fixes
+
+- Fix token handling for scripts. ([0f93102](https://github.com/airbnb/nimbus/commit/0f93102))
+
+#### 📦 Dependencies
+
+- **[Beemo]** Update to latest. ([ba663d6](https://github.com/airbnb/nimbus/commit/ba663d6))
+
+**Note:** Version bump only for package @airbnb/nimbus
+
+
+
+
+
 ## 2.1.0 - 2019-11-11
 
 #### 🚀 Updates

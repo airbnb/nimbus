@@ -1,6 +1,6 @@
 {
   "name": "@airbnb/config-babel",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Reusable Babel config.",
   "keywords": [
     "nimbus",
@@ -18,7 +18,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@airbnb/nimbus-common": "^2.0.1",
+    "@airbnb/nimbus-common": "^2.0.2",
     "@babel/cli": "^7.7.0",
     "@babel/core": "^7.7.2",
     "@babel/plugin-proposal-class-properties": "^7.7.0",
