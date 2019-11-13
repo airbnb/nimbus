@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.1.2 - 2019-11-13
+
+#### 🐞 Fixes
+
+- Define Lerna token if not defined. ([01c5205](https://github.com/airbnb/nimbus/commit/01c5205))
+
+**Note:** Version bump only for package @airbnb/nimbus
+
+
+
+
+
 ### 2.1.1 - 2019-11-13
 
 #### 🐞 Fixes
