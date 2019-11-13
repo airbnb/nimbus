@@ -33,12 +33,7 @@ module.exports = class AutoReleaseScript extends Script {
       }
     } catch (error) {
       name = env.GITHUB_USER || 'Airbnb Bot';
-      email = env.GITHUB_EMAIL || 'airbnb-cli-bot@airbnb.com';
-    }
-
-    // Required by Lerna
-    if (env.GITHUB_TOKEN) {
-      env.GH_TOKEN = env.GITHUB_TOKEN;
+      email = env.GITHUB_EMAIL || 'airbnb-ci-bot@airbnb.com';
     }
 
     Object.assign(process.env, {
@@ -46,27 +41,40 @@ module.exports = class AutoReleaseScript extends Script {
       GIT_AUTHOR_EMAIL: email,
       GIT_COMMITTER_NAME: name,
       GIT_COMMITTER_EMAIL: email,
-      ...env,
       GIT_ASKPASS: 'echo',
-      GIT_TERMINAL_PROMPT: 0,
+      GIT_TERMINAL_PROMPT: '0',
+      // Required by Lerna
+      GH_TOKEN: env.GH_TOKEN || env.GITHUB_TOKEN,
     });
   }
 
   // https://github.com/lerna/lerna/tree/master/commands/version#readme
   versionPackages() {
-    return this.handleCommand(this.executeCommand('lerna', LERNA_VERSION_ARGS));
+    return this.handleCommand(
+      this.executeCommand('lerna', LERNA_VERSION_ARGS, {
+        extendEnv: true,
+        preferLocal: true,
+      }),
+    );
   }
 
   // https://github.com/lerna/lerna/tree/master/commands/publish#readme
   publishPackages() {
     return this.handleCommand(
-      this.executeCommand('lerna', [
-        'publish',
-        'from-git',
-        '--yes',
-        // Run pre and post scripts in each package if available
-        '--require-scripts',
-      ]),
+      this.executeCommand(
+        'lerna',
+        [
+          'publish',
+          'from-git',
+          '--yes',
+          // Run pre and post scripts in each package if available
+          '--require-scripts',
+        ],
+        {
+          extendEnv: true,
+          preferLocal: true,
+        },
+      ),
     );
   }
 

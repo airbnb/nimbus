@@ -1,15 +1,14 @@
 const Octokit = require('@octokit/rest');
 const pkg = require('../../package.json');
 
-const { GITHUB_TOKEN, GHE_API_URL, GHE_VERSION } = process.env;
-
-module.exports = function createGitHubClient(token = GITHUB_TOKEN) {
+module.exports = function createGitHubClient(token) {
+  const { GITHUB_TOKEN, GHE_API_URL, GHE_VERSION } = process.env;
   const options = {
     userAgent: `Nimbus v${pkg.version}`,
   };
 
-  if (token) {
-    options.auth = `token ${token}`;
+  if (token || GITHUB_TOKEN) {
+    options.auth = `token ${token || GITHUB_TOKEN}`;
   }
 
   if (GHE_API_URL) {
