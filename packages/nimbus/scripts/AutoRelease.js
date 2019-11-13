@@ -36,7 +36,12 @@ module.exports = class AutoReleaseScript extends Script {
       email = env.GITHUB_EMAIL || 'airbnb-cli-bot@airbnb.com';
     }
 
-    Object.assign(env, {
+    // Required by Lerna
+    if (env.GITHUB_TOKEN) {
+      env.GH_TOKEN = env.GITHUB_TOKEN;
+    }
+
+    Object.assign(process.env, {
       GIT_AUTHOR_NAME: name,
       GIT_AUTHOR_EMAIL: email,
       GIT_COMMITTER_NAME: name,
