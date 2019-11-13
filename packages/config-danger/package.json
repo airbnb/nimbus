@@ -23,7 +23,7 @@
     "@types/node": "^12.12.7"
   },
   "dependencies": {
-    "conventional-changelog-beemo": "^1.5.1",
-    "danger": "^9.2.4"
+    "conventional-changelog-beemo": "^1.5.3",
+    "danger": "^9.2.8"
   }
 }
