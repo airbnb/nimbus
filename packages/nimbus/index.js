@@ -64,6 +64,7 @@ module.exports = function cli(tool) {
    * ESLINT
    * - Add default extensions.
    * - Lint source and test folders by default.
+   * - Create a `tsconfig.eslint.json` file.
    */
   tool.onRunDriver.listen((context, driver) => {
     context.addOptions(['--color']);
@@ -79,47 +80,47 @@ module.exports = function cli(tool) {
     if (usingPrettier) {
       driver.options.dependencies.push('prettier');
     }
+
+    // Create a specialized tsconfig for ESLint
+    driver.onCreateConfigFile.listen(createContext => {
+      if (!usingTypeScript) {
+        return;
+      }
+
+      const configPath = path.join(createContext.cwd, 'tsconfig.eslint.json');
+      const include = [`${typesFolder}/**/*`]; // Always allow global types
+      let extendsFrom = './tsconfig.json';
+
+      if (workspaces.length === 0) {
+        include.push(`${srcFolder}/**/*`, `${testsFolder}/**/*`);
+      } else {
+        extendsFrom = './tsconfig.options.json';
+
+        workspaces.forEach(wsPath => {
+          include.push(
+            path.join(wsPath, `${srcFolder}/**/*`),
+            path.join(wsPath, `${testsFolder}/**/*`),
+            path.join(wsPath, `${typesFolder}/**/*`),
+          );
+        });
+      }
+
+      fs.writeFileSync(
+        configPath,
+        JSON.stringify(
+          {
+            extends: extendsFrom,
+            include,
+          },
+          null,
+          2,
+        ),
+        'utf8',
+      );
+
+      createContext.addConfigPath('eslint', configPath);
+    });
   }, 'eslint');
-
-  // Create a specialized tsconfig for ESLint
-  tool.getPlugin('driver', 'eslint').onCreateConfigFile.listen(context => {
-    if (!usingTypeScript) {
-      return;
-    }
-
-    const configPath = path.join(process.cwd(), 'tsconfig.eslint.json');
-    const include = [`${typesFolder}/**/*`]; // Always allow global types
-    let extendsFrom = './tsconfig.json';
-
-    if (workspaces.length === 0) {
-      include.push(`${srcFolder}/**/*`, `${testsFolder}/**/*`);
-    } else {
-      extendsFrom = './tsconfig.options.json';
-
-      workspaces.forEach(wsPath => {
-        include.push(
-          path.join(wsPath, `${srcFolder}/**/*`),
-          path.join(wsPath, `${testsFolder}/**/*`),
-          path.join(wsPath, `${typesFolder}/**/*`),
-        );
-      });
-    }
-
-    fs.writeFileSync(
-      configPath,
-      JSON.stringify(
-        {
-          extends: extendsFrom,
-          include,
-        },
-        null,
-        2,
-      ),
-      'utf8',
-    );
-
-    context.addConfigPath('eslint', configPath);
-  });
 
   /**
    * JEST
