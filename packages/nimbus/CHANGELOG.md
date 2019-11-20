@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.1.3 - 2019-11-20
+
+#### 🐞 Fixes
+
+- Fix ESLint config always being required. (#18) ([06dce37](https://github.com/airbnb/nimbus/commit/06dce37)), closes [#18](https://github.com/airbnb/nimbus/issues/18)
+
+**Note:** Version bump only for package @airbnb/nimbus
+
+
+
+
+
 ### 2.1.2 - 2019-11-13
 
 #### 🐞 Fixes
