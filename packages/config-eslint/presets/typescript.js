@@ -103,6 +103,8 @@ module.exports = {
         '@typescript-eslint/no-use-before-define': 'error',
         '@typescript-eslint/prefer-for-of': 'error',
         '@typescript-eslint/prefer-namespace-keyword': 'error',
+        '@typescript-eslint/prefer-nullish-coalescing': 'warn',
+        '@typescript-eslint/prefer-optional-chain': 'warn',
         '@typescript-eslint/promise-function-async': 'off', // Conflicts with other async rules
         '@typescript-eslint/require-await': 'error',
         '@typescript-eslint/triple-slash-reference': 'error',

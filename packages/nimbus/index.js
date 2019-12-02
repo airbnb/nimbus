@@ -49,7 +49,7 @@ module.exports = function cli(tool) {
    * - Add default extensions.
    * - Add source and output dirs by default.
    */
-  tool.onRunDriver.listen(context => {
+  tool.onRunDriver.listen((context, driver) => {
     if (!context.args.extensions) {
       context.addOption('--extensions', exts.join(','));
     }
@@ -58,6 +58,9 @@ module.exports = function cli(tool) {
       context.addArg(`./${srcFolder}`);
       context.addOption('--out-dir', context.args.esm ? './esm' : `./${buildFolder}`);
     }
+
+    // Changed in v7.7
+    driver.metadata.filterOptions = true;
   }, 'babel');
 
   /**
