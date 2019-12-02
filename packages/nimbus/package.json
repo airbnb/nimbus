@@ -30,8 +30,8 @@
   },
   "dependencies": {
     "@airbnb/nimbus-common": "^2.0.2",
-    "@beemo/cli": "^1.0.6",
-    "@beemo/core": "^1.0.8",
+    "@beemo/cli": "^1.0.7",
+    "@beemo/core": "^1.0.9",
     "chalk": "^3.0.0",
     "check-node-version": "^4.0.1",
     "conventional-changelog-beemo": "^1.5.3",
