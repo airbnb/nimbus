@@ -20,6 +20,6 @@
   },
   "dependencies": {
     "execa": "^3.3.0",
-    "fast-glob": "^3.1.0"
+    "fast-glob": "^3.1.1"
   }
 }

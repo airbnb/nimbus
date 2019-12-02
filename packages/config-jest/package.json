@@ -26,7 +26,7 @@
     "@beemo/core": "^1.0.9",
     "@beemo/driver-babel": "^1.0.6",
     "@beemo/driver-jest": "^1.0.4",
-    "airbnb-js-shims": "^2.2.0",
+    "airbnb-js-shims": "^2.2.1",
     "dom-storage": "^2.1.0",
     "jest": "^24.9.0"
   }
