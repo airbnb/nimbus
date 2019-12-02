@@ -1,6 +1,6 @@
 {
   "name": "@airbnb/config-danger",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "Reusable Danger.js scripts.",
   "keywords": [
     "nimbus",

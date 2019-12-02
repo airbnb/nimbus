@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.0.3 - 2019-12-02
+
+#### 🐞 Fixes
+
+- Removed `css` and `scss` from asset file list. ([1ebe44f](https://github.com/airbnb/nimbus/commit/1ebe44f))
+
+#### 📦 Dependencies
+
+- Update minor and patch versions. ([6a8a5f5](https://github.com/airbnb/nimbus/commit/6a8a5f5))
+
+**Note:** Version bump only for package @airbnb/nimbus-common
+
+
+
+
+
 ### 2.0.2 - 2019-11-13
 
 #### 📦 Dependencies

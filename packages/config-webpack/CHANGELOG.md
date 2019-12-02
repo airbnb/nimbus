@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.1.3 - 2019-12-02
+
+#### 📦 Dependencies
+
+- Update minor and patch versions. ([6a8a5f5](https://github.com/airbnb/nimbus/commit/6a8a5f5))
+- Updated `file-loader` to v5. ([e49f7f6](https://github.com/airbnb/nimbus/commit/e49f7f6))
+- Updated `url-loader` to v3. ([023cbec](https://github.com/airbnb/nimbus/commit/023cbec))
+- **[babel]** Update to latest. ([122a2a7](https://github.com/airbnb/nimbus/commit/122a2a7))
+- **[beemo]** Update to latest. ([85ce5ba](https://github.com/airbnb/nimbus/commit/85ce5ba))
+
+**Note:** Version bump only for package @airbnb/config-webpack
+
+
+
+
+
 ### 2.1.2 - 2019-11-13
 
 #### 📦 Dependencies

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.1.3 - 2019-12-02
+
+#### 🐞 Fixes
+
+- Add `aphrodite` and `enzyme` as optional peer deps. [#17] ([b7ea888](https://github.com/airbnb/nimbus/commit/b7ea888)), closes [#17](https://github.com/airbnb/nimbus/issues/17)
+
+#### 📦 Dependencies
+
+- Update minor and patch versions. ([6a8a5f5](https://github.com/airbnb/nimbus/commit/6a8a5f5))
+- **[babel]** Update to latest. ([122a2a7](https://github.com/airbnb/nimbus/commit/122a2a7))
+- **[beemo]** Update to latest. ([85ce5ba](https://github.com/airbnb/nimbus/commit/85ce5ba))
+
+**Note:** Version bump only for package @airbnb/config-jest
+
+
+
+
+
 ### 2.1.2 - 2019-11-13
 
 #### 📦 Dependencies

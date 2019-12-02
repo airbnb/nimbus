@@ -1,6 +1,6 @@
 {
   "name": "@airbnb/nimbus",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "Centralized CLI for JavaScript and TypeScript dev tools.",
   "keywords": [
     "nimbus",
@@ -29,7 +29,7 @@
     "node": ">=8.9.0"
   },
   "dependencies": {
-    "@airbnb/nimbus-common": "^2.0.2",
+    "@airbnb/nimbus-common": "^2.0.3",
     "@beemo/cli": "^1.0.7",
     "@beemo/core": "^1.0.9",
     "chalk": "^3.0.0",
