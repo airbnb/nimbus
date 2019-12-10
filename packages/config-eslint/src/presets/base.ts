@@ -1,12 +1,13 @@
-const path = require('path');
-const {
+import { Path } from '@beemo/core';
+import { ESLintConfig } from '@beemo/driver-eslint';
+import {
   EXTS,
   EXTS_GROUP,
   ASSET_EXT_PATTERN,
   GQL_EXT_PATTERN,
-} = require('@airbnb/nimbus-common/constants');
+} from '@airbnb/nimbus-common/lib/constants';
 
-module.exports = {
+const config: ESLintConfig = {
   root: true,
 
   parser: 'babel-eslint',
@@ -45,7 +46,7 @@ module.exports = {
       node: {
         extensions: EXTS,
       },
-      [path.join(__dirname, '../resolvers/graphql.js')]: {
+      [Path.resolve('../resolvers/graphql.js', __dirname).path()]: {
         extensions: ['.gql', '.graphql'],
       },
     },
@@ -104,3 +105,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;

@@ -1,6 +1,7 @@
-const { EXTS_GROUP } = require('@airbnb/nimbus-common/constants');
+import { ESLintConfig } from '@beemo/driver-eslint';
+import { EXTS_GROUP } from '@airbnb/nimbus-common/lib/constants';
 
-module.exports = {
+const config: ESLintConfig = {
   plugins: ['promise', 'unicorn'],
 
   rules: {
@@ -177,3 +178,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;

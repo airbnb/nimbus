@@ -1,36 +1,26 @@
-// @ts-check
+import { Path } from '@beemo/core';
+import { IGNORE_PATHS } from '@airbnb/nimbus-common/lib/constants';
 
-const path = require('path');
-const { IGNORE_PATHS } = require('@airbnb/nimbus-common/constants');
+export interface ESLintOptions {
+  next?: boolean;
+  node?: boolean;
+  prettier?: boolean;
+  typescript?: boolean;
+}
 
-/**
- * @typedef {object} ConfigOptions
- * @property {boolean} [next]
- * @property {boolean} [node]
- * @property {boolean} [prettier]
- * @property {boolean} [typescript]
- */
-
-/**
- * @param {string} filePath
- * @returns {string}
- */
-function fromHere(filePath) {
-  return `./${path.relative(process.cwd(), path.join(__dirname, filePath))}`;
+function fromHere(filePath: string): string {
+  return `./lib/${new Path(process.cwd()).relativeTo(Path.resolve(filePath, __dirname))}`;
 }
 
 /**
  * Create a root project config for a project.
- *
- * @param {ConfigOptions} options
- * @returns {string[]}
  */
-exports.getExtendsList = function getExtendsList({
+export function getExtendsList({
   next = false,
   node = false,
   prettier = false,
   typescript = false,
-}) {
+}: ESLintOptions): string[] {
   const paths = [fromHere('presets/base.js')];
 
   // Future rules
@@ -62,13 +52,11 @@ exports.getExtendsList = function getExtendsList({
   }
 
   return paths;
-};
+}
 
 /**
  * Return a list of common files to ignore.
- *
- * @returns {string[]}
  */
-exports.getIgnoreList = function getIgnoreList() {
+export function getIgnoreList(): string[] {
   return [...IGNORE_PATHS];
-};
+}

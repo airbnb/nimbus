@@ -8,6 +8,9 @@
       "path": "packages/config-danger"
     },
     {
+      "path": "packages/config-eslint"
+    },
+    {
       "path": "packages/config-jest"
     },
     {

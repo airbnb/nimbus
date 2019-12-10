@@ -1,4 +1,6 @@
-module.exports = {
+import { ESLintConfig } from '@beemo/driver-eslint';
+
+const config: ESLintConfig = {
   extends: ['prettier', 'prettier/react'],
 
   plugins: ['prettier'],
@@ -7,3 +9,5 @@ module.exports = {
     'prettier/prettier': 'error',
   },
 };
+
+export default config;

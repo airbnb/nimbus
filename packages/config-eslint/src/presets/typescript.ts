@@ -1,5 +1,6 @@
-const { fromRoot } = require('@airbnb/nimbus-common');
-const { EXTS_GROUP } = require('@airbnb/nimbus-common/constants');
+import { ESLintConfig } from '@beemo/driver-eslint';
+import { fromRoot } from '@airbnb/nimbus-common';
+import { EXTS_GROUP } from '@airbnb/nimbus-common/lib/constants';
 
 // In TS, all arguments are required for type information,
 // so we need to override the base JS setting.
@@ -9,7 +10,7 @@ const noUnused = { vars: 'all', args: 'none', ignoreRestSiblings: true };
 // so let's use a specialized TS config that globs everything.
 const project = fromRoot('tsconfig.eslint.json', true) || fromRoot('tsconfig.json');
 
-module.exports = {
+const config: ESLintConfig = {
   settings: {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
@@ -114,3 +115,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;
