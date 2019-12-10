@@ -5,6 +5,12 @@
       "path": "packages/config-babel"
     },
     {
+      "path": "packages/config-danger"
+    },
+    {
+      "path": "packages/config-jest"
+    },
+    {
       "path": "packages/nimbus-common"
     }
   ],

@@ -22,7 +22,6 @@ interface BabelOptions {
 /**
  * Create a root project config for a project.
  */
-// eslint-disable-next-line
 export function getConfig({
   env = {},
   esm = false,

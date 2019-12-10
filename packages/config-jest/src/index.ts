@@ -1,65 +1,51 @@
-// @ts-check
-
-const path = require('path');
-const {
+import { Path } from '@beemo/core';
+import { JestConfig } from '@beemo/driver-jest';
+import {
   EXTS,
   IGNORE_PATHS,
   ASSET_EXT_PATTERN,
   GQL_EXT_PATTERN,
   TJSX_EXT_PATTERN,
-} = require('@airbnb/nimbus-common/constants');
+} from '@airbnb/nimbus-common/lib/constants';
 
-/**
- * @typedef { import("@beemo/driver-jest").JestConfig } JestConfig
- * @typedef {object} ConfigOptions
- * @property {boolean} [graphql]
- * @property {boolean} [react]
- * @property {string} srcFolder
- * @property {string} testFolder
- * @property {number} [threshold]
- * @property {string[]} [workspaces]
- */
+export interface JestOptions {
+  graphql?: boolean;
+  react?: boolean;
+  srcFolder: string;
+  testFolder: string;
+  threshold?: number;
+  workspaces?: string[];
+}
 
 const exts = EXTS.map(ext => ext.slice(1));
 const extsWithoutJSON = exts.filter(ext => ext !== 'json');
 
-/**
- * @param {string} filePath
- * @returns {string}
- */
-function fromHere(filePath) {
-  return `<rootDir>/${path.relative(process.cwd(), path.join(__dirname, filePath))}`;
+function fromHere(filePath: string): string {
+  return `<rootDir>/${new Path(process.cwd()).relativeTo(Path.resolve(filePath, __dirname))}`;
 }
 
-/**
- * @param {string} folder
- * @returns {string}
- */
-function createCoveragePattern(folder) {
+function createCoveragePattern(folder: string): string {
   return `**/${folder}/**/*.{${extsWithoutJSON.join(',')}}`;
 }
 
 /**
  * Create a root project config for a project.
- *
- * @param {ConfigOptions} options
- * @returns {JestConfig}
  */
-exports.getConfig = function getConfig({
+export function getConfig({
   graphql = false,
   react = false,
   srcFolder,
   testFolder,
   threshold = 75,
   workspaces = [],
-}) {
-  const roots = [];
+}: JestOptions): JestConfig {
+  const roots: string[] = [];
   const setupFiles = [fromHere('setup/shims.js'), fromHere('setup/console.js')];
   const setupFilesAfterEnv = [fromHere('bootstrap/consumer.js')];
 
   if (workspaces.length > 0) {
     workspaces.forEach(wsPath => {
-      roots.push(path.join('<rootDir>', wsPath.replace('/*', '')));
+      roots.push(new Path('<rootDir>', wsPath.replace('/*', '')).path());
     });
   } else {
     roots.push('<rootDir>');
@@ -74,8 +60,7 @@ exports.getConfig = function getConfig({
     setupFilesAfterEnv.unshift(fromHere('bootstrap/graphql.js'));
   }
 
-  /** @type {JestConfig} */
-  const config = {
+  const config: JestConfig = {
     bail: false,
     collectCoverageFrom: [createCoveragePattern(srcFolder), createCoveragePattern(testFolder)],
     coverageDirectory: './coverage',
@@ -114,4 +99,4 @@ exports.getConfig = function getConfig({
   }
 
   return config;
-};
+}
