@@ -178,7 +178,7 @@ export async function setup() {
 
   console.log(`${chalk.cyan('[2/6]')} Updating package settings`);
 
-  await addNimbusToPackage(response);
+  addNimbusToPackage(response);
 
   console.log(`${chalk.cyan('[3/6]')} Installing dependencies`);
 
@@ -191,7 +191,7 @@ export async function setup() {
   console.log(`${chalk.cyan('[4/6]')} Adding package scripts`);
 
   if (response.scripts) {
-    await addScriptsToPackage(response);
+    addScriptsToPackage(response);
   } else {
     console.log(chalk.gray('Not chosen, skipping'));
   }

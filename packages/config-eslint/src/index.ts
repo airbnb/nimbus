@@ -9,7 +9,9 @@ export interface ESLintOptions {
 }
 
 function fromHere(filePath: string): string {
-  return `./lib/${new Path(process.cwd()).relativeTo(Path.resolve(filePath, __dirname))}`;
+  return `./${new Path(process.cwd()).relativeTo(
+    new Path(__dirname, '../lib', filePath).resolve(),
+  )}`;
 }
 
 /**

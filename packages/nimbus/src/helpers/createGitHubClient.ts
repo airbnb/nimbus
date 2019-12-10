@@ -8,6 +8,7 @@ export default function createGitHubClient(token?: string): Octokit {
   };
 
   if (token || GITHUB_TOKEN) {
+    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
     options.auth = `token ${token || GITHUB_TOKEN}`;
   }
 

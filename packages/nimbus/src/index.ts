@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-
 import fs from 'fs';
 import { getSettings } from '@airbnb/nimbus-common';
 import Beemo, { DriverContext, Path } from '@beemo/core';
@@ -124,7 +122,8 @@ export default function nimbus(tool: Beemo) {
     }
 
     if (usingTypeScript) {
-      driver.options.dependencies.push('typescript');
+      // Still needed?
+      // driver.options.dependencies.push('typescript');
     }
 
     driver.configure({

@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-syntax, no-await-in-loop, @typescript-eslint/prefer-nullish-coalescing */
+
 import fs from 'fs';
 import chalk from 'chalk';
 import execa from 'execa';
@@ -112,28 +114,33 @@ function migratePackageScripts(nimbus: NimbusPackage['nimbus']) {
   pkg.save();
 }
 
-async function migrateEslint() {
+function migrateEslint() {
   const configPath = Path.resolve('.eslintrc.js').path();
-  const configOps = require('eslint/lib/config/config-ops');
   const { extends: extendPaths, ...rootConfig } = require(configPath);
   let config: { extends: string[]; parserOptions?: object } = { extends: [] };
 
   (extendPaths as string[]).forEach(extendPath => {
     if (extendPath.startsWith('.')) {
-      config = configOps.merge(config, require(extendPath));
+      config = {
+        ...config,
+        ...require(extendPath),
+      };
     } else {
       config.extends.push(extendPath);
     }
   });
 
-  config = configOps.merge(config, rootConfig);
+  config = {
+    ...config,
+    ...rootConfig,
+  };
 
   delete config.parserOptions;
 
   writeJsFile(configPath, config);
 }
 
-async function migrateJest() {
+function migrateJest() {
   const configPath = Path.resolve('jest.config.js').path();
   const config = require(configPath);
 
@@ -157,7 +164,7 @@ async function migrateJest() {
   writeJsFile(configPath, config);
 }
 
-async function migrateWebpack() {
+function migrateWebpack() {
   const configPath = Path.resolve('webpack.config.js').path();
   const url = 'https://github.com/airbnb/nimbus/blob/master/packages/config-webpack/index.js';
 

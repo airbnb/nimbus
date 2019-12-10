@@ -21,7 +21,9 @@ const exts = EXTS.map(ext => ext.slice(1));
 const extsWithoutJSON = exts.filter(ext => ext !== 'json');
 
 function fromHere(filePath: string): string {
-  return `<rootDir>/${new Path(process.cwd()).relativeTo(Path.resolve(filePath, __dirname))}`;
+  return `<rootDir>/${new Path(process.cwd()).relativeTo(
+    new Path(__dirname, '..', filePath).resolve(),
+  )}`;
 }
 
 function createCoveragePattern(folder: string): string {

@@ -9,7 +9,7 @@
     "test": "yarn run build && yarn run jest && yarn run eslint",
     "eslint": "beemo eslint .",
     "jest": "beemo jest",
-    "prettier": "beemo prettier \"./packages/**/*.{ts,js}\"",
+    "prettier": "beemo prettier",
     "prerelease": "yarn run test && yarn run build",
     "release": "beemo run-script auto-release"
   },
