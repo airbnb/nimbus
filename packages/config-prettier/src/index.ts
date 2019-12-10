@@ -1,17 +1,10 @@
-// @ts-check
-
-const { IGNORE_PATHS } = require('@airbnb/nimbus-common/constants');
-
-/**
- * @typedef { import("@beemo/driver-prettier").PrettierConfig } PrettierConfig
- */
+import { PrettierConfig } from '@beemo/driver-prettier';
+import { IGNORE_PATHS } from '@airbnb/nimbus-common/lib/constants';
 
 /**
  * Create a root project config for a project.
- *
- * @returns {PrettierConfig}
  */
-exports.getConfig = function getConfig() {
+export function getConfig(): PrettierConfig {
   return {
     arrowParens: 'avoid',
     bracketSpacing: true,
@@ -25,14 +18,12 @@ exports.getConfig = function getConfig() {
     trailingComma: 'all',
     useTabs: false,
   };
-};
+}
 
 /**
  * Return a list of common files to ignore.
- *
- * @returns {string[]}
  */
-exports.getIgnoreList = function getIgnoreList() {
+export function getIgnoreList(): string[] {
   return [
     ...IGNORE_PATHS,
     'lerna.json',
@@ -44,4 +35,4 @@ exports.getIgnoreList = function getIgnoreList() {
     'tsconfig.options.json',
     'CHANGELOG.md',
   ];
-};
+}

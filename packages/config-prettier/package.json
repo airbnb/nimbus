@@ -7,7 +7,7 @@
     "config",
     "prettier"
   ],
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:airbnb/nimbus.git"

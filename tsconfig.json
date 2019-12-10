@@ -11,6 +11,9 @@
       "path": "packages/config-jest"
     },
     {
+      "path": "packages/config-prettier"
+    },
+    {
       "path": "packages/nimbus-common"
     }
   ],
