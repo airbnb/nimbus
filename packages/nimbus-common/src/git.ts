@@ -1,32 +1,20 @@
-// @ts-check
+import execa from 'execa';
 
-const execa = require('execa');
-
-/**
- * @returns {Promise<string>}
- */
-exports.getLastTag = function getLastTag() {
+export function getLastTag(): Promise<string> {
   return execa('git', ['describe', '--tags', '--abbrev=0', '@^']).then(response =>
     response.stdout.trim(),
   );
-};
+}
 
-/**
- * @params {string} since
- * @returns {Promise<string[]>}
- */
-exports.getCommitsSince = function getCommitsSince(since) {
+export function getCommitsSince(since: string): Promise<string[]> {
   return execa('git', ['log', '--oneline', `${since}..@`]).then(response =>
     response.stdout.trim().split('\n'),
   );
-};
+}
 
 let commitHash = '';
 
-/**
- * @returns {string}
- */
-exports.getCommitHash = function getCommitHash() {
+export function getCommitHash(): string {
   if (commitHash) {
     return commitHash;
   }
@@ -38,4 +26,4 @@ exports.getCommitHash = function getCommitHash() {
   }
 
   return commitHash;
-};
+}

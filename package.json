@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "prepare": "beemo create-config --silent",
+    "build:raw": "tsc --build",
     "build": "beemo typescript --build --reference-workspaces",
     "test": "yarn run build && yarn run jest && yarn run eslint",
     "eslint": "beemo eslint .",
@@ -36,7 +37,10 @@
     "eslint": {
       "ignore": [
         "*.config.js"
-      ]
+      ],
+      "rules": {
+        "import/prefer-default-export": "off"
+      }
     },
     "prettier": {
       "ignore": [

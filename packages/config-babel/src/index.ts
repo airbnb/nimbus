@@ -1,29 +1,29 @@
-// @ts-check
+import { BabelConfig } from '@beemo/driver-babel';
+import { IGNORE_PATHS, NODE_TARGET, WEB_TARGET } from '@airbnb/nimbus-common/lib/constants';
 
-const { IGNORE_PATHS, NODE_TARGET, WEB_TARGET } = require('@airbnb/nimbus-common/constants');
+interface BabelEnvOptions {
+  loose?: boolean;
+  modules?: string | boolean;
+  shippedProposals?: boolean;
+  [option: string]: unknown;
+}
 
-/**
- * @typedef { import("@beemo/driver-babel").BabelConfig } BabelConfig
- * @typedef {string | import("@beemo/driver-babel").PresetEntry} Preset
- * @typedef {string | import("@beemo/driver-babel").PluginEntry} Plugin
- * @typedef {object} ConfigOptions
- * @property {object} [env]
- * @property {boolean} [esm]
- * @property {boolean} [graphql]
- * @property {boolean} [library]
- * @property {boolean} [next]
- * @property {boolean} [node]
- * @property {boolean} [react]
- * @property {boolean} [typescript]
- */
+interface BabelOptions {
+  env?: BabelEnvOptions;
+  esm?: boolean;
+  graphql?: boolean;
+  library?: boolean;
+  next?: boolean;
+  node?: boolean;
+  react?: boolean;
+  typescript?: boolean;
+}
 
 /**
  * Create a root project config for a project.
- *
- * @param {ConfigOptions} options
- * @returns {BabelConfig}
  */
-exports.getConfig = function getConfig({
+// eslint-disable-next-line
+export function getConfig({
   env = {},
   esm = false,
   graphql = false,
@@ -32,18 +32,19 @@ exports.getConfig = function getConfig({
   node = false,
   react = false,
   typescript = false,
-}) {
-  const envOptions = {
+}: BabelOptions): BabelConfig {
+  const envOptions: BabelEnvOptions = {
     loose: true,
     modules: esm ? false : 'commonjs',
     shippedProposals: next,
     targets: node ? NODE_TARGET : WEB_TARGET,
     ...env,
   };
-  /** @type {Preset[]} */
-  const presets = [['@babel/preset-env', envOptions]];
-  /** @type {Plugin[]} */
-  const plugins = ['babel-plugin-idx', ['babel-plugin-transform-dev', { evaluate: false }]];
+  const presets: BabelConfig['presets'] = [['@babel/preset-env', envOptions]];
+  const plugins: BabelConfig['plugins'] = [
+    'babel-plugin-idx',
+    ['babel-plugin-transform-dev', { evaluate: false }],
+  ];
 
   // Flags
   let useNext = next;
@@ -117,4 +118,4 @@ exports.getConfig = function getConfig({
     plugins,
     presets,
   };
-};
+}

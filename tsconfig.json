@@ -1,0 +1,12 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "packages/config-babel"
+    },
+    {
+      "path": "packages/nimbus-common"
+    }
+  ],
+  "extends": "./tsconfig.options.json"
+}

@@ -1,8 +1,4 @@
-/**
- * @param {string} fullName
- * @returns {string}
- */
-exports.stripHOCs = function stripHOCs(fullName) {
+export function stripHOCs(fullName: string): string {
   if (typeof fullName !== 'string') {
     return fullName;
   }
@@ -22,4 +18,4 @@ exports.stripHOCs = function stripHOCs(fullName) {
   }
 
   return innerName;
-};
+}
