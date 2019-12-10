@@ -1,11 +1,6 @@
 import { Path } from '@beemo/core';
 import { ESLintConfig } from '@beemo/driver-eslint';
-import {
-  EXTS,
-  EXTS_GROUP,
-  ASSET_EXT_PATTERN,
-  GQL_EXT_PATTERN,
-} from '@airbnb/nimbus-common/lib/constants';
+import { EXTS, EXTS_GROUP, ASSET_EXT_PATTERN, GQL_EXT_PATTERN } from '@airbnb/nimbus-common';
 
 const config: ESLintConfig = {
   root: true,

@@ -1,5 +1,5 @@
 import { Path } from '@beemo/core';
-import { IGNORE_PATHS } from '@airbnb/nimbus-common/lib/constants';
+import { IGNORE_PATHS } from '@airbnb/nimbus-common';
 
 export interface ESLintOptions {
   next?: boolean;

@@ -6,7 +6,7 @@ import {
   ASSET_EXT_PATTERN,
   GQL_EXT_PATTERN,
   TJSX_EXT_PATTERN,
-} from '@airbnb/nimbus-common/lib/constants';
+} from '@airbnb/nimbus-common';
 
 export interface JestOptions {
   graphql?: boolean;

@@ -1,15 +1,8 @@
 import { BabelConfig } from '@beemo/driver-babel';
-import { IGNORE_PATHS, NODE_TARGET, WEB_TARGET } from '@airbnb/nimbus-common/lib/constants';
-
-interface BabelEnvOptions {
-  loose?: boolean;
-  modules?: string | boolean;
-  shippedProposals?: boolean;
-  [option: string]: unknown;
-}
+import { NimbusEnvSetting, IGNORE_PATHS, NODE_TARGET, WEB_TARGET } from '@airbnb/nimbus-common';
 
 interface BabelOptions {
-  env?: BabelEnvOptions;
+  env?: NimbusEnvSetting;
   esm?: boolean;
   graphql?: boolean;
   library?: boolean;
@@ -32,15 +25,15 @@ export function getConfig({
   react = false,
   typescript = false,
 }: BabelOptions): BabelConfig {
-  const envOptions: BabelEnvOptions = {
+  const envOptions = {
     loose: true,
     modules: esm ? false : 'commonjs',
     shippedProposals: next,
     targets: node ? NODE_TARGET : WEB_TARGET,
     ...env,
   };
-  const presets: BabelConfig['presets'] = [['@babel/preset-env', envOptions]];
-  const plugins: BabelConfig['plugins'] = [
+  const presets: NonNullable<BabelConfig['presets']> = [['@babel/preset-env', envOptions]];
+  const plugins: NonNullable<BabelConfig['plugins']> = [
     'babel-plugin-idx',
     ['babel-plugin-transform-dev', { evaluate: false }],
   ];

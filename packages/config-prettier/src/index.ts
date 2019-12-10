@@ -1,5 +1,5 @@
 import { PrettierConfig } from '@beemo/driver-prettier';
-import { IGNORE_PATHS } from '@airbnb/nimbus-common/lib/constants';
+import { IGNORE_PATHS } from '@airbnb/nimbus-common';
 
 /**
  * Create a root project config for a project.

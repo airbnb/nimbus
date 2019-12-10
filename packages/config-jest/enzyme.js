@@ -1,6 +1,6 @@
 const Enzyme = require('enzyme');
 const { createSerializer } = require('enzyme-to-json');
-const { stripHOCs } = require('@airbnb/nimbus-common/react');
+const { stripHOCs } = require('@airbnb/nimbus-common');
 
 function getAdapter() {
   try {

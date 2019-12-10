@@ -8,13 +8,13 @@ import InlineManifestWebpackPlugin from 'inline-manifest-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { WebpackConfig } from '@beemo/driver-webpack';
-import { getCommitHash } from '@airbnb/nimbus-common/lib/git';
 import {
+  getCommitHash,
   EXTS,
   ASSET_EXT_PATTERN,
   GQL_EXT_PATTERN,
   TJSX_EXT_PATTERN,
-} from '@airbnb/nimbus-common/lib/constants';
+} from '@airbnb/nimbus-common';
 import { PORT, ROOT, PROD, getESMAliases, getFavIcon } from './helpers';
 
 export interface WebpackOptions {

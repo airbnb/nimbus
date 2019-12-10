@@ -1,6 +1,5 @@
 import { ESLintConfig } from '@beemo/driver-eslint';
-import { fromRoot } from '@airbnb/nimbus-common';
-import { EXTS_GROUP } from '@airbnb/nimbus-common/lib/constants';
+import { fromRoot, EXTS_GROUP } from '@airbnb/nimbus-common';
 
 // In TS, all arguments are required for type information,
 // so we need to override the base JS setting.

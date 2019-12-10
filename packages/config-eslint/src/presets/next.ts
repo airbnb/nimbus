@@ -1,5 +1,5 @@
 import { ESLintConfig } from '@beemo/driver-eslint';
-import { EXTS_GROUP } from '@airbnb/nimbus-common/lib/constants';
+import { EXTS_GROUP } from '@airbnb/nimbus-common';
 
 const config: ESLintConfig = {
   plugins: ['promise', 'unicorn'],

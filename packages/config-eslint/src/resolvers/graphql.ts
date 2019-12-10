@@ -1,4 +1,4 @@
-import { GQL_EXT_PATTERN } from '@airbnb/nimbus-common/lib/constants';
+import { GQL_EXT_PATTERN } from '@airbnb/nimbus-common';
 
 export const interfaceVersion = 2;
 
