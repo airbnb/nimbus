@@ -1,44 +1,39 @@
-// @ts-check
 /* eslint-disable no-nested-ternary */
 
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { getCommitHash } = require('@airbnb/nimbus-common/git');
-const {
+import path from 'path';
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+// @ts-ignore Not typed
+import InlineManifestWebpackPlugin from 'inline-manifest-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import { WebpackConfig } from '@beemo/driver-webpack';
+import { getCommitHash } from '@airbnb/nimbus-common/lib/git';
+import {
   EXTS,
   ASSET_EXT_PATTERN,
   GQL_EXT_PATTERN,
   TJSX_EXT_PATTERN,
-} = require('@airbnb/nimbus-common/constants');
-const { PORT, ROOT, PROD, getESMAliases, getFavIcon } = require('./helpers');
+} from '@airbnb/nimbus-common/lib/constants';
+import { PORT, ROOT, PROD, getESMAliases, getFavIcon } from './helpers';
 
-/**
- * @typedef { import("@beemo/driver-webpack").WebpackConfig } WebpackConfig
- * @typedef {object} ConfigOptions
- * @property {boolean} [analyzeBundle]
- * @property {string} [buildFolder]
- * @property {string|number} [port]
- * @property {boolean} [react]
- * @property {boolean} [sourceMaps]
- * @property {string} srcFolder
- */
+export interface WebpackOptions {
+  analyzeBundle?: boolean;
+  buildFolder?: string;
+  port?: string | number;
+  react?: boolean;
+  sourceMaps?: boolean;
+  srcFolder: string;
+}
 
-/**
- * @param {ConfigOptions} options
- * @returns {WebpackConfig}
- */
-exports.getConfig = function getConfig({
+export function getConfig({
   analyzeBundle = false,
   buildFolder = 'public',
   port = PORT,
   react = false,
   sourceMaps = false,
   srcFolder,
-}) {
+}: WebpackOptions): WebpackConfig {
   const srcPath = path.join(ROOT, srcFolder);
   const publicPath = path.join(ROOT, buildFolder);
   const entry = [srcPath];
@@ -173,4 +168,4 @@ exports.getConfig = function getConfig({
 
     stats: !PROD,
   };
-};
+}

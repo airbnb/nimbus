@@ -20,6 +20,9 @@
       "path": "packages/config-typescript"
     },
     {
+      "path": "packages/config-webpack"
+    },
+    {
       "path": "packages/nimbus-common"
     }
   ],
