@@ -14,6 +14,9 @@
       "path": "packages/config-prettier"
     },
     {
+      "path": "packages/config-typescript"
+    },
+    {
       "path": "packages/nimbus-common"
     }
   ],

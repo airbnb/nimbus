@@ -1,35 +1,30 @@
-// @ts-check
 // Keep in sync with the `tsconfig.options.json` file in this package.
 
-/**
- * @typedef { import("@beemo/driver-typescript").TypeScriptConfig } TypeScriptConfig
- * @typedef {object} ConfigOptions
- * @property {string} buildFolder
- * @property {boolean} [includeTests]
- * @property {boolean} [library]
- * @property {boolean} [next]
- * @property {boolean} [node]
- * @property {boolean} [react]
- * @property {string} srcFolder
- * @property {string} testFolder
- * @property {string} typesFolder
- * @property {string[]} [workspaces]
- */
+import { TypeScriptConfig } from '@beemo/driver-typescript';
+
+export interface TypeScriptOptions {
+  buildFolder: string;
+  includeTests?: boolean;
+  library?: boolean;
+  next?: boolean;
+  node?: boolean;
+  react?: boolean;
+  srcFolder: string;
+  testFolder: string;
+  typesFolder: string;
+  workspaces?: string[];
+}
 
 /**
  * Create common compiler options.
- *
- * @param {Partial<ConfigOptions>} options
- * @returns {TypeScriptConfig['compilerOptions']}
  */
-exports.getCompilerOptions = function getCompilerOptions({
+export function getCompilerOptions({
   library = false,
   next = false,
   node = false,
   react = false,
-}) {
-  /** @type {TypeScriptConfig['compilerOptions']} */
-  const options = {
+}: Partial<TypeScriptOptions>): TypeScriptConfig['compilerOptions'] {
+  const options: TypeScriptConfig['compilerOptions'] = {
     allowSyntheticDefaultImports: true,
     declaration: library,
     esModuleInterop: true,
@@ -42,7 +37,6 @@ exports.getCompilerOptions = function getCompilerOptions({
     noEmitOnError: true,
     noImplicitReturns: true,
     noUnusedLocals: true,
-    // @ts-ignore Not in parent type
     pretty: true,
     removeComments: false,
     strict: true,
@@ -57,17 +51,14 @@ exports.getCompilerOptions = function getCompilerOptions({
   }
 
   return options;
-};
+}
 
 /**
  * Create a root configuration object for a single project.
- *
- * @param {ConfigOptions} options
- * @returns {TypeScriptConfig}
  */
-exports.getConfig = function getConfig(options) {
+export function getConfig(options: TypeScriptOptions): TypeScriptConfig {
   const config = {
-    compilerOptions: exports.getCompilerOptions(options),
+    compilerOptions: getCompilerOptions(options)!,
     include: [`./${options.srcFolder}/**/*`, `./${options.typesFolder}/**/*`],
     exclude: ['**/node_modules/*'],
   };
@@ -83,17 +74,14 @@ exports.getConfig = function getConfig(options) {
   config.compilerOptions.outDir = `./${options.buildFolder}`;
 
   return config;
-};
+}
 
 /**
  * Create a root configuration object for a multi-project that uses project references.
- *
- * @param {Partial<ConfigOptions>} options
- * @returns {TypeScriptConfig}
  */
-exports.getConfigWithProjectRefs = function getConfigWithProjectRefs(options) {
+export function getConfigWithProjectRefs(options: Partial<TypeScriptOptions>): TypeScriptConfig {
   const config = {
-    compilerOptions: exports.getCompilerOptions(options),
+    compilerOptions: getCompilerOptions(options)!,
     files: [],
     references: [],
   };
@@ -102,4 +90,4 @@ exports.getConfigWithProjectRefs = function getConfigWithProjectRefs(options) {
   config.compilerOptions.declarationMap = true;
 
   return config;
-};
+}
