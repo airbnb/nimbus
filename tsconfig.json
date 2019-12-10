@@ -23,6 +23,9 @@
       "path": "packages/config-webpack"
     },
     {
+      "path": "packages/nimbus"
+    },
+    {
       "path": "packages/nimbus-common"
     }
   ],

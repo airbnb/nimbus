@@ -1,35 +1,22 @@
 /* eslint-disable no-param-reassign */
-// @ts-check
 
-const fs = require('fs');
-const path = require('path');
-const { getSettings } = require('@airbnb/nimbus-common');
+import fs from 'fs';
+import { getSettings } from '@airbnb/nimbus-common';
+import Beemo, { DriverContext, Path } from '@beemo/core';
 
-/**
- * @param { import("@beemo/core").Context } context
- * @param {string?} name
- * @returns {boolean}
- */
-function hasNoPositionalArgs(context, name) {
+function hasNoPositionalArgs(context: DriverContext, name: string): boolean {
   const args = context.args._;
 
   return args.length === 0 || (args.length === 1 && args[0] === name);
 }
 
-/**
- * @param {string[]} workspaces
- * @returns {string}
- */
-function createWorkspacesGlob(workspaces) {
+function createWorkspacesGlob(workspaces: string[]): string {
   const paths = workspaces.map(p => p.replace('./', ''));
 
   return paths.length === 1 ? `${paths[0]}/` : `{${paths.join(',')}}/`;
 }
 
-/**
- * @param { import("@beemo/core").default } tool
- */
-module.exports = function cli(tool) {
+export default function nimbus(tool: Beemo) {
   const {
     buildFolder,
     docsFolder,
@@ -58,9 +45,6 @@ module.exports = function cli(tool) {
       context.addArg(`./${srcFolder}`);
       context.addOption('--out-dir', context.args.esm ? './esm' : `./${buildFolder}`);
     }
-
-    // Changed in v7.7
-    driver.metadata.filterOptions = true;
   }, 'babel');
 
   /**
@@ -90,7 +74,7 @@ module.exports = function cli(tool) {
         return;
       }
 
-      const configPath = path.join(createContext.cwd, 'tsconfig.eslint.json');
+      const configPath = createContext.cwd.append('tsconfig.eslint.json');
       const include = [`${typesFolder}/**/*`]; // Always allow global types
       let extendsFrom = './tsconfig.json';
 
@@ -99,17 +83,19 @@ module.exports = function cli(tool) {
       } else {
         extendsFrom = './tsconfig.options.json';
 
-        workspaces.forEach(wsPath => {
+        workspaces.forEach(ws => {
+          const wsPath = new Path(ws);
+
           include.push(
-            path.join(wsPath, `${srcFolder}/**/*`),
-            path.join(wsPath, `${testsFolder}/**/*`),
-            path.join(wsPath, `${typesFolder}/**/*`),
+            wsPath.append(`${srcFolder}/**/*`).path(),
+            wsPath.append(`${testsFolder}/**/*`).path(),
+            wsPath.append(`${typesFolder}/**/*`).path(),
           );
         });
       }
 
       fs.writeFileSync(
-        configPath,
+        configPath.path(),
         JSON.stringify(
           {
             extends: extendsFrom,
@@ -141,8 +127,12 @@ module.exports = function cli(tool) {
       driver.options.dependencies.push('typescript');
     }
 
-    driver.options.env.NODE_ENV = 'test';
-    driver.options.env.TZ = 'UTC';
+    driver.configure({
+      env: {
+        NODE_ENV: 'test',
+        TZ: 'UTC',
+      },
+    });
   }, 'jest');
 
   /**
@@ -167,11 +157,9 @@ module.exports = function cli(tool) {
    * - Pass Nimbus settings to the TS driver options.
    */
   tool.onRunDriver.listen((context, driver) => {
-    /** @type { import("@beemo/driver-typescript").default } */
-    // @ts-ignore
-    const tsDriver = driver;
-
-    tsDriver.configure({
+    driver.configure({
+      // Dont want to pull in TS types.
+      // @ts-ignore
       buildFolder,
       srcFolder,
       testsFolder,
@@ -202,11 +190,11 @@ module.exports = function cli(tool) {
     // Since webpack config uses references and doesn't have access to Beemo,
     // we need to set these environment variables for easy access.
     if (context.args.analyze) {
-      driver.options.env.WEBPACK_ANALYZE = context.args.analyze;
+      driver.options.env.WEBPACK_ANALYZE = context.args.analyze ? 'true' : 'false';
     }
 
     if (context.args.sourceMaps) {
-      driver.options.env.SOURCE_MAPS = context.args.sourceMaps;
+      driver.options.env.SOURCE_MAPS = context.args.sourceMaps ? 'true' : 'false';
     }
   }, 'webpack');
-};
+}

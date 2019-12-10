@@ -1,8 +1,7 @@
-const AutoReleaseScript = require('./AutoRelease');
+import AutoReleaseScript from './AutoRelease';
 
-module.exports = class PreReleaseScript extends AutoReleaseScript {
+export default class PreReleaseScript extends AutoReleaseScript {
   bootstrap() {
-    this.task('Getting git commits since last tag', this.getCommitsSinceLastTag);
     this.task('Bumping package versions', this.versionPackages);
     this.task('Publishing packages to NPM', this.publishPackages);
   }
@@ -23,4 +22,4 @@ module.exports = class PreReleaseScript extends AutoReleaseScript {
       ]),
     );
   }
-};
+}

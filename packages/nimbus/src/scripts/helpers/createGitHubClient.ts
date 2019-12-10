@@ -1,9 +1,10 @@
-const Octokit = require('@octokit/rest');
+import Octokit from '@octokit/rest';
+
 const pkg = require('../../package.json');
 
-module.exports = function createGitHubClient(token) {
+export default function createGitHubClient(token?: string): Octokit {
   const { GITHUB_TOKEN, GHE_API_URL, GHE_VERSION } = process.env;
-  const options = {
+  const options: Octokit.Options = {
     userAgent: `Nimbus v${pkg.version}`,
   };
 
@@ -21,4 +22,4 @@ module.exports = function createGitHubClient(token) {
   }
 
   return new Octokit(options);
-};
+}

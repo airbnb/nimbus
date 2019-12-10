@@ -1,13 +1,18 @@
-const execa = require('execa');
+import execa from 'execa';
+
 const { version } = require('../package.json');
 
-exports.BANNER = ` _  _  ____  __  __  ____  __  __  ___
+export const BANNER = ` _  _  ____  __  __  ____  __  __  ___
 ( \\( )(_  _)(  \\/  )(  _ \\(  )(  )/ __)
  )  (  _)(_  )    (  ) _ < )(__)( \\__ \\ v${version}
 (_)\\_)(____)(_/\\/\\_)(____/ (____) (___/
 `;
 
-exports.installDeps = async function installDeps(deps, isYarn, isMonorepo) {
+export async function installDeps(
+  deps: string[],
+  isYarn: boolean = false,
+  isMonorepo: boolean = false,
+) {
   const args = [];
 
   if (isYarn) {
@@ -23,9 +28,13 @@ exports.installDeps = async function installDeps(deps, isYarn, isMonorepo) {
 
     await execa('npm', ['install', ...args, ...deps]);
   }
-};
+}
 
-exports.removeDeps = async function removeDeps(deps, isYarn, isMonorepo) {
+export async function removeDeps(
+  deps: string[],
+  isYarn: boolean = false,
+  isMonorepo: boolean = false,
+) {
   const args = [];
 
   if (isYarn) {
@@ -41,4 +50,4 @@ exports.removeDeps = async function removeDeps(deps, isYarn, isMonorepo) {
 
     await execa('npm', ['uninstall', ...args, ...deps]);
   }
-};
+}

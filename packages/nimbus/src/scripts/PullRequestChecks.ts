@@ -1,12 +1,19 @@
-const path = require('path');
-const { Script } = require('@beemo/core');
-const { checkCommitFormat } = require('conventional-changelog-beemo');
-const createGitHubClient = require('./helpers/createGitHubClient');
+import path from 'path';
+import { Script } from '@beemo/core';
+import Octokit from '@octokit/rest';
+import { checkCommitFormat } from 'conventional-changelog-beemo';
+import createGitHubClient from './helpers/createGitHubClient';
 
 const { TRAVIS_PULL_REQUEST, TRAVIS_PULL_REQUEST_SLUG } = process.env;
 
 // Primarily used within CI jobs
-module.exports = class PullRequestChecksScript extends Script {
+export default class PullRequestChecksScript extends Script {
+  owner!: string;
+
+  repo!: string;
+
+  client!: Octokit;
+
   blueprint() {
     return {};
   }
@@ -16,7 +23,7 @@ module.exports = class PullRequestChecksScript extends Script {
       return;
     }
 
-    const [owner, repo] = TRAVIS_PULL_REQUEST_SLUG.split('/');
+    const [owner, repo] = TRAVIS_PULL_REQUEST_SLUG!.split('/');
 
     this.owner = owner;
     this.repo = repo;
@@ -30,7 +37,7 @@ module.exports = class PullRequestChecksScript extends Script {
     const { data: files } = await this.client.pulls.listFiles({
       owner: this.owner,
       repo: this.repo,
-      pull_number: TRAVIS_PULL_REQUEST,
+      pull_number: Number(TRAVIS_PULL_REQUEST),
     });
 
     const fileNames = new Set(files.map(file => path.basename(file.filename)));
@@ -51,7 +58,7 @@ module.exports = class PullRequestChecksScript extends Script {
     const { data: pr } = await this.client.pulls.get({
       owner: this.owner,
       repo: this.repo,
-      pull_number: TRAVIS_PULL_REQUEST,
+      pull_number: Number(TRAVIS_PULL_REQUEST),
     });
 
     // this.tool.log('PR title: %s', pr.title);
@@ -62,4 +69,4 @@ module.exports = class PullRequestChecksScript extends Script {
       );
     }
   }
-};
+}

@@ -1,7 +1,7 @@
-const AutoReleaseScript = require('./AutoRelease');
-const { LERNA_VERSION_ARGS } = require('./constants');
+import AutoReleaseScript from './AutoRelease';
+import { LERNA_VERSION_ARGS } from './constants';
 
-module.exports = class GraduateScript extends AutoReleaseScript {
+export default class GraduateScript extends AutoReleaseScript {
   versionPackages() {
     return this.handleCommand(
       this.executeCommand('lerna', [
@@ -11,4 +11,4 @@ module.exports = class GraduateScript extends AutoReleaseScript {
       ]),
     );
   }
-};
+}

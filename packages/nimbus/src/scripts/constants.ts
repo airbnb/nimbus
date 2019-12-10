@@ -1,5 +1,5 @@
 // https://github.com/lerna/lerna/tree/master/commands/version#readme
-exports.LERNA_VERSION_ARGS = [
+export const LERNA_VERSION_ARGS = [
   'version',
   '--yes',
   // Only run on master
