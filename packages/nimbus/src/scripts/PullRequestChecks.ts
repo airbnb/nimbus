@@ -2,7 +2,7 @@ import path from 'path';
 import { Script } from '@beemo/core';
 import Octokit from '@octokit/rest';
 import { checkCommitFormat } from 'conventional-changelog-beemo';
-import createGitHubClient from './helpers/createGitHubClient';
+import createGitHubClient from '../helpers/createGitHubClient';
 
 const { TRAVIS_PULL_REQUEST, TRAVIS_PULL_REQUEST_SLUG } = process.env;
 

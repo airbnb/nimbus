@@ -1,11 +1,10 @@
 import Octokit from '@octokit/rest';
-
-const pkg = require('../../package.json');
+import { VERSION } from '../constants';
 
 export default function createGitHubClient(token?: string): Octokit {
   const { GITHUB_TOKEN, GHE_API_URL, GHE_VERSION } = process.env;
   const options: Octokit.Options = {
-    userAgent: `Nimbus v${pkg.version}`,
+    userAgent: `Nimbus v${VERSION}`,
   };
 
   if (token || GITHUB_TOKEN) {

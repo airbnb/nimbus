@@ -1,6 +1,6 @@
-import { Script } from '@beemo/core';
-import { LERNA_VERSION_ARGS } from './constants';
 import { ExecaReturnValue } from 'execa';
+import { Script } from '@beemo/core';
+import { LERNA_VERSION_ARGS } from '../constants';
 
 // Primarily used within CI jobs
 export default class AutoReleaseScript extends Script {
@@ -79,7 +79,7 @@ export default class AutoReleaseScript extends Script {
     );
   }
 
-  handleCommand(promise: Promise<ExecaReturnValue>) {
+  handleCommand(promise: Promise<ExecaReturnValue>): Promise<ExecaReturnValue> {
     return promise
       .then(response => {
         const out = response.stdout.trim();

@@ -1,8 +1,9 @@
+import { ExecaReturnValue } from 'execa';
 import AutoReleaseScript from './AutoRelease';
-import { LERNA_VERSION_ARGS } from './constants';
+import { LERNA_VERSION_ARGS } from '../constants';
 
 export default class GraduateScript extends AutoReleaseScript {
-  versionPackages() {
+  versionPackages(): Promise<ExecaReturnValue> {
     return this.handleCommand(
       this.executeCommand('lerna', [
         ...LERNA_VERSION_ARGS,

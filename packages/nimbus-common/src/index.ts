@@ -21,7 +21,7 @@ export interface NimbusSettings {
 }
 
 export interface NimbusPackage extends PackageConfig {
-  nimbus: BeemoConfig<NimbusSettings>;
+  nimbus: BeemoConfig<Partial<NimbusSettings>>;
 }
 
 export { execa, glob };

@@ -1,3 +1,13 @@
+const { version } = require('../package.json');
+
+export const VERSION = version;
+
+export const BANNER = ` _  _  ____  __  __  ____  __  __  ___
+( \\( )(_  _)(  \\/  )(  _ \\(  )(  )/ __)
+ )  (  _)(_  )    (  ) _ < )(__)( \\__ \\ v${VERSION}
+(_)\\_)(____)(_/\\/\\_)(____/ (____) (___/
+`;
+
 // https://github.com/lerna/lerna/tree/master/commands/version#readme
 export const LERNA_VERSION_ARGS = [
   'version',

@@ -1,3 +1,4 @@
+import { ExecaReturnValue } from 'execa';
 import AutoReleaseScript from './AutoRelease';
 
 export default class PreReleaseScript extends AutoReleaseScript {
@@ -6,7 +7,7 @@ export default class PreReleaseScript extends AutoReleaseScript {
     this.task('Publishing packages to NPM', this.publishPackages);
   }
 
-  versionPackages() {
+  versionPackages(): Promise<ExecaReturnValue> {
     return this.handleCommand(
       this.executeCommand('lerna', [
         'version',
