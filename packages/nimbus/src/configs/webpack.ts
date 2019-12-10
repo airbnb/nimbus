@@ -1,11 +1,9 @@
-// @ts-check
-
-const { getConfig } = require('@airbnb/config-webpack');
-const { getSettings } = require('@airbnb/nimbus-common');
+import { getConfig } from '@airbnb/config-webpack';
+import { getSettings } from '@airbnb/nimbus-common';
 
 const { srcFolder, react } = getSettings();
 
-module.exports = getConfig({
+export default getConfig({
   analyzeBundle: !!process.env.WEBPACK_ANALYZE,
   port: process.env.PORT,
   react,

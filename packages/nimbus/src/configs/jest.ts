@@ -1,11 +1,9 @@
-// @ts-check
-
-const { getConfig } = require('@airbnb/config-jest');
-const { getSettings } = require('@airbnb/nimbus-common');
+import { getConfig } from '@airbnb/config-jest';
+import { getSettings } from '@airbnb/nimbus-common';
 
 const { coverage, graphql, react, srcFolder, testFolder } = getSettings();
 
-module.exports = getConfig({
+export default getConfig({
   srcFolder,
   testFolder,
   graphql,

@@ -1,12 +1,10 @@
-// @ts-check
-
-const { getExtendsList, getIgnoreList } = require('@airbnb/config-eslint');
-const { getSettings } = require('@airbnb/nimbus-common');
+import { getExtendsList, getIgnoreList } from '@airbnb/config-eslint';
+import { getSettings } from '@airbnb/nimbus-common';
 
 const { tool } = process.beemo;
 const { next, node } = getSettings();
 
-module.exports = {
+export default {
   extends: getExtendsList({
     next,
     node,

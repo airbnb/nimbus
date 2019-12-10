@@ -1,14 +1,13 @@
-// @ts-check
-
-const { getConfig } = require('@airbnb/config-babel');
-const { getSettings } = require('@airbnb/nimbus-common');
+import { getConfig } from '@airbnb/config-babel';
+import { getSettings } from '@airbnb/nimbus-common';
 
 const { context, tool } = process.beemo;
 const { graphql, library, next, node, react, env } = getSettings();
 
-module.exports = getConfig({
+export default getConfig({
+  // @ts-ignore TODO
   env,
-  esm: !!(context.args.esm || process.env.ESM),
+  esm: Boolean(context.args.esm || process.env.ESM),
   graphql,
   library,
   next,
