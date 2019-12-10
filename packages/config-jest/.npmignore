@@ -1,4 +1,4 @@
 src/
-types/
+tests/
 .eslintrc
 tsconfig.json
