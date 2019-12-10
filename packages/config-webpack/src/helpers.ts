@@ -1,5 +1,3 @@
-// import fs from 'fs';
-// import path from 'path';
 import glob from 'fast-glob';
 import { Path } from '@beemo/core';
 import { getPackage } from '@airbnb/nimbus-common';

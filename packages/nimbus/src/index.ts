@@ -189,11 +189,11 @@ export default function nimbus(tool: Beemo) {
     // Since webpack config uses references and doesn't have access to Beemo,
     // we need to set these environment variables for easy access.
     if (context.args.analyze) {
-      driver.options.env.WEBPACK_ANALYZE = context.args.analyze ? 'true' : 'false';
+      driver.options.env.WEBPACK_ANALYZE = context.args.analyze ? 'true' : '';
     }
 
     if (context.args.sourceMaps) {
-      driver.options.env.SOURCE_MAPS = context.args.sourceMaps ? 'true' : 'false';
+      driver.options.env.SOURCE_MAPS = context.args.sourceMaps ? 'true' : '';
     }
   }, 'webpack');
 }
