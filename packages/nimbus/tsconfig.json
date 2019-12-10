@@ -17,6 +17,27 @@
   "references": [
     {
       "path": "../nimbus-common"
+    },
+    {
+      "path": "../config-babel"
+    },
+    {
+      "path": "../config-danger"
+    },
+    {
+      "path": "../config-eslint"
+    },
+    {
+      "path": "../config-jest"
+    },
+    {
+      "path": "../config-prettier"
+    },
+    {
+      "path": "../config-typescript"
+    },
+    {
+      "path": "../config-webpack"
     }
   ]
 }
