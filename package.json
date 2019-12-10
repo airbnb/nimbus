@@ -6,11 +6,12 @@
     "prepare": "beemo create-config --silent",
     "setup": "tsc --build",
     "build": "beemo typescript --build --reference-workspaces",
+    "clean": "rm -rf packages/*/{lib,*.tsbuildinfo}",
     "test": "yarn run build && yarn run jest && yarn run eslint",
     "eslint": "beemo eslint .",
     "jest": "beemo jest",
     "prettier": "beemo prettier",
-    "prerelease": "yarn run test && yarn run build",
+    "prerelease": "yarn run clean && yarn run test",
     "release": "beemo run-script auto-release"
   },
   "repository": {

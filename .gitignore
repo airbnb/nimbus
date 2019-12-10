@@ -11,6 +11,7 @@ logs/
 
 # Directories
 node_modules/
+lib/
 
 # Configs
 .babelrc
@@ -20,6 +21,6 @@ node_modules/
 babel.config.js
 jest.config.js
 prettier.config.js
-*.tsbuildinfo
 tsconfig.eslint.json
 webpack.config.js
+*.tsbuildinfo
