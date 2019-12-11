@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@airbnb/nimbus-common": "^2.0.3",
-    "@babel/core": "^7.7.4",
+    "@babel/core": "^7.7.5",
     "@beemo/core": "^1.1.1",
     "@beemo/driver-webpack": "^1.2.0",
     "babel-loader": "^8.0.6",
