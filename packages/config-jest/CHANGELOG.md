@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.0 - 2019-12-11
+
+#### 🚀 Updates
+
+- Upgrade Beemo and rewrite in TS. (#20) ([e30533c](https://github.com/airbnb/nimbus/commit/e30533c)), closes [#20](https://github.com/airbnb/nimbus/issues/20)
+
+#### 📦 Dependencies
+
+- **[babel]** Update to latest. ([4b6c3f4](https://github.com/airbnb/nimbus/commit/4b6c3f4))
+
+**Note:** Version bump only for package @airbnb/config-jest
+
+
+
+
+
 ### 2.1.3 - 2019-12-02
 
 #### 🐞 Fixes
