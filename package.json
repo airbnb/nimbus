@@ -12,7 +12,7 @@
     "jest": "beemo jest",
     "prettier": "beemo prettier",
     "prerelease": "yarn run clean && yarn run test",
-    "release": "beemo run-script auto-release"
+    "release": "git reset --hard && beemo run-script auto-release"
   },
   "repository": {
     "type": "git",
