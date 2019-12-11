@@ -3,8 +3,8 @@
   "name": "nimbus-root",
   "version": "0.0.0",
   "scripts": {
-    "prepare": "beemo create-config --silent",
-    "setup": "tsc --build --listFiles --extendedDiagnostics --verbose",
+    "prepare": "beemo create-config eslint prettier",
+    "setup": "tsc --build",
     "build": "beemo typescript --build --reference-workspaces",
     "clean": "rm -rf packages/*/{lib,*.tsbuildinfo}",
     "test": "yarn run build && yarn run jest && yarn run eslint",
