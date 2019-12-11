@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "prepare": "beemo create-config --silent",
-    "setup": "tsc --build",
+    "setup": "tsc --build --listFiles --extendedDiagnostics --verbose",
     "build": "beemo typescript --build --reference-workspaces",
     "clean": "rm -rf packages/*/{lib,*.tsbuildinfo}",
     "test": "yarn run build && yarn run jest && yarn run eslint",
