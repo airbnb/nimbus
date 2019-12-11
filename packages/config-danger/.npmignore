@@ -1,2 +1,4 @@
 src/
+types/
 .eslintrc
+tsconfig.json

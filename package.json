@@ -3,13 +3,15 @@
   "name": "nimbus-root",
   "version": "0.0.0",
   "scripts": {
-    "prepare": "beemo create-config --silent",
+    "prepare": "beemo create-config eslint prettier",
+    "setup": "tsc --build",
     "build": "beemo typescript --build --reference-workspaces",
+    "clean": "rm -rf packages/*/{lib,*.tsbuildinfo}",
     "test": "yarn run build && yarn run jest && yarn run eslint",
     "eslint": "beemo eslint .",
     "jest": "beemo jest",
-    "prettier": "beemo prettier \"./packages/**/*.{ts,js}\"",
-    "prerelease": "yarn run test && yarn run build",
+    "prettier": "beemo prettier",
+    "prerelease": "yarn run clean && yarn run test",
     "release": "beemo run-script auto-release"
   },
   "repository": {
@@ -36,7 +38,10 @@
     "eslint": {
       "ignore": [
         "*.config.js"
-      ]
+      ],
+      "rules": {
+        "import/prefer-default-export": "off"
+      }
     },
     "prettier": {
       "ignore": [

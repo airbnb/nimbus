@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "declarationDir": "lib",
+    "outDir": "lib",
+    "rootDir": "src"
+  },
+  "exclude": [
+    "lib",
+    "test"
+  ],
+  "extends": "../../tsconfig.options.json",
+  "include": [
+    "src/**/*",
+    "types/**/*",
+    "../../types/**/*"
+  ],
+  "references": [
+    {
+      "path": "../nimbus-common"
+    },
+    {
+      "path": "../config-babel"
+    },
+    {
+      "path": "../config-danger"
+    },
+    {
+      "path": "../config-eslint"
+    },
+    {
+      "path": "../config-jest"
+    },
+    {
+      "path": "../config-prettier"
+    },
+    {
+      "path": "../config-typescript"
+    },
+    {
+      "path": "../config-webpack"
+    }
+  ]
+}

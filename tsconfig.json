@@ -1,0 +1,33 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "packages/config-babel"
+    },
+    {
+      "path": "packages/config-danger"
+    },
+    {
+      "path": "packages/config-eslint"
+    },
+    {
+      "path": "packages/config-jest"
+    },
+    {
+      "path": "packages/config-prettier"
+    },
+    {
+      "path": "packages/config-typescript"
+    },
+    {
+      "path": "packages/config-webpack"
+    },
+    {
+      "path": "packages/nimbus"
+    },
+    {
+      "path": "packages/nimbus-common"
+    }
+  ],
+  "extends": "./tsconfig.options"
+}

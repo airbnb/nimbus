@@ -852,26 +852,27 @@
     semver "^6.3.0"
     yargs "^15.0.2"
 
-"@beemo/core@^1.0.9":
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/@beemo/core/-/core-1.0.9.tgz#8d8d067244ed7f9379da1bf24f23527453340e35"
-  integrity sha512-SAbsTTZFm4/Gujti/Na7jbbfjsUqnKoFtukpEnwkB6yey4R3s+iY9GxwqsTjYp3xCyjzcFbnkXHnPAYDih4D/Q==
+"@beemo/core@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@beemo/core/-/core-1.1.1.tgz#8ff82bb248975eb752398b7ee53f263e2469af1c"
+  integrity sha512-26rXyW2Y0ipTtiVRNf5blHKQZe3DLYjNVEMUx99fFktr41w7ZzHJIPfrWZIj8/vc4wFJopkJOKrTKpw6KDmEkg==
   dependencies:
     "@beemo/dependency-graph" "^1.0.1"
-    "@boost/core" "^1.13.4"
+    "@boost/common" "^1.6.0"
+    "@boost/core" "^1.16.0"
     "@boost/event" "^1.1.1"
     "@types/micromatch" "^3.1.1"
     "@types/yargs" "^13.0.0"
     "@types/yargs-parser" "^13.0.0"
     chalk "^3.0.0"
-    execa "^3.3.0"
+    execa "^3.4.0"
     fast-glob "^3.0.4"
     fs-extra "^8.1.0"
     hygen "^5.0.3"
     is-glob "^4.0.1"
     lodash "^4.17.15"
     micromatch "^4.0.2"
-    optimal "^3.2.1"
+    optimal "^3.3.0"
     yargs "^15.0.2"
     yargs-parser "^16.1.0"
 
@@ -880,72 +881,72 @@
   resolved "https://registry.yarnpkg.com/@beemo/dependency-graph/-/dependency-graph-1.0.1.tgz#572b547a435a3b6e8d964c6caadef5e3d2a7284f"
   integrity sha512-ATco1JiZX+B+J5BdEmMGKPcnrjebOAV1TIe/r1VAydnGTSQLbmqt7H/QAG1+VfPlWB8k+bRBOAiw3HjTTleemg==
 
-"@beemo/driver-babel@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@beemo/driver-babel/-/driver-babel-1.0.6.tgz#2ec547c71f8ab592865f176bb746bbaeacd13681"
-  integrity sha512-HkCyubjaLg1KD35n0KwYlL+ZUe5txjcqlfUOgqg0oIHV1zkoBvuIWF5QqWQgAg5iWuDIB9vepxt7mhGaTH6UtQ==
+"@beemo/driver-babel@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@beemo/driver-babel/-/driver-babel-1.2.0.tgz#a5808980789a3804f4c43dcc1d0ee3b399fd4632"
+  integrity sha512-YXDW/mbXqlS0Ba+6ECsCHThq5H8qDqY3l/wejYzhBaaVvMl+YE+ZZRhGNTGwZ9FBTgwUwfFmxXlsIMs1nX+s/w==
   dependencies:
     rimraf "^3.0.0"
 
-"@beemo/driver-eslint@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@beemo/driver-eslint/-/driver-eslint-1.0.7.tgz#3deb3946f0d6a26a5dbe999966fc9811d2a2ba0e"
-  integrity sha512-IRBn67ohVoTk+1bot5I1SO8HPl1CjwRBcppBM1iyINvtUy8qj39DE9Nw09J6YoblYSn54nqUQg1xo1mYQcTtGw==
+"@beemo/driver-eslint@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@beemo/driver-eslint/-/driver-eslint-1.2.0.tgz#7db72744a815630710bd68b0d31add57d3a5dd1a"
+  integrity sha512-ZWxOVDi1tgmvnzunUob9r3u0kHfIIXcQbWZpvxhe+SwPUIAVVQS88r7kVlP0/l+jEfF3HP3x8CO25iXcxurEJA==
   dependencies:
     "@boost/event" "^1.1.1"
 
-"@beemo/driver-jest@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@beemo/driver-jest/-/driver-jest-1.0.4.tgz#ed54f636219733f028edb1c81543d2fcd9e4b3ed"
-  integrity sha512-zkTkRYEYDYgom91kyQcXwXivs5pJxcpEF0dmBrhgTlg+JZZjK/jo+Yvj7rtlWAyG2qZfchfLLFEuL59Au+NrbQ==
+"@beemo/driver-jest@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@beemo/driver-jest/-/driver-jest-1.1.1.tgz#f199159839e6edceb77f40e20e3a021e2cb4c77b"
+  integrity sha512-xYto/0JzvgSeMRSghJS6+hcgXILmcLHbWBYmc7PU+VSLezZkjzSIP815FAP1KupSsunwTLhfDiSXP/kPDnJDcg==
   dependencies:
     "@jest/types" "^24.9.0"
 
-"@beemo/driver-prettier@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@beemo/driver-prettier/-/driver-prettier-1.0.4.tgz#236499bbcb148d1966ce7d71b8429a43b5cb42aa"
-  integrity sha512-VLLSAlQdcnE1GHa/3Cfv39zr1ztO2Xuv+yzAi9mcfXLOJjoM0yoeAoJBtEBCm9garJuKlBe0RK5DespCcg4X5w==
+"@beemo/driver-prettier@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@beemo/driver-prettier/-/driver-prettier-1.2.0.tgz#54ce3d6aeb35992ec7ac94148bc6e07c4145aa9d"
+  integrity sha512-ZHVi5cIlw9ZCkGS4WbyfZ8+5s4Eq1rfv6FrfFXakP6m5QGsVf5C5ewngZXxSBc6TIEACZiv/r5y89XVEPt3T7w==
   dependencies:
     "@boost/event" "^1.1.1"
     "@types/prettier" "*"
 
-"@beemo/driver-typescript@^1.1.6":
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/@beemo/driver-typescript/-/driver-typescript-1.1.6.tgz#0b48d5ee9404feaf1817953a7a2538d1922fbd6c"
-  integrity sha512-9JZb4xtNhzmGAbzedngw9TXUVD0jom1eHn6CoHdt4QUVl0chLsTb6/U5Dr8lnEV1/3VZ90VLwSkKjSEHSfFCAw==
+"@beemo/driver-typescript@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@beemo/driver-typescript/-/driver-typescript-1.3.0.tgz#523f41d295fb608c2cf9f64bfd83141749c74bc6"
+  integrity sha512-tVAaSussl6hvenqztAbl2rBe3ug7g6j8vSK7An1B0KYEPtrLxAXsh+GVmh3iMi3IDyFVcv1mffxAXVeIin0GQQ==
   dependencies:
     "@boost/event" "^1.1.1"
     rimraf "^3.0.0"
 
-"@beemo/driver-webpack@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@beemo/driver-webpack/-/driver-webpack-1.0.7.tgz#fdc1200fb3f390f51b092ef246e8cf8243351daf"
-  integrity sha512-4ZM46pKFrg/BjsDeNE/+BTnDko28jNY1+TipzML+8bSnwMMFuUFf4hhLdtCTJMYe7UmzWO/7XU7+c3va7XbhYA==
+"@beemo/driver-webpack@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@beemo/driver-webpack/-/driver-webpack-1.2.0.tgz#c9bb52578b0844c799f62b63ed2d9955903f05f0"
+  integrity sha512-tHrBVwfgn/PZSng3S9Tfq9xl5UJmquRSlQPaFhE2TWO48WugzSC55OwWcwBgcJoGHNECB1RuJ48vr+r/vMrw2w==
   dependencies:
     "@types/webpack" "*"
 
-"@boost/common@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@boost/common/-/common-1.5.0.tgz#e4df5b5e63470acaa8296111e177e00710a3c3a2"
-  integrity sha512-erY/xg10SXR+tCfMNePcQX20FleM69RY74hgbSUmMtdFq30+LXntGsosLQ+Jo4hGwRcrvrYA05DX5GE+HoHNxA==
+"@boost/common@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@boost/common/-/common-1.6.0.tgz#0b86dec4d8e77cde07568d20249e64dcf4a15fff"
+  integrity sha512-vPHNamTx0YuewDdUJB13eQSMpV6PH0I2umX2T9xNk4YXzqswj5NjlpvHAAuM+4zJsP5CW+oNWmxETx4yGJbUQg==
   dependencies:
     "@boost/internal" "^1.0.1"
     js-yaml "^3.13.1"
     json5 "^2.1.1"
-    optimal "^3.2.1"
+    optimal "^3.3.0"
     pretty-ms "^5.1.0"
 
-"@boost/core@^1.13.4":
-  version "1.15.0"
-  resolved "https://registry.yarnpkg.com/@boost/core/-/core-1.15.0.tgz#d5fb35e567d78a2daf67ec69b770d28d0ced526a"
-  integrity sha512-0ywPHTjQzjbwlZrwHzEGx6m6kwEzzAquZAl46BxL2xSP73bycAzUaA4GLxAxsCfbJvXVfnZb8PXoR2F1Sk34Bg==
+"@boost/core@^1.16.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@boost/core/-/core-1.16.0.tgz#128326788e2f9976cbca2d0c76e9100b7b07da5c"
+  integrity sha512-d7x8pvWgweeTr8S9imYDDaYtWpHWZ9sDuWoG7ZK0tTsrXGv6bRvdmC9o/YNVOVRhOEV+pv2FrvNrgjxapNcrew==
   dependencies:
-    "@boost/common" "^1.5.0"
-    "@boost/debug" "^1.3.1"
+    "@boost/common" "^1.6.0"
+    "@boost/debug" "^1.3.2"
     "@boost/event" "^1.1.1"
     "@boost/internal" "^1.0.1"
-    "@boost/log" "^1.1.6"
-    "@boost/translate" "^1.3.1"
+    "@boost/log" "^1.1.7"
+    "@boost/translate" "^1.3.2"
     "@types/debug" "^4.1.5"
     "@types/yargs" "^13.0.3"
     "@types/yargs-parser" "^13.1.0"
@@ -956,11 +957,11 @@
     env-ci "^4.5.1"
     execa "^3.4.0"
     exit "^0.1.2"
-    fast-glob "^3.1.0"
+    fast-glob "^3.1.1"
     fs-extra "^8.1.0"
     json5 "^2.1.1"
     lodash "^4.17.15"
-    optimal "^3.2.1"
+    optimal "^3.3.0"
     pluralize "^8.0.0"
     split "^1.0.1"
     strip-ansi "^6.0.0"
@@ -968,12 +969,12 @@
     wrap-ansi "^6.2.0"
     yargs-parser "^16.1.0"
 
-"@boost/debug@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@boost/debug/-/debug-1.3.1.tgz#bd3bcb32e7f3bb00c07d4aa9a71fb4d2b0fd294d"
-  integrity sha512-1UWx989iaPZoigP1ufwS0HK+3lE/sKfZ1XQ3ABwBYY2UkCQ2OSdWMXxeCNhZ78ky98v3OntTRrk+CzTyiccIaA==
+"@boost/debug@^1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@boost/debug/-/debug-1.3.2.tgz#fb81e6897fa71a42f91e2967e01aa2682009e5fd"
+  integrity sha512-Fagpbb/3RBGSIpp7+pOCm4QUW2CGsxhmOM5ijDHFVHIuDCGVXIF8tVhCTrXXcvCQJokvVae42aElyYetbn6qIg==
   dependencies:
-    "@boost/common" "^1.5.0"
+    "@boost/common" "^1.6.0"
     "@boost/internal" "^1.0.1"
     "@types/debug" "^4.1.5"
     debug "^4.1.1"
@@ -994,21 +995,21 @@
     chalk "^3.0.0"
     debug "^4.1.1"
 
-"@boost/log@^1.1.6":
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/@boost/log/-/log-1.1.6.tgz#2b85595b1969009c984f8762e7078dfa0043bfb3"
-  integrity sha512-d8SWEfjJgAtU/OZfokbJiKgFCH2YLBxEoW3+bbSD2Cf/z7r5i4mWlZNHZG4OW52qDj+gFADq423mCiRqmyRb9w==
+"@boost/log@^1.1.7":
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/@boost/log/-/log-1.1.7.tgz#bd02323b7e9b9722d7a3cf3c7d0c61d686f56719"
+  integrity sha512-OZfNbaUDoE75hCiccY1V/9OwalksjHzNP9kZ9G+yixryX8Tbhl2JqJQAucUztwwb5i68Wtlnlj4SxLLobAykvg==
   dependencies:
     "@boost/internal" "^1.0.1"
-    "@boost/translate" "^1.3.1"
+    "@boost/translate" "^1.3.2"
     chalk "^3.0.0"
 
-"@boost/translate@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@boost/translate/-/translate-1.3.1.tgz#4e5a376356770321f22493022f49563d9ef30836"
-  integrity sha512-fPDSfk1N1vOtRAxxJXZC8aoydh5ipjr60uoIAXVS2IbF1keQpkLRWuh1tWUSSQhmO+Y4xMmOZloWXmUHuZIdRA==
+"@boost/translate@^1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@boost/translate/-/translate-1.3.2.tgz#4c8588a93a079a18443fc5215661e2bf4b8226c5"
+  integrity sha512-BgPzEQ6lNlLU3V+KceHt90M+G6nV57192KDQfy3Dwd4/PkKT9LC6NKy3CqRT7CAAR8FnUonafz9DI/M69l7MvQ==
   dependencies:
-    "@boost/common" "^1.5.0"
+    "@boost/common" "^1.6.0"
     "@boost/internal" "^1.0.1"
     i18next "^19.0.1"
     os-locale "^4.0.0"
@@ -2039,6 +2040,13 @@
   resolved "https://registry.yarnpkg.com/@types/braces/-/braces-3.0.0.tgz#7da1c0d44ff1c7eb660a36ec078ea61ba7eb42cb"
   integrity sha512-TbH79tcyi9FHwbyboOKeRachRq63mSuWYXOflsNO9ZyE5ClQ/JaozNKl+aWUq87qPNsXasXxi2AbgfwIJ+8GQw==
 
+"@types/clean-css@*":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@types/clean-css/-/clean-css-4.2.1.tgz#cb0134241ec5e6ede1b5344bc829668fd9871a8d"
+  integrity sha512-A1HQhQ0hkvqqByJMgg+Wiv9p9XdoYEzuwm11SVo1mX2/4PSdhjcrUlilJQoqLscIheC51t1D5g+EFWCXZ2VTQQ==
+  dependencies:
+    "@types/node" "*"
+
 "@types/debug@^4.1.5":
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.5.tgz#b14efa8852b7768d898906613c23f688713e02cd"
@@ -2062,6 +2070,24 @@
     "@types/events" "*"
     "@types/minimatch" "*"
     "@types/node" "*"
+
+"@types/html-minifier@*":
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/@types/html-minifier/-/html-minifier-3.5.3.tgz#5276845138db2cebc54c789e0aaf87621a21e84f"
+  integrity sha512-j1P/4PcWVVCPEy5lofcHnQ6BtXz9tHGiFPWzqm7TtGuWZEfCHEP446HlkSNc9fQgNJaJZ6ewPtp2aaFla/Uerg==
+  dependencies:
+    "@types/clean-css" "*"
+    "@types/relateurl" "*"
+    "@types/uglify-js" "*"
+
+"@types/html-webpack-plugin@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@types/html-webpack-plugin/-/html-webpack-plugin-3.2.1.tgz#d3401407261ec82cb0fc380df28e57c94e851e4d"
+  integrity sha512-H8Pj1/Urx6qlUednZpNsveDVUsO63gQdu5DLaAf9t7iG0iyK0OS4XKFG5v1PSG1Nek9S65BrPrKt8DfEib02ng==
+  dependencies:
+    "@types/html-minifier" "*"
+    "@types/tapable" "*"
+    "@types/webpack" "*"
 
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.1"
@@ -2122,6 +2148,11 @@
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-1.19.0.tgz#a2502fb7ce9b6626fdbfc2e2a496f472de1bdd05"
   integrity sha512-gDE8JJEygpay7IjA/u3JiIURvwZW08f0cZSZLAzFoX/ZmeqvS0Sqv+97aKuHpNsalAMMhwPe+iAS6fQbfmbt7A==
 
+"@types/relateurl@*":
+  version "0.2.28"
+  resolved "https://registry.yarnpkg.com/@types/relateurl/-/relateurl-0.2.28.tgz#6bda7db8653fa62643f5ee69e9f69c11a392e3a6"
+  integrity sha1-a9p9uGU/piZD9e5p6facEaOS46Y=
+
 "@types/source-list-map@*":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@types/source-list-map/-/source-list-map-0.1.2.tgz#0078836063ffaf17412349bba364087e0ac02ec9"
@@ -2137,12 +2168,27 @@
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.4.tgz#b4ffc7dc97b498c969b360a41eee247f82616370"
   integrity sha512-78AdXtlhpCHT0K3EytMpn4JNxaf5tbqbLcbIRoQIHzpTIyjpxLQKRoxU55ujBXAtg3Nl2h/XWvfDa9dsMOd0pQ==
 
+"@types/terser-webpack-plugin@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@types/terser-webpack-plugin/-/terser-webpack-plugin-2.2.0.tgz#b1561e3118b9319d80ff65798c345877669b3e12"
+  integrity sha512-ywqEfTm7KdKoX9aYx0zYtiFU1z6IHrIYW9FJqeay2Ea58rTPML1J0hvoztGal2Jow3bkgGKcAmEZNL+8LqUVrA==
+  dependencies:
+    "@types/webpack" "*"
+    terser "^4.3.9"
+
 "@types/uglify-js@*":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@types/uglify-js/-/uglify-js-3.0.4.tgz#96beae23df6f561862a830b4288a49e86baac082"
   integrity sha512-SudIN9TRJ+v8g5pTG8RRCqfqTMNqgWCKKd3vtynhGzkIIjxaicNAMuY5TRadJ6tzDu3Dotf3ngaMILtmOdmWEQ==
   dependencies:
     source-map "^0.6.1"
+
+"@types/webpack-bundle-analyzer@^2.13.3":
+  version "2.13.3"
+  resolved "https://registry.yarnpkg.com/@types/webpack-bundle-analyzer/-/webpack-bundle-analyzer-2.13.3.tgz#820c8f734e171f081cbf02d889b9cda687cc89dd"
+  integrity sha512-p8EXyKfq311FFFfRuAR9tOHFFTQ9DqGrjRQYXbjjEMfl9pKGaTtRy1zFJtPMyZHfRoqh5rsYPVSVknkl004M7A==
+  dependencies:
+    "@types/webpack" "*"
 
 "@types/webpack-sources@*":
   version "0.1.5"
@@ -5280,7 +5326,7 @@ fast-glob@^2.2.6:
     merge2 "^1.2.3"
     micromatch "^3.1.10"
 
-fast-glob@^3.0.4, fast-glob@^3.1.0, fast-glob@^3.1.1:
+fast-glob@^3.0.4, fast-glob@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.1.1.tgz#87ee30e9e9f3eb40d6f254a7997655da753d7c82"
   integrity sha512-nTCREpBY8w8r+boyFYAx21iL6faSsQynliPHM4Uf56SbkyohCNxpVPEH9xrF5TXKy+IsjkPUHDKiUkzBVRXn9g==
@@ -8862,10 +8908,10 @@ opn@^5.5.0:
   dependencies:
     is-wsl "^1.1.0"
 
-optimal@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/optimal/-/optimal-3.2.1.tgz#947303696c2fc1055b15ccea2a44be4c8c23195b"
-  integrity sha512-pqjiNtgEB4WcFxGegWJfozQQSnqK+PwunrGbTPGj3RuTwiB8SVrTe3Ejd4OwNGftSSf7OZedezV1a2Dvb/0lPA==
+optimal@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/optimal/-/optimal-3.3.0.tgz#dbc5f7e86cf191e765814ba397190b289a7f4681"
+  integrity sha512-7glCAFiZcj43nzWCxudppVZmdnu+zfoYkk7dVP4JyQlBhGw1zMnEH6dpeBsnEa3ihYgO6SD31QW2e5k8f7S58Q==
 
 optimist@^0.6.1:
   version "0.6.1"

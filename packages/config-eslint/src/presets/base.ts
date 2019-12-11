@@ -1,0 +1,104 @@
+import { Path } from '@beemo/core';
+import { ESLintConfig } from '@beemo/driver-eslint';
+import { EXTS, EXTS_GROUP, ASSET_EXT_PATTERN, GQL_EXT_PATTERN } from '@airbnb/nimbus-common';
+
+const config: ESLintConfig = {
+  root: true,
+
+  parser: 'babel-eslint',
+
+  parserOptions: {
+    requireConfigFile: false,
+  },
+
+  extends: ['airbnb', 'plugin:jsx-a11y/recommended'],
+
+  plugins: ['import', 'react', 'react-hooks'],
+
+  globals: {
+    __DEV__: 'readonly',
+    // Metrics and analytics providers
+    ga: 'readonly',
+    newrelic: 'readonly',
+    // Mostly for easier compatibility between browsers, workers, etc
+    global: 'readonly',
+    // Mostly references to `process.env.NODE_ENV`
+    process: 'readonly',
+  },
+
+  env: {
+    browser: true,
+    node: false,
+  },
+
+  reportUnusedDisableDirectives: true,
+
+  settings: {
+    propWrapperFunctions: ['forbidExtraProps', 'exact', 'Object.freeze'],
+    'import/ignore': ['node_modules', '\\.json$', ASSET_EXT_PATTERN.source, GQL_EXT_PATTERN.source],
+    'import/extensions': EXTS,
+    'import/resolver': {
+      node: {
+        extensions: EXTS,
+      },
+      [Path.resolve('../resolvers/graphql.js', __dirname).path()]: {
+        extensions: ['.gql', '.graphql'],
+      },
+    },
+  },
+
+  rules: {
+    'react-hooks/exhaustive-deps': 'error',
+    'react-hooks/rules-of-hooks': 'error',
+  },
+
+  overrides: [
+    {
+      files: [`*.test.${EXTS_GROUP}`],
+      plugins: ['jest'],
+      globals: {
+        jsdom: 'readonly',
+      },
+      env: {
+        jest: true,
+        node: true,
+      },
+      rules: {
+        'max-classes-per-file': 'off',
+        'no-magic-numbers': 'off',
+        'sort-keys': 'off',
+
+        // JEST
+        'jest/expect-expect': 'error',
+        'jest/no-alias-methods': 'warn',
+        'jest/no-disabled-tests': 'error',
+        'jest/no-duplicate-hooks': 'warn',
+        'jest/no-expect-resolves': 'warn',
+        'jest/no-export': 'error',
+        'jest/no-focused-tests': 'error',
+        'jest/no-identical-title': 'error',
+        'jest/no-if': 'error',
+        'jest/no-jasmine-globals': 'warn',
+        'jest/no-jest-import': 'error',
+        'jest/no-standalone-expect': 'error',
+        'jest/no-test-callback': 'error',
+        'jest/no-test-prefixes': 'warn',
+        'jest/no-test-return-statement': 'warn',
+        'jest/prefer-hooks-on-top': 'warn',
+        'jest/prefer-spy-on': 'warn',
+        'jest/prefer-todo': 'error',
+        'jest/prefer-to-be-null': 'error',
+        'jest/prefer-to-be-undefined': 'error',
+        'jest/prefer-to-contain': 'warn',
+        'jest/prefer-to-have-length': 'error',
+        'jest/require-to-throw-message': 'warn',
+        'jest/require-top-level-describe': 'error',
+        'jest/valid-describe': 'warn',
+        'jest/valid-expect': 'error',
+        'jest/valid-title': 'warn',
+      },
+    },
+  ],
+};
+
+export = config;

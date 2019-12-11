@@ -8,7 +8,7 @@
     "common",
     "utils"
   ],
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:airbnb/nimbus.git"
@@ -19,6 +19,8 @@
     "access": "public"
   },
   "dependencies": {
+    "@beemo/core": "^1.1.1",
+    "@boost/core": "^1.16.0",
     "execa": "^3.3.0",
     "fast-glob": "^3.1.1"
   }
