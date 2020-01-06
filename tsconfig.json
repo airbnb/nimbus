@@ -29,5 +29,5 @@
       "path": "packages/nimbus-common"
     }
   ],
-  "extends": "./tsconfig.options"
+  "extends": "./tsconfig.options.json"
 }

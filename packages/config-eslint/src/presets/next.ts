@@ -156,6 +156,7 @@ const config: ESLintConfig = {
     'unicorn/prefer-exponentiation-operator': 'error',
     'unicorn/prefer-flat-map': 'error',
     'unicorn/prefer-includes': 'error',
+    'unicorn/prefer-modern-dom-apis': 'warn',
     'unicorn/prefer-negative-index': 'warn',
     'unicorn/prefer-node-append': 'error',
     'unicorn/prefer-node-remove': 'error',

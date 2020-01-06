@@ -60,6 +60,6 @@
   "devDependencies": {
     "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",
-    "lerna": "^3.19.0"
+    "lerna": "^3.20.2"
   }
 }

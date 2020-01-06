@@ -99,6 +99,7 @@ const config: ESLintConfig = {
         '@typescript-eslint/no-misused-promises': 'error',
         '@typescript-eslint/no-parameter-properties': 'error',
         '@typescript-eslint/no-require-imports': 'error',
+        '@typescript-eslint/no-throw-literal': 'warn',
         '@typescript-eslint/no-unused-vars': ['error', noUnused],
         '@typescript-eslint/no-use-before-define': 'error',
         '@typescript-eslint/prefer-for-of': 'error',
