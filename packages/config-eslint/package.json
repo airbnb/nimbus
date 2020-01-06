@@ -1,6 +1,6 @@
 {
   "name": "@airbnb/config-eslint",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "Reusable ESLint config.",
   "keywords": [
     "nimbus",

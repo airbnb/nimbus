@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.2.1 - 2020-01-06
+
+#### 📦 Dependencies
+
+- **[babel]** Update to latest. ([e88429a](https://github.com/airbnb/nimbus/commit/e88429a))
+
+**Note:** Version bump only for package @airbnb/config-babel
+
+
+
+
+
 ## 2.2.0 - 2019-12-11
 
 #### 🚀 Updates
