@@ -37,7 +37,7 @@
     "conventional-changelog-beemo": "^1.6.0",
     "edit-json-file": "^1.4.0",
     "enquirer": "^2.3.4",
-    "execa": "^3.3.0"
+    "execa": "^4.0.0"
   },
   "devDependencies": {
     "@airbnb/config-babel": "^2.2.1",
