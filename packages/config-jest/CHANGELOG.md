@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.2.2 - 2020-01-22
+
+#### 📦 Dependencies
+
+- **[jest]** Update to v25. ([95e9524](https://github.com/airbnb/nimbus/commit/95e9524))
+- Update internals and types. ([e423b15](https://github.com/airbnb/nimbus/commit/e423b15))
+- **[babel]** Update to v7.8. ([584fd37](https://github.com/airbnb/nimbus/commit/584fd37))
+
+**Note:** Version bump only for package @airbnb/config-jest
+
+
+
+
+
 ### 2.2.1 - 2020-01-06
 
 #### 📦 Dependencies

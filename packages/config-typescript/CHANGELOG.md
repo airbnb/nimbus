@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.2.2 - 2020-01-22
+
+#### 📦 Dependencies
+
+- **[typescript]** Update to latest. ([6e6957e](https://github.com/airbnb/nimbus/commit/6e6957e))
+
+**Note:** Version bump only for package @airbnb/config-typescript
+
+
+
+
+
 ### 2.2.1 - 2020-01-06
 
 #### 📦 Dependencies

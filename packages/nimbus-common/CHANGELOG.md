@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.1.1 - 2020-01-22
+
+#### 📦 Dependencies
+
+- **[execa]** Update to v4. ([5186115](https://github.com/airbnb/nimbus/commit/5186115))
+- Update internals and types. ([e423b15](https://github.com/airbnb/nimbus/commit/e423b15))
+
+**Note:** Version bump only for package @airbnb/nimbus-common
+
+
+
+
+
 ## 2.1.0 - 2019-12-11
 
 #### 🚀 Updates
