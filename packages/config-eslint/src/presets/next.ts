@@ -64,6 +64,7 @@ const config: ESLintConfig = {
     'react/jsx-key': 'error',
     'react/jsx-no-literals': 'error',
     'react/jsx-no-useless-fragment': 'warn',
+    'react/jsx-no-script-url': 'warn',
     'react/jsx-sort-default-props': [
       'error',
       {
