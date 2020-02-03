@@ -19,8 +19,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@beemo/core": "^1.1.1",
-    "@boost/core": "^1.17.0",
+    "@beemo/core": "^1.1.2",
+    "@boost/core": "^1.18.1",
     "execa": "^4.0.0",
     "fast-glob": "^3.1.1"
   }
