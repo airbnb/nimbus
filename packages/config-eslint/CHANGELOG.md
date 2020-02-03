@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.5.2 - 2020-02-03
+
+#### 📦 Dependencies
+
+- Update Beemo and Boost to latest. (#25) ([f7de922](https://github.com/airbnb/nimbus/commit/f7de922)), closes [#25](https://github.com/airbnb/nimbus/issues/25)
+
+**Note:** Version bump only for package @airbnb/config-eslint
+
+
+
+
+
 ### 2.5.1 - 2020-01-22
 
 #### 📦 Dependencies
