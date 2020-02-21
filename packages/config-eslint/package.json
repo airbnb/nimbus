@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "@airbnb/nimbus-common": "^2.1.2",
-    "@beemo/core": "^1.1.2",
-    "@beemo/driver-eslint": "^1.2.1",
+    "@beemo/core": "^1.1.4",
+    "@beemo/driver-eslint": "^1.2.2",
     "@typescript-eslint/eslint-plugin": "^2.17.0",
     "@typescript-eslint/parser": "^2.17.0",
     "babel-eslint": "^10.0.3",

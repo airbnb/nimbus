@@ -23,9 +23,9 @@
   "dependencies": {
     "@airbnb/nimbus-common": "^2.1.2",
     "@babel/core": "^7.8.3",
-    "@beemo/core": "^1.1.2",
-    "@beemo/driver-babel": "^1.2.1",
-    "@beemo/driver-jest": "^1.2.0",
+    "@beemo/core": "^1.1.4",
+    "@beemo/driver-babel": "^1.2.2",
+    "@beemo/driver-jest": "^1.2.1",
     "airbnb-js-shims": "^2.2.1",
     "dom-storage": "^2.1.0",
     "jest": "^25.1.0"
