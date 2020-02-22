@@ -1,4 +1,4 @@
-/* eslint-disable no-restricted-syntax, no-await-in-loop, @typescript-eslint/prefer-nullish-coalescing */
+/* eslint-disable no-restricted-syntax, no-await-in-loop */
 
 import fs from 'fs';
 import chalk from 'chalk';

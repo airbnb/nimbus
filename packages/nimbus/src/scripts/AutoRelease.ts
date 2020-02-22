@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
-
 import { ExecaReturnValue } from 'execa';
 import { Script } from '@beemo/core';
 import { LERNA_VERSION_ARGS } from '../constants';
