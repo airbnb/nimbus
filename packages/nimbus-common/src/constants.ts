@@ -19,7 +19,7 @@ export const IGNORE_PATHS = [
   '*.d.ts',
 ];
 
-export const NODE_VERSION = '8.9';
+export const NODE_VERSION = '10.16';
 
 export const NODE_TARGET = { node: NODE_VERSION };
 

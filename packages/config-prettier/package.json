@@ -17,6 +17,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "engines": {
+    "node": ">=10.16.0"
+  },
   "devDependencies": {
     "@types/prettier": "^1.19.0"
   },

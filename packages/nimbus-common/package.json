@@ -18,6 +18,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "engines": {
+    "node": ">=10.16.0"
+  },
   "dependencies": {
     "@beemo/core": "^1.1.4",
     "@boost/core": "^1.18.2",

@@ -20,6 +20,9 @@
   "bin": {
     "nimbus-webpack-server": "./bin/server"
   },
+  "engines": {
+    "node": ">=10.16.0"
+  },
   "dependencies": {
     "@airbnb/nimbus-common": "^2.1.3",
     "@babel/core": "^7.8.4",
