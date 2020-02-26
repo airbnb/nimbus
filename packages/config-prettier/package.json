@@ -22,8 +22,8 @@
   },
   "dependencies": {
     "@airbnb/nimbus-common": "^2.1.2",
-    "@beemo/core": "^1.1.2",
-    "@beemo/driver-prettier": "^1.2.1",
+    "@beemo/core": "^1.1.4",
+    "@beemo/driver-prettier": "^1.2.2",
     "prettier": "^1.19.1"
   }
 }

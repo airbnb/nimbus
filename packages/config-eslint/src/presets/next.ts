@@ -28,6 +28,7 @@ const config: ESLintConfig = {
     'no-negated-condition': 'error',
     'no-setter-return': 'warn',
     'no-useless-call': 'error',
+    'prefer-exponentiation-operator': 'error',
     'prefer-regex-literals': 'warn',
     'require-atomic-updates': 'error',
 
@@ -154,7 +155,6 @@ const config: ESLintConfig = {
     'unicorn/prefer-add-event-listener': 'error',
     'unicorn/prefer-dataset': 'warn',
     'unicorn/prefer-event-key': 'error',
-    'unicorn/prefer-exponentiation-operator': 'error',
     'unicorn/prefer-flat-map': 'error',
     'unicorn/prefer-includes': 'error',
     'unicorn/prefer-modern-dom-apis': 'warn',
