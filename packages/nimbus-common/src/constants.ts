@@ -23,4 +23,4 @@ export const NODE_VERSION = '10.16';
 
 export const NODE_TARGET = { node: NODE_VERSION };
 
-export const WEB_TARGET = { ie: 10 };
+export const WEB_TARGET = { ie: 11 };
