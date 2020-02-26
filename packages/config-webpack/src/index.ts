@@ -83,7 +83,6 @@ export function getConfig({
       core: entry,
     },
 
-    // @ts-ignore Fix upstream
     plugins,
 
     module: {

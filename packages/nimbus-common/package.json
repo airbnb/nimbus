@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@beemo/core": "^1.1.4",
-    "@boost/core": "^1.18.2",
+    "@boost/common": "^1.8.2",
     "execa": "^4.0.0",
     "fast-glob": "^3.2.2"
   }

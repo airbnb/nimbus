@@ -3,7 +3,7 @@ import path from 'path';
 import execa from 'execa';
 import glob from 'fast-glob';
 import Beemo, { BeemoConfig } from '@beemo/core';
-import { PackageConfig } from '@boost/core';
+import { PackageStructure } from '@boost/common';
 
 export interface NimbusEnvSetting {
   targets?:
@@ -44,7 +44,7 @@ export interface NimbusSettings {
   typesFolder: string;
 }
 
-export interface NimbusPackage extends PackageConfig {
+export interface NimbusPackage extends PackageStructure {
   nimbus: BeemoConfig<Partial<NimbusSettings>>;
 }
 
