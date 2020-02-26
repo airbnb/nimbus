@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.3.3 - 2020-02-26
+
+#### 📦 Dependencies
+
+- Update minor and patch versions. ([3f7c3fe](https://github.com/airbnb/nimbus/commit/3f7c3fe))
+
+**Note:** Version bump only for package @airbnb/config-danger
+
+
+
+
+
 ### 2.3.2 - 2020-01-22
 
 #### 📦 Dependencies

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.2.4 - 2020-02-26
+
+#### 📦 Dependencies
+
+- **[beemo]** Update to latest. ([0dc98d9](https://github.com/airbnb/nimbus/commit/0dc98d9))
+- **[typescript]** Update to v3.8. ([4dc4288](https://github.com/airbnb/nimbus/commit/4dc4288))
+
+**Note:** Version bump only for package @airbnb/config-typescript
+
+
+
+
+
 ### 2.2.3 - 2020-02-03
 
 #### 📦 Dependencies
