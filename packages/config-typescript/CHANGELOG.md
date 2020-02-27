@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0 - 2020-02-27
+
+#### 💥 Breaking
+
+- Upgrade to Node v10. Drop v8. ([c2f1668](https://github.com/airbnb/nimbus/commit/c2f1668))
+
+**Note:** Version bump only for package @airbnb/config-typescript
+
+
+
+
+
 ### 2.2.4 - 2020-02-26
 
 #### 📦 Dependencies

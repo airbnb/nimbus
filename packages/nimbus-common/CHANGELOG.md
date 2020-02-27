@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0 - 2020-02-27
+
+#### 💥 Breaking
+
+- Upgrade minimum IE target to v11. ([6d7f7d0](https://github.com/airbnb/nimbus/commit/6d7f7d0))
+- Upgrade to Node v10. Drop v8. ([c2f1668](https://github.com/airbnb/nimbus/commit/c2f1668))
+
+#### ⚙️ Types
+
+- Update internal type usage. ([7ddd369](https://github.com/airbnb/nimbus/commit/7ddd369))
+
+**Note:** Version bump only for package @airbnb/nimbus-common
+
+
+
+
+
 ### 2.1.3 - 2020-02-26
 
 #### 📦 Dependencies

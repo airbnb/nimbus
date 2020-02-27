@@ -1,6 +1,6 @@
 {
   "name": "@airbnb/nimbus-common",
-  "version": "2.1.3",
+  "version": "3.0.0",
   "description": "Common Nimbus utilities and constants.",
   "keywords": [
     "nimbus",

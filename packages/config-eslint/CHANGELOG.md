@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0 - 2020-02-27
+
+#### 💥 Breaking
+
+- Migrate warnings to errors. ([cb0b6cd](https://github.com/airbnb/nimbus/commit/cb0b6cd))
+- Upgrade to Node v10. Drop v8. ([c2f1668](https://github.com/airbnb/nimbus/commit/c2f1668))
+
+#### 📦 Dependencies
+
+- Update to latest. ([48f8a42](https://github.com/airbnb/nimbus/commit/48f8a42))
+
+**Note:** Version bump only for package @airbnb/config-eslint
+
+
+
+
+
 ## 2.6.0 - 2020-02-26
 
 #### 🚀 Updates
