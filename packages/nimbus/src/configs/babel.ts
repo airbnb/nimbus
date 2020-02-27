@@ -5,7 +5,6 @@ const { context, tool } = process.beemo;
 const { graphql, library, next, node, react, env } = getSettings();
 
 export default getConfig({
-  // @ts-ignore TODO
   env,
   esm: Boolean(context.args.esm || process.env.ESM),
   graphql,

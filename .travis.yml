@@ -15,10 +15,7 @@ jobs:
       script: yarn beemo run-script pull-request-checks
       node_js: '12'
     - stage: Tests
-      name: Test @ 8
-      script: yarn test
-      node_js: '8'
-    - name: Test @ 10
+      name: Test @ 10
       script: yarn test
       node_js: '10'
     - name: Test @ 12

@@ -26,7 +26,7 @@
     "nimbus-eject": "./bin/nimbus-eject"
   },
   "engines": {
-    "node": ">=8.9.0"
+    "node": ">=10.16.0"
   },
   "dependencies": {
     "@airbnb/nimbus-common": "^2.1.3",
