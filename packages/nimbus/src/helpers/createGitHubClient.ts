@@ -1,12 +1,11 @@
-import Octokit, { Octokit as OctokitType } from '@octokit/rest';
+import Rest from '@octokit/rest';
 import { VERSION } from '../constants';
 
-// Types do not match actual package implementation
-const Octocat = (Octokit as unknown) as typeof OctokitType;
+const { Octokit } = Rest;
 
-export default function createGitHubClient(token?: string): OctokitType {
+export default function createGitHubClient(token?: string): Rest.Octokit {
   const { GITHUB_TOKEN, GHE_API_URL, GHE_VERSION } = process.env;
-  const options: OctokitType.Options = {
+  const options: Rest.Octokit.Options = {
     userAgent: `Nimbus v${VERSION}`,
   };
 
@@ -20,8 +19,8 @@ export default function createGitHubClient(token?: string): OctokitType {
 
   if (GHE_VERSION) {
     // eslint-disable-next-line
-    Octocat.plugin(require(`@octokit/plugin-enterprise-rest/ghe-${GHE_VERSION}`));
+    Octokit.plugin(require(`@octokit/plugin-enterprise-rest/ghe-${GHE_VERSION}`));
   }
 
-  return new Octocat(options);
+  return new Octokit(options);
 }
