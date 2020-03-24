@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.2.0 - 2020-03-24
+
+#### 🚀 Updates
+
+- Add new `--parallel` option. (#31) ([8120201](https://github.com/airbnb/nimbus/commit/8120201)), closes [#31](https://github.com/airbnb/nimbus/issues/31)
+
+**Note:** Version bump only for package @airbnb/config-webpack
+
+
+
+
+
 ## 3.1.0 - 2020-03-24
 
 #### 🚀 Updates

@@ -1,6 +1,6 @@
 {
   "name": "@airbnb/nimbus",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Centralized CLI for JavaScript and TypeScript dev tools.",
   "keywords": [
     "nimbus",
@@ -46,6 +46,6 @@
     "@airbnb/config-jest": "^3.0.1",
     "@airbnb/config-prettier": "^3.1.0",
     "@airbnb/config-typescript": "^3.0.1",
-    "@airbnb/config-webpack": "^3.1.0"
+    "@airbnb/config-webpack": "^3.2.0"
   }
 }

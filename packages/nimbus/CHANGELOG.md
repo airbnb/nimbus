@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.0 - 2020-03-24
+
+#### 🚀 Updates
+
+- Add new `--parallel` option. (#31) ([8120201](https://github.com/airbnb/nimbus/commit/8120201)), closes [#31](https://github.com/airbnb/nimbus/issues/31)
+
+#### 🐞 Fixes
+
+- Fix Octokit GitHub client. (#30) ([260f365](https://github.com/airbnb/nimbus/commit/260f365)), closes [#30](https://github.com/airbnb/nimbus/issues/30)
+
+**Note:** Version bump only for package @airbnb/nimbus
+
+
+
+
+
 ### 3.0.1 - 2020-03-24
 
 #### 📦 Dependencies
