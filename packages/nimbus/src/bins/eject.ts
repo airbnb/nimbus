@@ -3,7 +3,6 @@
 import fs from 'fs';
 import chalk from 'chalk';
 import execa from 'execa';
-// @ts-ignore Not typed
 import editJsonFile from 'edit-json-file';
 import { prompt } from 'enquirer';
 import { Path } from '@beemo/core';
@@ -28,9 +27,9 @@ async function copyAndInstallDepsFromModule(
   isYarn: boolean,
   isMonorepo: boolean,
 ) {
-  const pkg = require(`${moduleName}/package.json`);
-  const deps = Object.keys(pkg.dependencies).filter(
-    dep => !dep.includes('@beemo') && !dep.includes('@airbnb/nimbus'),
+  const pkg: NimbusPackage = require(`${moduleName}/package.json`);
+  const deps = Object.keys(pkg.dependencies || {}).filter(
+    (dep) => !dep.includes('@beemo') && !dep.includes('@airbnb/nimbus'),
   );
 
   await installDeps(deps, isYarn, isMonorepo);
@@ -63,7 +62,7 @@ function migrateDotfiles() {
     const dotPath = Path.resolve('.gitignore').path();
     let data = fs.readFileSync(dotPath, 'utf8');
 
-    toRemove.forEach(value => {
+    toRemove.forEach((value) => {
       data = data.replace(new RegExp(`${escapeRegExp(value)}\n?`, 'g'), '');
     });
 
@@ -75,7 +74,7 @@ function migrateDotfiles() {
 
 function migratePackageScripts(nimbus: NimbusPackage['nimbus']) {
   const pkg = editJsonFile(pkgPath);
-  const scripts = pkg.get('scripts') || {};
+  const scripts = pkg.get<NimbusPackage['scripts']>('scripts') ?? {};
   const srcFolder = nimbus.settings.srcFolder || 'src';
   const testFolder = nimbus.settings.testFolder || 'test';
 
@@ -87,7 +86,7 @@ function migratePackageScripts(nimbus: NimbusPackage['nimbus']) {
     delete scripts.release;
   }
 
-  Object.keys(scripts).forEach(key => {
+  Object.keys(scripts).forEach((key) => {
     const value = scripts[key];
     const esm = value.includes('--esm');
 
@@ -119,7 +118,7 @@ function migrateEslint() {
   const { extends: extendPaths, ...rootConfig } = require(configPath);
   let config: { extends: string[]; parserOptions?: object } = { extends: [] };
 
-  (extendPaths as string[]).forEach(extendPath => {
+  (extendPaths as string[]).forEach((extendPath) => {
     if (extendPath.startsWith('.')) {
       config = {
         ...config,
@@ -142,7 +141,7 @@ function migrateEslint() {
 
 function migrateJest() {
   const configPath = Path.resolve('jest.config.js').path();
-  const config = require(configPath);
+  const config: { [key: string]: unknown } = require(configPath);
 
   delete config.moduleNameMapper;
   delete config.setupFiles;
@@ -184,7 +183,7 @@ export async function eject() {
   console.log(BANNER);
   console.log(`${chalk.cyan('[1/5]')} Ejecting Nimbus`);
 
-  const nimbus = editJsonFile(pkgPath).get('nimbus');
+  const nimbus = editJsonFile(pkgPath).get<NimbusPackage['nimbus']>('nimbus');
 
   if (!nimbus) {
     throw new Error("Project isn't Nimbus enabled.");
@@ -236,7 +235,7 @@ export async function eject() {
 
     pkg.set(
       'nimbus.drivers',
-      (pkg.get('nimbus.drivers') as string[]).filter(d => d !== driver),
+      (pkg.get('nimbus.drivers') as string[]).filter((d) => d !== driver),
     );
     pkg.save();
   }

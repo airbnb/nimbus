@@ -3,7 +3,6 @@
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-// @ts-ignore Not typed
 import InlineManifestWebpackPlugin from 'inline-manifest-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
@@ -51,7 +50,6 @@ export function getConfig({
     }),
     new HtmlWebpackPlugin({
       chunks: ['runtime', 'core'],
-      chunksSortMode: 'none',
       template: `${srcFolder}/index.html`,
       filename: 'index.html',
       favicon: getFavIcon(srcPath),
@@ -160,6 +158,7 @@ export function getConfig({
       minimizer: [
         new TerserPlugin({
           sourceMap: sourceMaps,
+          parallel: true,
         }),
       ],
     },

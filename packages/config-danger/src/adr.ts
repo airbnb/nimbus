@@ -15,13 +15,13 @@ export function checkForADR(docsPath: string, options: CheckAdrOptions = {}) {
   }
 
   const { changeThreshold = 200, docsUrl = '', exclusions = [] } = options;
-  const hasDocsFiles = touchedFiles.some(file => file.includes(docsPath));
+  const hasDocsFiles = touchedFiles.some((file) => file.includes(docsPath));
   const docsExclusions = [...exclusions, 'package-lock.json', 'yarn.lock', TEST_EXT, SNAP_EXT];
-  const modifiedExclusions = danger.git.modified_files.filter(file =>
-    docsExclusions.some(ex => !!file.match(ex)),
+  const modifiedExclusions = danger.git.modified_files.filter((file) =>
+    docsExclusions.some((ex) => !!file.match(ex)),
   );
 
-  Promise.all(modifiedExclusions.map(countChangesInFile)).then(vals => {
+  Promise.all(modifiedExclusions.map(countChangesInFile)).then((vals) => {
     const totalChangeCount = danger.github.pr.additions + danger.github.pr.deletions;
     const exclusionChangeCount = vals.reduce((acc, val) => acc + val, 0);
     const changeCount = totalChangeCount - exclusionChangeCount;

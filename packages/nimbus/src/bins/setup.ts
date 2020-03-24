@@ -1,6 +1,5 @@
 import chalk from 'chalk';
 import execa from 'execa';
-// @ts-ignore Not typed
 import editJsonFile from 'edit-json-file';
 import { prompt } from 'enquirer';
 import { Path } from '@beemo/core';
@@ -57,7 +56,7 @@ function addScriptsToPackage(response: SetupPrompt) {
   const pkg = editJsonFile(pkgPath);
   const client = response.yarn ? 'yarn' : 'npm';
   const monorepo = response.type === 'monolib';
-  const scripts = pkg.get('scripts') || {};
+  const scripts = pkg.get<NimbusPackage['scripts']>('scripts') ?? {};
 
   scripts.prepare = 'nimbus create-config --silent';
 
@@ -183,7 +182,7 @@ export async function setup() {
   console.log(`${chalk.cyan('[3/6]')} Installing dependencies`);
 
   await installDeps(
-    ['@airbnb/nimbus', ...response.drivers.map(driver => `@airbnb/config-${driver}`)],
+    ['@airbnb/nimbus', ...response.drivers.map((driver) => `@airbnb/config-${driver}`)],
     response.yarn,
     response.type === 'monolib',
   );

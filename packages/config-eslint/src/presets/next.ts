@@ -134,6 +134,7 @@ const config: ESLintConfig = {
     ],
 
     // UNICORN
+    'unicorn/better-regex': 'error',
     'unicorn/catch-error-name': 'error',
     'unicorn/consistent-function-scoping': 'error',
     'unicorn/custom-error-definition': 'error',
@@ -167,7 +168,6 @@ const config: ESLintConfig = {
     'unicorn/prefer-text-content': 'error',
     'unicorn/prefer-trim-start-end': 'error',
     'unicorn/prefer-type-error': 'error',
-    'unicorn/regex-shorthand': 'error',
     'unicorn/throw-new-error': 'error',
   },
 

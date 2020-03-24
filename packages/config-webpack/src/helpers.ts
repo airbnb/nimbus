@@ -47,7 +47,7 @@ export function getESMAliases(): AliasMap {
       onlyDirectories: true,
       onlyFiles: false,
     })
-    .forEach(modulePath => {
+    .forEach((modulePath) => {
       const packageName = modulePath.split('/node_modules/')[1];
       const esLessName = packageName.replace(/-es$/, '');
       const esPath = new Path(modulePath, 'es');
@@ -57,7 +57,7 @@ export function getESMAliases(): AliasMap {
       // optimal/lib -> optimal/esm
       if (esPath.exists() || esmPath.exists()) {
         const aliasPath = esPath.exists() ? `${packageName}/es` : `${packageName}/esm`;
-        const aliased = buildTargets.some(targetFolder => {
+        const aliased = buildTargets.some((targetFolder) => {
           if (new Path(modulePath, targetFolder).exists()) {
             aliases[`${packageName}/${targetFolder}`] = aliasPath;
 
