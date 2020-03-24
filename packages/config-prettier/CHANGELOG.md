@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.0 - 2020-03-24
+
+#### 🚀 Updates
+
+- Enable `arrowParens` option. ([f5e309e](https://github.com/airbnb/nimbus/commit/f5e309e))
+
+#### 📦 Dependencies
+
+- **[beemo]** Update to latest. ([f155f0d](https://github.com/airbnb/nimbus/commit/f155f0d))
+- **[prettier]** Update to v2. ([822ac4d](https://github.com/airbnb/nimbus/commit/822ac4d))
+
+**Note:** Version bump only for package @airbnb/config-prettier
+
+
+
+
+
 # 3.0.0 - 2020-02-27
 
 #### 💥 Breaking

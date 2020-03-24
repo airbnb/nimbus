@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.0 - 2020-03-24
+
+#### 🚀 Updates
+
+- Enable new rules. ([49237a7](https://github.com/airbnb/nimbus/commit/49237a7))
+
+#### 📦 Dependencies
+
+- Update plugins to latest. ([2ebd8ef](https://github.com/airbnb/nimbus/commit/2ebd8ef))
+- **[beemo]** Update to latest. ([f155f0d](https://github.com/airbnb/nimbus/commit/f155f0d))
+
+**Note:** Version bump only for package @airbnb/config-eslint
+
+
+
+
+
 # 3.0.0 - 2020-02-27
 
 #### 💥 Breaking

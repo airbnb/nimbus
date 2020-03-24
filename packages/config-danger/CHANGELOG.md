@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 3.0.1 - 2020-03-24
+
+#### 📦 Dependencies
+
+- **[danger]** Update to v10. ([b19c98e](https://github.com/airbnb/nimbus/commit/b19c98e))
+
+#### 🛠 Internals
+
+- Run Prettier on codebase. ([91084fe](https://github.com/airbnb/nimbus/commit/91084fe))
+
+**Note:** Version bump only for package @airbnb/config-danger
+
+
+
+
+
 # 3.0.0 - 2020-02-27
 
 #### 💥 Breaking

@@ -1,6 +1,6 @@
 {
   "name": "@airbnb/config-eslint",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Reusable ESLint config.",
   "keywords": [
     "nimbus",
@@ -21,7 +21,7 @@
     "node": ">=10.16.0"
   },
   "dependencies": {
-    "@airbnb/nimbus-common": "^3.0.0",
+    "@airbnb/nimbus-common": "^3.0.1",
     "@beemo/core": "^1.1.6",
     "@beemo/driver-eslint": "^1.2.2",
     "@typescript-eslint/eslint-plugin": "^2.25.0",

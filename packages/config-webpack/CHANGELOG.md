@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.0 - 2020-03-24
+
+#### 🚀 Updates
+
+- Enable parallel builds. ([860571d](https://github.com/airbnb/nimbus/commit/860571d))
+
+#### 📦 Dependencies
+
+- **[babel]** Update to v7.9. ([e727254](https://github.com/airbnb/nimbus/commit/e727254))
+- **[beemo]** Update to latest. ([f155f0d](https://github.com/airbnb/nimbus/commit/f155f0d))
+- **[html-webpack-plugin]** Update to v4. ([fbc2350](https://github.com/airbnb/nimbus/commit/fbc2350))
+- **[webpack]** Update to v4.42. ([e3b27ca](https://github.com/airbnb/nimbus/commit/e3b27ca))
+
+#### 🛠 Internals
+
+- Fix build based on changes. ([e3e8ba1](https://github.com/airbnb/nimbus/commit/e3e8ba1))
+- Run Prettier on codebase. ([91084fe](https://github.com/airbnb/nimbus/commit/91084fe))
+
+**Note:** Version bump only for package @airbnb/config-webpack
+
+
+
+
+
 # 3.0.0 - 2020-02-27
 
 #### 💥 Breaking
