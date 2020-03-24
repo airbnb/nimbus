@@ -1,4 +1,4 @@
-import { ExecaReturnValue } from 'execa';
+import { ExecaReturnValue, ExecaError } from 'execa';
 import { Script } from '@beemo/core';
 import { LERNA_VERSION_ARGS } from '../constants';
 
@@ -90,7 +90,7 @@ export default class AutoReleaseScript extends Script {
 
         return response;
       })
-      .catch((error) => {
+      .catch((error: ExecaError) => {
         this.tool.log.error(error.stderr);
 
         throw error;

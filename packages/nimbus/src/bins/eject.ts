@@ -3,7 +3,6 @@
 import fs from 'fs';
 import chalk from 'chalk';
 import execa from 'execa';
-// @ts-ignore Not typed
 import editJsonFile from 'edit-json-file';
 import { prompt } from 'enquirer';
 import { Path } from '@beemo/core';
@@ -28,8 +27,8 @@ async function copyAndInstallDepsFromModule(
   isYarn: boolean,
   isMonorepo: boolean,
 ) {
-  const pkg = require(`${moduleName}/package.json`);
-  const deps = Object.keys(pkg.dependencies).filter(
+  const pkg: NimbusPackage = require(`${moduleName}/package.json`);
+  const deps = Object.keys(pkg.dependencies || {}).filter(
     (dep) => !dep.includes('@beemo') && !dep.includes('@airbnb/nimbus'),
   );
 
@@ -75,7 +74,7 @@ function migrateDotfiles() {
 
 function migratePackageScripts(nimbus: NimbusPackage['nimbus']) {
   const pkg = editJsonFile(pkgPath);
-  const scripts = pkg.get('scripts') || {};
+  const scripts = pkg.get<NimbusPackage['scripts']>('scripts') ?? {};
   const srcFolder = nimbus.settings.srcFolder || 'src';
   const testFolder = nimbus.settings.testFolder || 'test';
 
@@ -142,7 +141,7 @@ function migrateEslint() {
 
 function migrateJest() {
   const configPath = Path.resolve('jest.config.js').path();
-  const config = require(configPath);
+  const config: { [key: string]: unknown } = require(configPath);
 
   delete config.moduleNameMapper;
   delete config.setupFiles;
@@ -184,7 +183,7 @@ export async function eject() {
   console.log(BANNER);
   console.log(`${chalk.cyan('[1/5]')} Ejecting Nimbus`);
 
-  const nimbus = editJsonFile(pkgPath).get('nimbus');
+  const nimbus = editJsonFile(pkgPath).get<NimbusPackage['nimbus']>('nimbus');
 
   if (!nimbus) {
     throw new Error("Project isn't Nimbus enabled.");

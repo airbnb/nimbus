@@ -1,4 +1,4 @@
-import Octokit from '@octokit/rest';
+import { Octokit } from '@octokit/rest';
 import { VERSION } from '../constants';
 
 export default function createGitHubClient(token?: string): Octokit {
