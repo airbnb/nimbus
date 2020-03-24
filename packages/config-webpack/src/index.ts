@@ -158,6 +158,7 @@ export function getConfig({
       minimizer: [
         new TerserPlugin({
           sourceMap: sourceMaps,
+          parallel: true,
         }),
       ],
     },
