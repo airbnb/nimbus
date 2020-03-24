@@ -40,7 +40,7 @@ export default class PullRequestChecksScript extends Script {
       pull_number: Number(TRAVIS_PULL_REQUEST),
     });
 
-    const fileNames = new Set(files.map(file => path.basename(file.filename)));
+    const fileNames = new Set(files.map((file) => path.basename(file.filename)));
     const hasPackageChanges = fileNames.has('package.json');
 
     // this.tool.log('Changed files: %s', Array.from(fileNames).join(', '));

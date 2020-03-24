@@ -31,6 +31,6 @@ execa('git', ['diff-tree', '-r', '--name-only', remoteHead, branchHead])
       );
     }
   })
-  .catch(error => {
+  .catch((error) => {
     console.log('\n ', chalk.red(`🛑  Failed to detect module changes: ${error.message}`), ' \n');
   });

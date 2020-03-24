@@ -81,7 +81,7 @@ export default class AutoReleaseScript extends Script {
 
   handleCommand(promise: Promise<ExecaReturnValue>): Promise<ExecaReturnValue> {
     return promise
-      .then(response => {
+      .then((response) => {
         const out = response.stdout.trim();
 
         if (out) {
@@ -90,7 +90,7 @@ export default class AutoReleaseScript extends Script {
 
         return response;
       })
-      .catch(error => {
+      .catch((error) => {
         this.tool.log.error(error.stderr);
 
         throw error;

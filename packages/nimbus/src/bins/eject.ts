@@ -30,7 +30,7 @@ async function copyAndInstallDepsFromModule(
 ) {
   const pkg = require(`${moduleName}/package.json`);
   const deps = Object.keys(pkg.dependencies).filter(
-    dep => !dep.includes('@beemo') && !dep.includes('@airbnb/nimbus'),
+    (dep) => !dep.includes('@beemo') && !dep.includes('@airbnb/nimbus'),
   );
 
   await installDeps(deps, isYarn, isMonorepo);
@@ -63,7 +63,7 @@ function migrateDotfiles() {
     const dotPath = Path.resolve('.gitignore').path();
     let data = fs.readFileSync(dotPath, 'utf8');
 
-    toRemove.forEach(value => {
+    toRemove.forEach((value) => {
       data = data.replace(new RegExp(`${escapeRegExp(value)}\n?`, 'g'), '');
     });
 
@@ -87,7 +87,7 @@ function migratePackageScripts(nimbus: NimbusPackage['nimbus']) {
     delete scripts.release;
   }
 
-  Object.keys(scripts).forEach(key => {
+  Object.keys(scripts).forEach((key) => {
     const value = scripts[key];
     const esm = value.includes('--esm');
 
@@ -119,7 +119,7 @@ function migrateEslint() {
   const { extends: extendPaths, ...rootConfig } = require(configPath);
   let config: { extends: string[]; parserOptions?: object } = { extends: [] };
 
-  (extendPaths as string[]).forEach(extendPath => {
+  (extendPaths as string[]).forEach((extendPath) => {
     if (extendPath.startsWith('.')) {
       config = {
         ...config,
@@ -236,7 +236,7 @@ export async function eject() {
 
     pkg.set(
       'nimbus.drivers',
-      (pkg.get('nimbus.drivers') as string[]).filter(d => d !== driver),
+      (pkg.get('nimbus.drivers') as string[]).filter((d) => d !== driver),
     );
     pkg.save();
   }

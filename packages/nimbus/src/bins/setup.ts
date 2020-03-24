@@ -183,7 +183,7 @@ export async function setup() {
   console.log(`${chalk.cyan('[3/6]')} Installing dependencies`);
 
   await installDeps(
-    ['@airbnb/nimbus', ...response.drivers.map(driver => `@airbnb/config-${driver}`)],
+    ['@airbnb/nimbus', ...response.drivers.map((driver) => `@airbnb/config-${driver}`)],
     response.yarn,
     response.type === 'monolib',
   );
