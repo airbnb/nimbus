@@ -6,7 +6,7 @@ import { IGNORE_PATHS } from '@airbnb/nimbus-common';
  */
 export function getConfig(): PrettierConfig {
   return {
-    arrowParens: 'avoid',
+    arrowParens: 'always',
     bracketSpacing: true,
     jsxBracketSameLine: false,
     printWidth: 100,
