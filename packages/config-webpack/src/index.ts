@@ -14,11 +14,12 @@ import {
   GQL_EXT_PATTERN,
   TJSX_EXT_PATTERN,
 } from '@airbnb/nimbus-common';
-import { PORT, ROOT, PROD, getESMAliases, getFavIcon } from './helpers';
+import { PORT, ROOT, PROD, getESMAliases, getFavIcon, getParallelValue } from './helpers';
 
 export interface WebpackOptions {
   analyzeBundle?: boolean;
   buildFolder?: string;
+  parallel?: boolean | string | number;
   port?: string | number;
   react?: boolean;
   sourceMaps?: boolean;
@@ -28,6 +29,7 @@ export interface WebpackOptions {
 export function getConfig({
   analyzeBundle = false,
   buildFolder = 'public',
+  parallel = true,
   port = PORT,
   react = false,
   sourceMaps = false,
@@ -158,7 +160,7 @@ export function getConfig({
       minimizer: [
         new TerserPlugin({
           sourceMap: sourceMaps,
-          parallel: true,
+          parallel: getParallelValue(parallel),
         }),
       ],
     },
