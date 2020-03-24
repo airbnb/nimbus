@@ -26,8 +26,8 @@
   "dependencies": {
     "@airbnb/nimbus-common": "^3.0.0",
     "@babel/core": "^7.8.4",
-    "@beemo/core": "^1.1.4",
-    "@beemo/driver-webpack": "^1.2.2",
+    "@beemo/core": "^1.1.6",
+    "@beemo/driver-webpack": "^1.2.4",
     "babel-loader": "^8.0.6",
     "execa": "^4.0.0",
     "fast-glob": "^3.2.2",

@@ -22,8 +22,8 @@
     "node": ">=10.16.0"
   },
   "dependencies": {
-    "@beemo/core": "^1.1.4",
-    "@boost/common": "^1.8.2",
+    "@beemo/core": "^1.1.6",
+    "@boost/common": "^1.8.3",
     "execa": "^4.0.0",
     "fast-glob": "^3.2.2"
   }
