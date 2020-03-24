@@ -37,6 +37,10 @@ export function getConfig({
     ['babel-plugin-transform-dev', { evaluate: false }],
   ];
 
+  // https://babeljs.io/blog/2020/03/16/7.9.0#highlights
+  // @ts-ignore Not typed upstream
+  envOptions.bugfixes = typeof envOptions.targets === 'object' && !!envOptions.targets?.esmodules;
+
   // Flags
   let useNext = next;
   let removePropTypes = false;
