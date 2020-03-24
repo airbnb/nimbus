@@ -98,3 +98,19 @@ export function getFavIcon(srcPath: string): string {
 
   return favicon;
 }
+
+export function getParallelValue(value: boolean | string | number | undefined): boolean | number {
+  if (value === undefined) {
+    return true;
+  }
+
+  if (value === 'true') {
+    return true;
+  }
+
+  if (value === 'false' || value === '') {
+    return false;
+  }
+
+  return Number(value || 1);
+}
