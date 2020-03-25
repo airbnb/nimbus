@@ -1,11 +1,11 @@
-import Rest from '@octokit/rest';
+import { Octokit } from '@octokit/rest';
 import { VERSION } from '../constants';
 
-const { Octokit } = Rest;
-
-export default function createGitHubClient(token?: string): Rest.Octokit {
+export default function createGitHubClient(token?: string): Octokit {
   const { GITHUB_TOKEN, GHE_API_URL, GHE_VERSION } = process.env;
-  const options: Rest.Octokit.Options = {
+  const options = {
+    auth: '',
+    baseUrl: '',
     userAgent: `Nimbus v${VERSION}`,
   };
 
