@@ -1,6 +1,6 @@
 {
   "name": "@airbnb/nimbus",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Centralized CLI for JavaScript and TypeScript dev tools.",
   "keywords": [
     "nimbus",
