@@ -32,7 +32,7 @@
     "@airbnb/nimbus-common": "^3.0.1",
     "@beemo/cli": "^1.0.10",
     "@beemo/core": "^1.1.6",
-    "@octokit/rest": "^16.43.1",
+    "@octokit/rest": "^17.1.2",
     "chalk": "^3.0.0",
     "check-node-version": "^4.0.2",
     "conventional-changelog-beemo": "^1.6.0",
