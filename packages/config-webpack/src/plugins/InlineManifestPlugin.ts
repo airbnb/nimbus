@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable no-param-reassign, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, import/no-extraneous-dependencies */
 
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -17,7 +17,7 @@ function inlineWhenMatched(
     const isManifestScript =
       script.tagName === 'script' &&
       typeof script.attributes.src === 'string' &&
-      script.attributes.src?.indexOf(manifestAssetName) >= 0;
+      script.attributes.src?.includes(manifestAssetName);
 
     if (isManifestScript) {
       return {
@@ -72,24 +72,22 @@ export default class InlineManifestPlugin implements webpack.Plugin {
       hooks.beforeAssetTagGeneration.tapAsync(
         'InlineManifestWebpackPlugin',
         (htmlPluginData, cb) => {
-          const runtime = [];
-          const { assets } = htmlPluginData;
           const assetName = getAssetName(compilation.chunks, name);
 
           // @ts-ignore Option exists
           if (assetName && htmlPluginData.plugin.options.inject === false) {
-            runtime.push('<script>');
-            runtime.push(sourceMappingURL.removeFrom(compilation.assets[assetName].source()));
-            runtime.push('</script>');
-
+            const { assets } = htmlPluginData;
+            const runtime = `<script>${sourceMappingURL.removeFrom(
+              compilation.assets[assetName].source(),
+            )}</script>`;
             const runtimeIndex = assets.js.indexOf(assets.publicPath + assetName);
 
             if (runtimeIndex >= 0) {
               assets.js.splice(runtimeIndex, 1);
             }
-          }
 
-          assets.js.push(runtime.join(''));
+            assets.js.push(runtime);
+          }
 
           cb(null, htmlPluginData);
         },
