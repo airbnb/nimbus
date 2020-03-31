@@ -6,7 +6,8 @@
     "setup": "tsc --build && beemo create-config eslint prettier",
     "build": "beemo typescript --build --reference-workspaces",
     "clean": "rm -rf packages/*/{lib,*.tsbuildinfo}",
-    "test": "yarn run build && yarn run jest && yarn run lint",
+    "test": "yarn run build && yarn run jest && yarn run lint && yarn run test:webpack",
+    "test:webpack": "NODE_ENV=production webpack --config ./packages/config-webpack/tests/webpack.test.config.js",
     "lint": "beemo eslint .",
     "jest": "beemo jest",
     "prettier": "beemo prettier",
@@ -29,7 +30,8 @@
       "eslint",
       "jest",
       "prettier",
-      "typescript"
+      "typescript",
+      "webpack"
     ],
     "settings": {
       "node": true

@@ -1,5 +1,8 @@
 declare module 'source-map-url' {
-  export default {
+  class SMU {
     removeFrom(code: string): string;
   }
+
+  const smu: SMU;
+  export default smu;
 }

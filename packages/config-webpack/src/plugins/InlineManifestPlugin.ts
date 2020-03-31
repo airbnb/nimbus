@@ -5,7 +5,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import sourceMappingURL from 'source-map-url';
 
 function getAssetName(chunks: webpack.compilation.Chunk[], chunkName: string) {
-  return chunks.filter((chunk) => chunk.name === chunkName)?.[0].name;
+  return chunks.filter((chunk) => chunk.name === chunkName)?.[0]?.files[0];
 }
 
 function inlineWhenMatched(
@@ -34,7 +34,7 @@ function inlineWhenMatched(
   });
 }
 
-export default class InlineManifestPlugin {
+export default class InlineManifestPlugin implements webpack.Plugin {
   name: string;
 
   constructor(name: string = 'runtime') {
@@ -76,9 +76,8 @@ export default class InlineManifestPlugin {
           const { assets } = htmlPluginData;
           const assetName = getAssetName(compilation.chunks, name);
 
-          console.log(htmlPluginData);
-
-          if (assetName && htmlPluginData.plugin.assetName.inject === false) {
+          // @ts-ignore Option exists
+          if (assetName && htmlPluginData.plugin.options.inject === false) {
             runtime.push('<script>');
             runtime.push(sourceMappingURL.removeFrom(compilation.assets[assetName].source()));
             runtime.push('</script>');
