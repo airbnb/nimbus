@@ -33,7 +33,6 @@
     "fast-glob": "^3.2.2",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.0.1",
-    "inline-manifest-webpack-plugin": "^4.0.2",
     "is-docker": "^2.0.0",
     "terser-webpack-plugin": "^2.3.5",
     "url-loader": "^4.0.0",

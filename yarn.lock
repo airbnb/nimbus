@@ -6797,13 +6797,6 @@ init-package-json@^1.10.3:
     validate-npm-package-license "^3.0.1"
     validate-npm-package-name "^3.0.0"
 
-inline-manifest-webpack-plugin@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/inline-manifest-webpack-plugin/-/inline-manifest-webpack-plugin-4.0.2.tgz#39bf4144c3a6210686bfe44c73f2c883681e51bb"
-  integrity sha512-j1Q0Y7m2GVsTxnOzQ7YzIlfn5Th2Ga6Ivoqme1G0iGZc8m7R3aQY8HfzLW7ew3CwmqdZb/O26mf9Ak2JA7zzKg==
-  dependencies:
-    source-map-url "0.4.0"
-
 inquirer@^6.2.0:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-6.5.1.tgz#8bfb7a5ac02dac6ff641ac4c5ff17da112fcdb42"
@@ -10940,7 +10933,7 @@ source-map-support@^0.5.0, source-map-support@^0.5.6, source-map-support@~0.5.12
     buffer-from "^1.0.0"
     source-map "^0.6.0"
 
-source-map-url@0.4.0, source-map-url@^0.4.0:
+source-map-url@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/source-map-url/-/source-map-url-0.4.0.tgz#3e935d7ddd73631b97659956d55128e87b5084a3"
   integrity sha1-PpNdfd1zYxuXZZlW1VEo6HtQhKM=
