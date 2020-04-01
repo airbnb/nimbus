@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.3.0 - 2020-04-01
+
+#### 🚀 Updates
+
+- Move `InlineManifestPlugin` into the project. (#33) ([0cb6839](https://github.com/airbnb/nimbus/commit/0cb6839)), closes [#33](https://github.com/airbnb/nimbus/issues/33)
+
+**Note:** Version bump only for package @airbnb/config-webpack
+
+
+
+
+
 ## 3.2.0 - 2020-03-24
 
 #### 🚀 Updates
