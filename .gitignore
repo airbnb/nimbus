@@ -12,6 +12,7 @@ logs/
 # Directories
 node_modules/
 lib/
+public/
 
 # Configs
 .babelrc

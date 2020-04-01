@@ -3,7 +3,6 @@
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import InlineManifestWebpackPlugin from 'inline-manifest-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { WebpackConfig } from '@beemo/driver-webpack';
@@ -14,6 +13,7 @@ import {
   GQL_EXT_PATTERN,
   TJSX_EXT_PATTERN,
 } from '@airbnb/nimbus-common';
+import InlineManifestPlugin from './plugins/InlineManifestPlugin';
 import { PORT, ROOT, PROD, getESMAliases, getFavIcon, getParallelValue } from './helpers';
 
 export interface WebpackOptions {
@@ -22,6 +22,7 @@ export interface WebpackOptions {
   parallel?: boolean | string | number;
   port?: string | number;
   react?: boolean;
+  root?: string;
   sourceMaps?: boolean;
   srcFolder: string;
 }
@@ -32,11 +33,12 @@ export function getConfig({
   parallel = true,
   port = PORT,
   react = false,
+  root = ROOT,
   sourceMaps = false,
   srcFolder,
 }: WebpackOptions): WebpackConfig {
-  const srcPath = path.join(ROOT, srcFolder);
-  const publicPath = path.join(ROOT, buildFolder);
+  const srcPath = path.join(root, srcFolder);
+  const publicPath = path.join(root, buildFolder);
   const entry = [srcPath];
   const plugins = [
     new webpack.NamedChunksPlugin(),
@@ -65,7 +67,7 @@ export function getConfig({
   if (PROD) {
     plugins.push(
       // Inline the runtime chunk to enable long-term caching
-      new InlineManifestWebpackPlugin(),
+      new InlineManifestPlugin(),
     );
   } else if (react) {
     plugins.push(
@@ -78,6 +80,8 @@ export function getConfig({
     mode: PROD ? 'production' : 'development',
 
     bail: PROD,
+
+    context: root,
 
     entry: {
       core: entry,
