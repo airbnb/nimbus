@@ -1,8 +1,8 @@
-/* eslint-disable no-param-reassign, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, import/no-extraneous-dependencies */
+/* eslint-disable no-param-reassign, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 
-import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import sourceMappingURL from 'source-map-url';
+import webpack from 'webpack';
 
 function getAssetName(chunks: webpack.compilation.Chunk[], chunkName: string) {
   return chunks.filter((chunk) => chunk.name === chunkName)?.[0]?.files[0];
@@ -22,7 +22,7 @@ function inlineWhenMatched(
     if (isManifestScript) {
       return {
         tagName: 'script',
-        voidTag: true,
+        voidTag: false,
         attributes: {
           type: 'text/javascript',
         },
