@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable no-param-reassign, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, import/no-extraneous-dependencies */
 
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import sourceMappingURL from 'source-map-url';
