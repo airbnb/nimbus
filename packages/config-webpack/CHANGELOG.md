@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 3.3.1 - 2020-04-06
+
+#### 🐞 Fixes
+
+- Webpack manifest plugin. (#34) ([d939f88](https://github.com/airbnb/nimbus/commit/d939f88)), closes [#34](https://github.com/airbnb/nimbus/issues/34)
+
+**Note:** Version bump only for package @airbnb/config-webpack
+
+
+
+
+
 ## 3.3.0 - 2020-04-01
 
 #### 🚀 Updates
