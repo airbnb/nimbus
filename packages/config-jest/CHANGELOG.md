@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 3.0.2 - 2020-05-21
+
+#### 📦 Dependencies
+
+- **[Jest]** Update to 25.5.4. (#36) ([ffcc75b](https://github.com/airbnb/nimbus/commit/ffcc75b)), closes [#36](https://github.com/airbnb/nimbus/issues/36)
+
+**Note:** Version bump only for package @airbnb/config-jest
+
+
+
+
+
 ### 3.0.1 - 2020-03-24
 
 #### 📦 Dependencies
