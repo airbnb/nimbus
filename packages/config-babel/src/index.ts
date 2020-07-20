@@ -10,6 +10,7 @@ interface BabelOptions {
   node?: boolean;
   react?: boolean;
   typescript?: boolean;
+  ignore?: string[];
 }
 
 /**
@@ -24,6 +25,7 @@ export function getConfig({
   node = false,
   react = false,
   typescript = false,
+  ignore = [...IGNORE_PATHS, '__tests__', '__mocks__'],
 }: BabelOptions): BabelConfig {
   const envOptions = {
     loose: true,
@@ -104,7 +106,7 @@ export function getConfig({
   }
 
   return {
-    ignore: [...IGNORE_PATHS, '__tests__', '__mocks__'],
+    ignore,
     plugins,
     presets,
   };
