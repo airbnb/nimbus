@@ -6,12 +6,12 @@
     "setup": "tsc --build && beemo create-config eslint prettier",
     "build": "beemo typescript --build --reference-workspaces",
     "clean": "rm -rf packages/*/{lib,*.tsbuildinfo}",
-    "test": "yarn run build && yarn run jest && yarn run lint && yarn run test:webpack",
+    "test": "yarn build && yarn prettier && yarn jest && yarn lint && yarn test:webpack",
     "test:webpack": "NODE_ENV=production webpack --config ./packages/config-webpack/tests/webpack.test.config.js",
     "lint": "beemo eslint .",
     "jest": "beemo jest",
     "prettier": "beemo prettier",
-    "prerelease": "yarn run clean && yarn run test",
+    "prerelease": "yarn clean && yarn test",
     "release": "git reset --hard && beemo run-script auto-release"
   },
   "repository": {
