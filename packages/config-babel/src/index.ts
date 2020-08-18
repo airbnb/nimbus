@@ -100,7 +100,9 @@ export function getConfig({
   }
 
   if (useNext) {
-    plugins.push('@babel/plugin-proposal-class-properties');
+    plugins.push(['@babel/plugin-proposal-class-properties', { loose: envOptions.loose }]);
+    plugins.push(['@babel/plugin-proposal-private-methods', { loose: envOptions.loose }];
+    plugins.push(['@babel/plugin-proposal-private-property-in-object', { loose: envOptions.loose }];
   }
 
   return {
